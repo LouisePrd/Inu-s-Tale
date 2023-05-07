@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wall.png-b1e0d10628e537539bce9a31824796ca.stex"
+path="res://.import/bush_small_blurred.png-85022ff504f36ea67b1dbf56e0627189.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/buildings/wall.png"
-dest_files=[ "res://.import/wall.png-b1e0d10628e537539bce9a31824796ca.stex" ]
+source_file="res://sprites/nature/bush_small_blurred.png"
+dest_files=[ "res://.import/bush_small_blurred.png-85022ff504f36ea67b1dbf56e0627189.stex" ]
 
 [params]
 

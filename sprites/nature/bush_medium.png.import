@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/house3.png-d1cabb3b5b66b4aa0e8147c789682ace.stex"
+path="res://.import/bush_medium.png-58c25f673017c1b0363468eb4b28b340.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/buildings/house3.png"
-dest_files=[ "res://.import/house3.png-d1cabb3b5b66b4aa0e8147c789682ace.stex" ]
+source_file="res://sprites/nature/bush_medium.png"
+dest_files=[ "res://.import/bush_medium.png-58c25f673017c1b0363468eb4b28b340.stex" ]
 
 [params]
 
@@ -19,8 +19,8 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
-flags/filter=false
+flags/repeat=0
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -13,19 +13,19 @@
 position = Vector2( -1, 0 )
 
 [node name="Player1" parent="Entrance" instance=ExtResource( 2 )]
-position = Vector2( 237, 1033 )
+position = Vector2( 309, 965 )
 scale = Vector2( 1.1, 1.1 )
 script = ExtResource( 4 )
 speed = 160
 
 [node name="Player2" parent="Entrance" instance=ExtResource( 3 )]
-position = Vector2( 263, 1033 )
+position = Vector2( 335, 965 )
 scale = Vector2( 1.1, 1.1 )
 script = ExtResource( 5 )
 speed = 160
 
 [node name="MultiTargetCamera2D" type="Camera2D" parent="Entrance"]
-limit_left = 0
+limit_left = 200
 limit_top = 0
 limit_right = 1890
 limit_bottom = 1080

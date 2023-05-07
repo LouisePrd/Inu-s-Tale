@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/house2.png-d7cc8ec68d1edb7cf7ba77f931fc1731.stex"
+path="res://.import/four.png-1870009c25661ab356f32cd3c076a2e0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/buildings/house2.png"
-dest_files=[ "res://.import/house2.png-d7cc8ec68d1edb7cf7ba77f931fc1731.stex" ]
+source_file="res://sprites/buildings/four.png"
+dest_files=[ "res://.import/four.png-1870009c25661ab356f32cd3c076a2e0.stex" ]
 
 [params]
 
@@ -19,8 +19,8 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
-flags/filter=false
+flags/repeat=0
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

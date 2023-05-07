@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lantern.png-161fcb1ef59d0f942e7168ff2014266e.stex"
+path="res://.import/sky.png-b2521f16f513d54aa7b8a7d0104b0a06.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/buildings/lantern.png"
-dest_files=[ "res://.import/lantern.png-161fcb1ef59d0f942e7168ff2014266e.stex" ]
+source_file="res://sprites/sky/sky.png"
+dest_files=[ "res://.import/sky.png-b2521f16f513d54aa7b8a7d0104b0a06.stex" ]
 
 [params]
 
@@ -19,8 +19,8 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
-flags/filter=false
+flags/repeat=0
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

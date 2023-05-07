@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wall.png-b1e0d10628e537539bce9a31824796ca.stex"
+path="res://.import/sakura_tree.png-c146c2ef4cd363490d5d496adda3d020.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/buildings/wall.png"
-dest_files=[ "res://.import/wall.png-b1e0d10628e537539bce9a31824796ca.stex" ]
+source_file="res://sprites/nature/sakura_tree.png"
+dest_files=[ "res://.import/sakura_tree.png-c146c2ef4cd363490d5d496adda3d020.stex" ]
 
 [params]
 
