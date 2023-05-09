@@ -57,19 +57,19 @@ texture = ExtResource( 2 )
 
 [node name="Name" type="RichTextLabel" parent="NinePatchRect"]
 margin_left = 85.0
-margin_top = 3.0
-margin_right = 130.0
-margin_bottom = 19.0
+margin_right = 141.0
+margin_bottom = 16.0
 rect_pivot_offset = Vector2( -79, -6 )
 custom_fonts/mono_font = SubResource( 1 )
 custom_fonts/normal_font = SubResource( 7 )
 text = "Name"
+scroll_active = false
 
 [node name="Message" type="RichTextLabel" parent="NinePatchRect"]
 margin_left = 32.0
-margin_top = 30.0
+margin_top = 25.0
 margin_right = 438.0
-margin_bottom = 87.0
+margin_bottom = 89.0
 rect_pivot_offset = Vector2( -79, -6 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/mono_font = SubResource( 3 )
