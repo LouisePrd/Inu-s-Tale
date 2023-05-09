@@ -9,7 +9,9 @@ var dialogues = []
 var current_dialogue_id = 0
 
 func _ready():
-	play()
+	$NinePatchRect.visible = false
+	$"Nao-Sprite".visible = false
+	$"Inu-Sprite".visible = false
 	
 func play():
 	dialogues = load_dialogue()
