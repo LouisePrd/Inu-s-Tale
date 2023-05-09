@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lantern_big.png-a8effcdb82c9441b923666cbf06318bd.stex"
+path="res://.import/walkcycle_0008.png-e3ec31ce5d5b9f7899bdd6454827b40b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/objects/lantern_big.png"
-dest_files=[ "res://.import/lantern_big.png-a8effcdb82c9441b923666cbf06318bd.stex" ]
+source_file="res://sprites/characters/walkcycle_0008.png"
+dest_files=[ "res://.import/walkcycle_0008.png-e3ec31ce5d5b9f7899bdd6454827b40b.stex" ]
 
 [params]
 

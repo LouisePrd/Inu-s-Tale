@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://fonts/Butler_Regular.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/screens/main_scene/MainScene.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/screens/options/Options.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sprites/backgrounds/logo.png" type="Texture" id=4]
 
 [sub_resource type="GDScript" id=6]
 script/source = "extends Node2D
@@ -24,13 +24,19 @@ func _on_Quit_button_button_up():
 	get_tree().quit()
 "
 
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://fonts/Formal436BT.ttf"
+
 [sub_resource type="DynamicFont" id=1]
 size = 100
-font_data = ExtResource( 1 )
+font_data = SubResource( 7 )
+
+[sub_resource type="DynamicFontData" id=8]
+font_path = "res://fonts/Formal436BT.ttf"
 
 [sub_resource type="DynamicFont" id=2]
 size = 50
-font_data = ExtResource( 1 )
+font_data = SubResource( 8 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0, 0, 0, 0.490196 )
@@ -61,44 +67,53 @@ optionsScene = ExtResource( 3 )
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 1920.0
 margin_bottom = 1080.0
-color = Color( 1, 0.964706, 0.901961, 1 )
+color = Color( 0, 0, 0, 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_right = 1920.0
+margin_right = 2210.0
 margin_bottom = 1080.0
-custom_constants/margin_right = 500
-custom_constants/margin_top = 75
-custom_constants/margin_left = 500
+custom_constants/margin_right = 700
+custom_constants/margin_top = 20
+custom_constants/margin_left = 350
 custom_constants/margin_bottom = 150
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_left = 500.0
-margin_top = 75.0
-margin_right = 1420.0
+margin_left = 350.0
+margin_top = 20.0
+margin_right = 1510.0
 margin_bottom = 930.0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-margin_right = 920.0
-margin_bottom = 425.0
+margin_right = 1160.0
+margin_bottom = 453.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_colors/font_color = Color( 0.0470588, 0.0470588, 0.0470588, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Inu's Tale"
 align = 1
 valign = 1
 
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Label"]
+margin_left = 98.0
+margin_top = 150.0
+margin_right = 1308.0
+margin_bottom = 440.0
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 4 )
+stretch_mode = 4
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 429.0
-margin_right = 920.0
-margin_bottom = 855.0
+margin_top = 457.0
+margin_right = 1160.0
+margin_bottom = 910.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_right = 920.0
-margin_bottom = 128.0
+margin_right = 1160.0
+margin_bottom = 137.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 50
@@ -106,11 +121,14 @@ custom_constants/margin_left = 50
 
 [node name="New game Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
 margin_left = 50.0
-margin_right = 870.0
-margin_bottom = 128.0
+margin_right = 1110.0
+margin_bottom = 137.0
 focus_mode = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.929412, 0.74902, 0.796078, 1 )
+custom_colors/font_color_pressed = Color( 0.929412, 0.74902, 0.796078, 1 )
 custom_fonts/font = SubResource( 2 )
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 4 )
@@ -118,9 +136,9 @@ custom_styles/normal = SubResource( 5 )
 text = "Commencer"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 148.0
-margin_right = 920.0
-margin_bottom = 277.0
+margin_top = 157.0
+margin_right = 1160.0
+margin_bottom = 295.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 50
@@ -128,11 +146,14 @@ custom_constants/margin_left = 50
 
 [node name="Options Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
 margin_left = 50.0
-margin_right = 870.0
-margin_bottom = 129.0
+margin_right = 1110.0
+margin_bottom = 138.0
 focus_mode = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.929412, 0.74902, 0.796078, 1 )
+custom_colors/font_color_pressed = Color( 0.929412, 0.74902, 0.796078, 1 )
 custom_fonts/font = SubResource( 2 )
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 4 )
@@ -140,9 +161,9 @@ custom_styles/normal = SubResource( 5 )
 text = "Options"
 
 [node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 297.0
-margin_right = 920.0
-margin_bottom = 426.0
+margin_top = 315.0
+margin_right = 1160.0
+margin_bottom = 453.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 50
@@ -150,11 +171,14 @@ custom_constants/margin_left = 50
 
 [node name="Quit button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
 margin_left = 50.0
-margin_right = 870.0
-margin_bottom = 129.0
+margin_right = 1110.0
+margin_bottom = 138.0
 focus_mode = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.929412, 0.74902, 0.796078, 1 )
+custom_colors/font_color_pressed = Color( 0.929412, 0.74902, 0.796078, 1 )
 custom_fonts/font = SubResource( 2 )
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 4 )
