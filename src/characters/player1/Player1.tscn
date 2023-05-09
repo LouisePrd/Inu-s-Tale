@@ -23,17 +23,17 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=12]
-radius = 11.0
-height = 10.0
+radius = 19.0
+height = 38.0
 
 [node name="Player1" type="KinematicBody2D"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -4 )
+position = Vector2( 5, -4 )
 scale = Vector2( 0.045, 0.045 )
 frames = SubResource( 1 )
 animation = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, 4 )
+position = Vector2( 1, -4 )
 shape = SubResource( 12 )

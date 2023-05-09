@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/screens/entrance/Entrance.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/player1/Player1.tscn" type="PackedScene" id=2]
@@ -17,14 +17,14 @@
 position = Vector2( -61, 2 )
 
 [node name="Player1" parent="Entrance" groups=["Player"] instance=ExtResource( 2 )]
-position = Vector2( 266, 985 )
-scale = Vector2( 0.9, 0.9 )
+position = Vector2( 338, 985 )
+scale = Vector2( 0.6, 0.6 )
 script = ExtResource( 4 )
 player2 = NodePath("../Player2")
 speed = 100
 
 [node name="Player2" parent="Entrance" groups=["Player"] instance=ExtResource( 3 )]
-position = Vector2( 292, 985 )
+position = Vector2( 316, 985 )
 scale = Vector2( 0.9, 0.9 )
 script = ExtResource( 5 )
 player1 = NodePath("../Player1")
@@ -34,6 +34,7 @@ speed = 100
 position = Vector2( 225, 991 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entrance/Area2D"]
+position = Vector2( 38, 0 )
 shape = SubResource( 1 )
 
 [node name="MultiTargetCamera2D" type="Camera2D" parent="Entrance"]
@@ -58,12 +59,11 @@ object1 = NodePath("../Player1")
 object2 = NodePath("../Player2")
 
 [node name="NPC" parent="." instance=ExtResource( 8 )]
-position = Vector2( 524, 924 )
+position = Vector2( 375, 980 )
 scale = Vector2( 0.4, 0.4 )
 
 [node name="DialoguePlayer" parent="NPC" instance=ExtResource( 7 )]
-offset = Vector2( 350, 810 )
-scale = Vector2( 2.5, 2.5 )
-transform = Transform2D( 2.5, 0, 0, 2.5, 350, 810 )
+offset = Vector2( 350, 850 )
+transform = Transform2D( 2, 0, 0, 2, 350, 850 )
 
 [connection signal="body_entered" from="Entrance/Area2D" to="Entrance/Player1" method="_on_Area2D_body_entered"]
