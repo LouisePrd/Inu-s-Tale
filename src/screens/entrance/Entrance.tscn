@@ -111,29 +111,30 @@ scale = Vector2( 0.14, 0.14 )
 texture = ExtResource( 6 )
 
 [node name="ParallaxLayer11" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.97, 1 )
 
 [node name="Shadow1" type="Sprite" parent="ParallaxBackground/ParallaxLayer11"]
-position = Vector2( 1096, 920 )
+position = Vector2( 1045, 920 )
 scale = Vector2( 0.0600004, 0.0600002 )
 texture = ExtResource( 23 )
 
 [node name="Shadow2" type="Sprite" parent="ParallaxBackground/ParallaxLayer11"]
-position = Vector2( 1064, 901 )
+position = Vector2( 1013, 901 )
 scale = Vector2( 0.08, 0.08 )
 texture = ExtResource( 24 )
 
 [node name="Shadow3" type="Sprite" parent="ParallaxBackground/ParallaxLayer11"]
-position = Vector2( 1141, 892 )
+position = Vector2( 1090, 892 )
 scale = Vector2( 0.12, 0.12 )
 texture = ExtResource( 24 )
 
 [node name="Shadow4" type="Sprite" parent="ParallaxBackground/ParallaxLayer11"]
-position = Vector2( 1026, 876 )
+position = Vector2( 975, 876 )
 scale = Vector2( 0.12, 0.14 )
 texture = ExtResource( 23 )
 
 [node name="Shadow5" type="Sprite" parent="ParallaxBackground/ParallaxLayer11"]
-position = Vector2( 1163, 879 )
+position = Vector2( 1112, 879 )
 scale = Vector2( 0.12, 0.12 )
 texture = ExtResource( 22 )
 
@@ -383,12 +384,12 @@ scale = Vector2( 0.11, 0.11 )
 texture = ExtResource( 9 )
 
 [node name="Ground7" type="Sprite" parent="ParallaxBackground/ParallaxLayer6"]
-position = Vector2( 1726, 1076 )
+position = Vector2( 1886, 1076 )
 scale = Vector2( 0.11, 0.11 )
 texture = ExtResource( 9 )
 
 [node name="Ground8" type="Sprite" parent="ParallaxBackground/ParallaxLayer6"]
-position = Vector2( 1727, 1038 )
+position = Vector2( 1887, 1038 )
 scale = Vector2( 0.11, 0.11 )
 texture = ExtResource( 9 )
 
