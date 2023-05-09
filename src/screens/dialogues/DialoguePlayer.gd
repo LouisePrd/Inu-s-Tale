@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+export (NodePath) var player1
+export (NodePath) var player2
+
 var dialogue_file = [
 	{"name": "Nao", "text": "Wow, Inu, regardez autour de nous ! Nous sommes enfin arrivés à Osaka, la ville qui regorge de mystères et de beauté."},
 	{"name": "Inu", "text": "Oui, Nao, c'est une ville pleine d'histoire et de tradition. Et maintenant, nous sommes ici pour profiter du festival matsuri."},
@@ -12,6 +15,8 @@ func _ready():
 	$NinePatchRect.visible = false
 	$"Nao-Sprite".visible = false
 	$"Inu-Sprite".visible = false
+	player1 = get_node(player1)
+	player2 = get_node(player2)
 	
 func play():
 	dialogues = load_dialogue()
@@ -32,6 +37,8 @@ func next_line():
 		$NinePatchRect.visible = false
 		$"Nao-Sprite".visible = false
 		$"Inu-Sprite".visible = false
+		player1.move = true
+		player2.move = true
 		return
 	dialogues = load_dialogue()
 	$NinePatchRect/Name.text = dialogues[current_dialogue_id]['name']
@@ -43,4 +50,5 @@ func next_line():
 	else:
 		$"Inu-Sprite".visible = true
 		$"Nao-Sprite".visible = false
+		
 	

@@ -10,8 +10,8 @@ script/source = "extends Node2D
 export var mainScene : PackedScene 
 export var optionsScene: PackedScene
 
-
 func _on_New_game_Button_button_up():
+# warning-ignore:return_value_discarded
 	get_tree().change_scene(mainScene.resource_path)
 
 

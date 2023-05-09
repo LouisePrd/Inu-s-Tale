@@ -4,7 +4,7 @@ export (NodePath) var player1
 
 export var speed = 200 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
-var can_move = true
+export var move = true
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -15,15 +15,21 @@ func _physics_process(delta: float) -> void:
 	var is_idling := is_zero_approx(velocity.x) 
 	
 	if Input.is_action_pressed("player2_move_right"):
-		can_move = true
+		if move == false:
+			return
+			
 		if  self.global_position[0] - player1.global_position[0] >= 300:
 			velocity.x = 0
 			$AnimatedSprite.animation = "idle"
 			$AnimatedSprite.play()
 			return
 		velocity.x += 1
+		
 	if Input.is_action_pressed("player2_move_left"):
-		if  self.global_position[0] - player1.global_position[0] <= -300 or can_move == false:
+		if move == false:
+			return
+			
+		if  self.global_position[0] - player1.global_position[0] <= -300 or move == false:
 			velocity.x = 0
 			$AnimatedSprite.animation = "idle"
 			$AnimatedSprite.play()
@@ -49,4 +55,4 @@ func _physics_process(delta: float) -> void:
 
 func stop():
 	$AnimatedSprite.animation = "idle"
-	can_move = false
+	move = false

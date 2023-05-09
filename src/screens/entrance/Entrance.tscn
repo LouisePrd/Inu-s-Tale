@@ -416,6 +416,6 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 10 )
 
 [node name="BushBig" type="Sprite" parent="ParallaxBackground/ParallaxLayer7"]
-position = Vector2( 295, 1069 )
+position = Vector2( 293, 1077 )
 scale = Vector2( 0.14, 0.14 )
 texture = ExtResource( 35 )
