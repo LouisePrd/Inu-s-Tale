@@ -14,6 +14,10 @@ config/name="Inu"
 run/main_scene="res://src/screens/main_scene/MainScene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Transition="*res://src/ui/transition/Transition.tscn"
+
 [display]
 
 window/size/width=1920
