@@ -12,14 +12,15 @@ func _ready() -> void:
 	line_color.a = 0
 
 
-func _on_Area2D_body_entered(body) -> void:
+func _on_Area2D_body_entered(_body) -> void:
 	_tween.interpolate_method(
 		self, "outline_alpha", line_color.a, 1.0, 0.25, Tween.TRANS_LINEAR, Tween.EASE_OUT
 	)
 	_tween.start()
+	Transition.transition_to("res://src/screens/cataclysm/Cataclysm.tscn")
 
 
-func _on_Area2D_body_exited(body) -> void:
+func _on_Area2D_body_exited(_body) -> void:
 	_tween.interpolate_method(
 		self, "outline_alpha", line_color.a, 0.0, 0.25, Tween.TRANS_LINEAR, Tween.EASE_IN
 	)

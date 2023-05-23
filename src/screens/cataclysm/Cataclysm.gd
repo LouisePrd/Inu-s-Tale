@@ -1,6 +1,9 @@
-extends ParallaxLayer
+extends Node2D
 
-export(float) var CLOUD_SPEED = -15.0
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -9,6 +12,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta) -> void:
-	self.motion_offset.x += CLOUD_SPEED * delta
-	
+#func _process(delta):
+#	pass

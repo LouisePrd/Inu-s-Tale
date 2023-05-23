@@ -123,7 +123,7 @@ object2 = NodePath("../Player2")
 
 [node name="BushInteraction" type="Sprite" parent="Entrance"]
 material = SubResource( 3 )
-position = Vector2( 713.151, 983.778 )
+position = Vector2( 673.15, 983.778 )
 scale = Vector2( 0.115556, 0.115556 )
 texture = ExtResource( 12 )
 region_enabled = true
