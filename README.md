@@ -1,6 +1,6 @@
 # Inu-s-Tale
 
-Groupe de 5 étudiants : 3 développeurs et 2 designers.
+Groupe de 3 développeurs.
 
 ## LE SYNOPSIS
 
