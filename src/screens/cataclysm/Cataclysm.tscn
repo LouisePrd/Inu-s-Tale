@@ -169,8 +169,8 @@ texture = ExtResource( 15 )
 flip_h = true
 
 [node name="Arbre" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
-position = Vector2( 1474, 824 )
-scale = Vector2( 0.13, 0.13 )
+position = Vector2( 1446.71, 852.74 )
+scale = Vector2( 0.110568, 0.110568 )
 texture = ExtResource( 22 )
 
 [node name="Arche2" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
@@ -196,14 +196,9 @@ position = Vector2( 554.64, 1003.5 )
 scale = Vector2( 0.11, 0.117481 )
 texture = ExtResource( 43 )
 
-[node name="Ground8" type="Sprite" parent="Decor/ParallaxBackground1/Ground"]
-position = Vector2( 1886, 1023.59 )
-scale = Vector2( 0.11, 0.11 )
-texture = ExtResource( 43 )
-
 [node name="Ground2" type="Sprite" parent="Decor/ParallaxBackground1/Ground"]
-position = Vector2( 1251.64, 1005.5 )
-scale = Vector2( 0.11, 0.121241 )
+position = Vector2( 1013.64, 1004.5 )
+scale = Vector2( 0.143408, 0.121241 )
 texture = ExtResource( 43 )
 
 [node name="1erPlan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]

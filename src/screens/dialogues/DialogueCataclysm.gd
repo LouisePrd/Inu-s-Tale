@@ -20,7 +20,6 @@ func _ready():
 	player2 = get_node(player2)
 	
 func play():
-	print('play')
 	dialogues = load_dialogue()
 	$NinePatchRect.visible = true
 	current_dialogue_id = -1

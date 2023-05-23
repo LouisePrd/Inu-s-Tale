@@ -11,10 +11,8 @@ func _ready():
 	connect( "body_exited", self, '_on_NPC_body_exited')
 	player1 = get_node(player1)
 	player2 = get_node(player2)
-	print('ready')
 
 func _on_NPC_body_entered(body):
-	print('entered')
 	var dialogue_cataclysm = get_node_or_null("DialogueCataclysm")
 	if dialogue_cataclysm and launch==false:
 		if body. name == 'Player1' or body. name == 'Player2':
