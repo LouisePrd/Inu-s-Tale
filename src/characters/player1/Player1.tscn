@@ -49,8 +49,8 @@ texture = ExtResource( 1 )
 
 [node name="NaoText" type="RichTextLabel" parent="TriggerPositionP1"]
 margin_left = 21.0
-margin_top = 11.0
+margin_top = 13.0
 margin_right = 144.0
-margin_bottom = 44.0
+margin_bottom = 41.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 script = ExtResource( 2 )

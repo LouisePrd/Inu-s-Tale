@@ -96,6 +96,9 @@ __meta__ = {
 margin_left = 22.0
 margin_top = 12.0
 margin_right = 149.0
-margin_bottom = 46.0
+margin_bottom = 43.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
