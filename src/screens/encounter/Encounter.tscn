@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://sprites/sky/sky.png" type="Texture" id=1]
 [ext_resource path="res://src/characters/player1/Player1.tscn" type="PackedScene" id=2]
@@ -25,7 +25,16 @@
 [ext_resource path="res://sprites/encounter/bushes10_layer-2.png" type="Texture" id=23]
 [ext_resource path="res://sprites/encounter/bushes5_layer-2.png" type="Texture" id=24]
 [ext_resource path="res://sprites/encounter/mountain2_layer1.png" type="Texture" id=25]
-[ext_resource path="res://src/triggers/Opacity.gd" type="Script" id=26]
+[ext_resource path="res://src/triggers/Transition.gd" type="Script" id=26]
+[ext_resource path="res://src/screens/dialogues/DialogueEncounter.tscn" type="PackedScene" id=27]
+[ext_resource path="res://src/characters/npc/NPCCollision.gd" type="Script" id=28]
+[ext_resource path="res://src/screens/main_scene/MainScene.tscn" type="PackedScene" id=29]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 26.6667
+height = 63.3335
+
+[sub_resource type="CircleShape2D" id=2]
 
 [node name="Encounter" type="Node2D"]
 
@@ -58,8 +67,14 @@ position = Vector2( 1012, 838 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 22 )
 
+[node name="Bushes5" type="Sprite" parent="ParallaxBackground/ParallaxLayer6"]
+position = Vector2( 1391, 870 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 22 )
+flip_h = true
+
 [node name="Bushes" type="Sprite" parent="ParallaxBackground/ParallaxLayer6"]
-position = Vector2( 1635, 929 )
+position = Vector2( 1699, 905 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 24 )
 
@@ -82,8 +97,8 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 19 )
 
 [node name="Mountain4" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
-position = Vector2( 1619, 861 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 1517, 862 )
+scale = Vector2( 0.11, 0.11 )
 texture = ExtResource( 19 )
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -107,22 +122,54 @@ position = Vector2( 1617, 1014 )
 scale = Vector2( 0.08, 0.08 )
 texture = ExtResource( 7 )
 
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Area2D" type="Area2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 7.27596e-12, 3.63798e-12 )
+
+[node name="Mountain" type="Sprite" parent="ParallaxBackground/ParallaxLayer3/Area2D"]
+position = Vector2( 1258, 787 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 18 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ParallaxBackground/ParallaxLayer3/Area2D"]
+visible = false
+position = Vector2( 1260, 605 )
+scale = Vector2( 0.1, 0.1 )
+polygon = PoolVector2Array( -4400, 4300, 4400, 4300, 0, 0 )
+
 [node name="NPC" parent="." groups=["NPC"] instance=ExtResource( 9 )]
-position = Vector2( 780, 979 )
+position = Vector2( 767, 982 )
 scale = Vector2( 0.6, 0.6 )
 script = ExtResource( 8 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="NPC"]
+[node name="Area2D" type="Area2D" parent="NPC"]
+script = ExtResource( 28 )
+player1 = NodePath("../../Player1")
+player2 = NodePath("../../Player2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2D"]
+position = Vector2( 1.66675, -1.66675 )
+shape = SubResource( 1 )
+
+[node name="DialogueEncounter" parent="NPC/Area2D" instance=ExtResource( 27 )]
+layer = 2
+visible = false
+offset = Vector2( 450, 730 )
+scale = Vector2( 1.5, 1.5 )
+transform = Transform2D( 1.5, 0, 0, 1.5, 450, 730 )
+player1 = NodePath("../../../Player1")
+player2 = NodePath("../../../Player2")
 
 [node name="Player1" parent="." groups=["Player"] instance=ExtResource( 2 )]
-position = Vector2( 95, 986 )
+position = Vector2( 95, 991 )
 scale = Vector2( 0.9, 0.9 )
 script = ExtResource( 6 )
 player2 = NodePath("../Player2")
 speed = 100
 
 [node name="Player2" parent="." groups=["Player"] instance=ExtResource( 3 )]
-position = Vector2( 74, 993 )
+position = Vector2( 74, 998 )
 scale = Vector2( 0.9, 0.9 )
 script = ExtResource( 5 )
 player1 = NodePath("../Player1")
@@ -131,61 +178,73 @@ speed = 100
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
 layer = 1
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground2"]
-
-[node name="Area2D" type="Area2D" parent="ParallaxBackground2/ParallaxLayer2"]
-position = Vector2( 7.27596e-12, 3.63798e-12 )
-scale = Vector2( 1, 1 )
-
-[node name="Mountain" type="Sprite" parent="ParallaxBackground2/ParallaxLayer2/Area2D"]
-position = Vector2( 1260, 824 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 18 )
+[node name="Area2D" type="Area2D" parent="ParallaxBackground2"]
+position = Vector2( 1843.95, 1000.35 )
 script = ExtResource( 26 )
-area = NodePath("..")
-player1 = NodePath("../../../../Player1")
-player2 = NodePath("../../../../Player2")
-npc = NodePath("../../../../NPC")
+scene = ExtResource( 29 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ParallaxBackground2/ParallaxLayer2/Area2D"]
-position = Vector2( 1260, 605 )
-scale = Vector2( 0.1, 0.1 )
-polygon = PoolVector2Array( -4400, 4300, 4400, 4300, 0, 0 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxBackground2/Area2D"]
+shape = SubResource( 2 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
 
+[node name="Rock11" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2( 1446.8, 1010.85 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 12 )
+
+[node name="Rock12" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2( 1549, 1028 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 13 )
+
+[node name="Rock10" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2( 1491, 1040 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 13 )
+
+[node name="Rock14" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2( 1587, 1003 )
+scale = Vector2( 0.078477, 0.0694455 )
+texture = ExtResource( 14 )
+
+[node name="Rock13" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2( 1631.8, 969.85 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 14 )
+
 [node name="Rock" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
-position = Vector2( 996.8, 1006.8 )
+position = Vector2( 1004.8, 1006.8 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 11 )
 
 [node name="Rock2" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
-position = Vector2( 1050.8, 1011.8 )
+position = Vector2( 1058.8, 1011.8 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 15 )
 
 [node name="Rock3" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
-position = Vector2( 1175, 1021 )
+position = Vector2( 1183, 1021 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 13 )
 
 [node name="Rock4" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
-position = Vector2( 1228.8, 992.8 )
+position = Vector2( 1236.8, 992.8 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 12 )
 
 [node name="Rock5" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
-position = Vector2( 1274.8, 1017.8 )
+position = Vector2( 1282.8, 1017.8 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 13 )
 
 [node name="Rock6" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
-position = Vector2( 1333.8, 959.8 )
+position = Vector2( 1341.8, 959.8 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 14 )
 
 [node name="Rock7" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
-position = Vector2( 1375.55, 994.725 )
+position = Vector2( 1383.55, 994.725 )
 scale = Vector2( 0.078477, 0.0694455 )
 texture = ExtResource( 14 )
 
@@ -202,9 +261,8 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 10 )
 
 [node name="Rock" type="Sprite" parent="ParallaxBackground2/ParallaxLayer3"]
-visible = false
-position = Vector2( 1535.8, 939.8 )
-scale = Vector2( 0.08, 0.08 )
+position = Vector2( 1797.95, 909.35 )
+scale = Vector2( 0.11, 0.11 )
 texture = ExtResource( 16 )
 
 [node name="MultiTargetCamera2D" type="Camera2D" parent="."]
@@ -216,7 +274,7 @@ limit_bottom = 1080
 editor_draw_limits = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( -62, -119 )
+position = Vector2( -1, 1 )
 current = true
 limit_left = 0
 limit_top = 0
@@ -227,3 +285,5 @@ editor_draw_limits = true
 script = ExtResource( 4 )
 object1 = NodePath("../Player1")
 object2 = NodePath("../Player2")
+
+[connection signal="body_entered" from="ParallaxBackground2/Area2D" to="ParallaxBackground2/Area2D" method="_on_Area2D_body_entered"]
