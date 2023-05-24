@@ -16,7 +16,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[sub_resource type="Shader" id=2]
+[sub_resource type="Shader" id=5]
 code = "shader_type canvas_item;
 
 uniform vec4 line_color : hint_color = vec4(1.0);
@@ -41,7 +41,7 @@ void fragment() {
 }"
 
 [sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 2 )
+shader = SubResource( 5 )
 shader_param/line_color = Color( 0.921569, 0.505882, 0.0666667, 0 )
 shader_param/line_thickness = 6.0
 
