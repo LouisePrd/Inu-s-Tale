@@ -5,10 +5,21 @@ export (NodePath) var player1
 export var speed = 200 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 export var move = true
+var randomSentences = [
+	'Dépêche-toi, on doit agir vite !',
+	'Plus vite, Nao !',
+	'Accélère Nao, le portail nous attend',
+	'Ne tarde pas, il y a urgence !',
+	'Vite, chaque seconde compte !'
+]
+var rng = RandomNumberGenerator.new()
+var random
 
 func _ready():
 	screen_size = get_viewport_rect().size
 	player1 = get_node(player1)
+	$TriggerPositionP1.visible = false
+	random = rng.randf_range(0, 4)
 	
 func _physics_process(delta: float) -> void:
 	var velocity = Vector2.ZERO # The player's movement vector.
@@ -22,6 +33,8 @@ func _physics_process(delta: float) -> void:
 			velocity.x = 0
 			$AnimatedSprite.animation = "idle"
 			$AnimatedSprite.play()
+			$TriggerPositionP1.visible = true
+			$TriggerPositionP1.get_children()[0].text = randomSentences[random]
 			return
 		velocity.x += 1
 		
@@ -48,6 +61,8 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite.animation = "walk"
 		$AnimatedSprite.flip_v = false
 		$AnimatedSprite.flip_h = velocity.x < 0
+		$TriggerPositionP1.visible = false
+		random = rng.randf_range(0, 4)
 	elif is_idling:
 		$AnimatedSprite.animation = "idle"
 	else:

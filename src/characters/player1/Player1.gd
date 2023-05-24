@@ -19,7 +19,7 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	player2 = get_node(player2)
 	$TriggerPositionP1.visible = false
-	random = rng.randf_range(0, 3)
+	random = rng.randf_range(0, 4)
 	
 func _physics_process(delta: float) -> void:
 	var velocity = Vector2.ZERO # The player's movement vector.
@@ -67,7 +67,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite.flip_v = false
 		$AnimatedSprite.flip_h = velocity.x < 0
 		$TriggerPositionP1.visible = false
-		random = rng.randf_range(0, 3)
+		random = rng.randf_range(0, 4)
 	elif is_idling:
 		$AnimatedSprite.animation = "idle"
 	else:
