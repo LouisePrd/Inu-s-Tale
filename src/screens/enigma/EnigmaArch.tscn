@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://sprites/enigma/triangles_layer1.png" type="Texture" id=1]
 [ext_resource path="res://sprites/enigma/mountain1_layer-3.png" type="Texture" id=2]
@@ -21,7 +21,7 @@
 [ext_resource path="res://sprites/enigma/torii2_layer-2.png" type="Texture" id=19]
 [ext_resource path="res://sprites/enigma/torii3_layer-2.png" type="Texture" id=20]
 [ext_resource path="res://src/screens/enigma/TanukiArch.gd" type="Script" id=21]
-[ext_resource path="res://sprites/cataclysm/tanuki.png" type="Texture" id=22]
+[ext_resource path="res://sprites/characters/tanuki-cycle_0001.png" type="Texture" id=22]
 [ext_resource path="res://src/screens/dialogues/DialogueTanukiArch.gd" type="Script" id=23]
 [ext_resource path="res://src/screens/dialogues/DialogueTanukiArch.tscn" type="PackedScene" id=24]
 [ext_resource path="res://sprites/cataclysm/moutain_layer-2.png" type="Texture" id=25]
@@ -31,6 +31,7 @@
 [ext_resource path="res://sprites/enigma/icon-parchment.png" type="Texture" id=29]
 [ext_resource path="res://src/screens/enigma/explainLabel.gd" type="Script" id=30]
 [ext_resource path="res://src/screens/enigma/AreaIcon.gd" type="Script" id=31]
+[ext_resource path="res://sprites/characters/tanuki-cycle_0002.png" type="Texture" id=32]
 
 [sub_resource type="DynamicFont" id=2]
 size = 20
@@ -46,7 +47,20 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 27 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 39.5, 73.5 )
+extents = Vector2( 54, 73.5 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
 
 [node name="Node2D" type="Node2D"]
 
@@ -129,19 +143,23 @@ player1 = NodePath("../Player1")
 player2 = NodePath("../Player2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/TanukiArch"]
-position = Vector2( 238.5, 912.5 )
+position = Vector2( 233, 912.5 )
 shape = SubResource( 1 )
 
 [node name="TanukiBody" type="KinematicBody2D" parent="Decor/TanukiArch"]
 script = ExtResource( 26 )
+player1 = NodePath("../../Player1")
+player2 = NodePath("../../Player2")
 
-[node name="Tanuki" type="Sprite" parent="Decor/TanukiArch/TanukiBody"]
-position = Vector2( 239, 920.933 )
-scale = Vector2( 0.133333, 0.133333 )
-texture = ExtResource( 22 )
+[node name="Tanuki" type="AnimatedSprite" parent="Decor/TanukiArch/TanukiBody"]
+position = Vector2( 241.432, 940.125 )
+scale = Vector2( 0.0965282, 0.0965282 )
+frames = SubResource( 5 )
+animation = "walk"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/TanukiArch/TanukiBody"]
-position = Vector2( 238.5, 912.5 )
+position = Vector2( 229.5, 912.5 )
 shape = SubResource( 1 )
 
 [node name="DialogueTanukiArch" parent="Decor/TanukiArch" instance=ExtResource( 24 )]
@@ -184,7 +202,7 @@ player2 = NodePath("../Player2")
 speed = 100
 
 [node name="Player2" parent="Decor" groups=["Player"] instance=ExtResource( 11 )]
-position = Vector2( 45, 963 )
+position = Vector2( 45, 908 )
 scale = Vector2( 1.4, 1.4 )
 script = ExtResource( 18 )
 player1 = NodePath("../Player1")

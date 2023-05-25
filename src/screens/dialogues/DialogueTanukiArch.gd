@@ -54,11 +54,11 @@ func next_line():
 		$"Inu-Sprite".visible = false
 		$"Tanuki-Sprite".visible = false
 		iconParchment.visible = true
-		tanukibody.tanuki_leave()
 		player1.move = true
 		player2.move = true
 		explainLabel.visible = true
 		explainLabel.launchTimer()
+		tanukibody.moveArch = true
 		return
 	dialogues = load_dialogue()
 	$NinePatchRect/Name.text = dialogues[current_dialogue_id]['name']
