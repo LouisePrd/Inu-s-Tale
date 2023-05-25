@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://sprites/enigma/triangles_layer1.png" type="Texture" id=1]
 [ext_resource path="res://sprites/enigma/mountain1_layer-3.png" type="Texture" id=2]
@@ -20,7 +20,33 @@
 [ext_resource path="res://src/characters/player2/Player2.gd" type="Script" id=18]
 [ext_resource path="res://sprites/enigma/torii2_layer-2.png" type="Texture" id=19]
 [ext_resource path="res://sprites/enigma/torii3_layer-2.png" type="Texture" id=20]
+[ext_resource path="res://src/screens/enigma/TanukiArch.gd" type="Script" id=21]
+[ext_resource path="res://sprites/cataclysm/tanuki.png" type="Texture" id=22]
+[ext_resource path="res://src/screens/dialogues/DialogueTanukiArch.gd" type="Script" id=23]
+[ext_resource path="res://src/screens/dialogues/DialogueTanukiArch.tscn" type="PackedScene" id=24]
 [ext_resource path="res://sprites/cataclysm/moutain_layer-2.png" type="Texture" id=25]
+[ext_resource path="res://src/screens/enigma/TanukiBody.gd" type="Script" id=26]
+[ext_resource path="res://fonts/Formal436BT.ttf" type="DynamicFontData" id=27]
+[ext_resource path="res://sprites/enigma/parchment.png" type="Texture" id=28]
+[ext_resource path="res://sprites/enigma/icon-parchment.png" type="Texture" id=29]
+[ext_resource path="res://src/screens/enigma/explainLabel.gd" type="Script" id=30]
+[ext_resource path="res://src/screens/enigma/AreaIcon.gd" type="Script" id=31]
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 27 )
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 277.333
+height = 147.067
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 27 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 39.5, 73.5 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -47,7 +73,87 @@ script = ExtResource( 7 )
 object1 = NodePath("../../Decor/Player1")
 object2 = NodePath("../../Decor/Player2")
 
+[node name="Enigma-Game" type="Node2D" parent="."]
+
+[node name="CanvasLayerParchment" type="CanvasLayer" parent="Enigma-Game"]
+layer = 2
+
+[node name="Parchment" type="NinePatchRect" parent="Enigma-Game/CanvasLayerParchment"]
+margin_left = 549.0
+margin_top = 386.0
+margin_right = 1315.0
+margin_bottom = 835.0
+texture = ExtResource( 28 )
+
+[node name="Enigma" type="RichTextLabel" parent="Enigma-Game/CanvasLayerParchment/Parchment"]
+margin_left = 52.0
+margin_top = 72.0
+margin_right = 730.0
+margin_bottom = 387.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 2 )
+text = "Surplombant La Montagne du Kōryū, trois arches majestueuses se dresseront fièrement devant toi. 
+
+Chacune d'entre elles cache un secret, mais une seule ouvrira la voie vers la prochaine épreuve. Choisis sagement, car ton destin en dépend.
+
+Réfléchis bien aux indices donnés et à leurs caractéristiques pour déterminer celle qui te permettra de poursuivre ton voyage."
+
+[node name="Icon-parchment" type="Sprite" parent="Enigma-Game/CanvasLayerParchment"]
+position = Vector2( 56, 63.1178 )
+scale = Vector2( 0.140625, 0.150306 )
+texture = ExtResource( 29 )
+
+[node name="AreaIcon" type="Area2D" parent="Enigma-Game/CanvasLayerParchment/Icon-parchment"]
+script = ExtResource( 31 )
+parchment = NodePath("../../Parchment")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enigma-Game/CanvasLayerParchment/Icon-parchment/AreaIcon"]
+shape = SubResource( 3 )
+
+[node name="explainLabel" type="RichTextLabel" parent="Enigma-Game/CanvasLayerParchment"]
+margin_left = 578.0
+margin_top = 981.0
+margin_right = 1281.0
+margin_bottom = 1026.0
+custom_fonts/normal_font = SubResource( 4 )
+text = "Cliquez sur le parchemin pour en découvrir son contenu..."
+script = ExtResource( 30 )
+
+[node name="Timer" type="Timer" parent="Enigma-Game/CanvasLayerParchment/explainLabel"]
+
 [node name="Decor" type="Node2D" parent="."]
+
+[node name="TanukiArch" type="Area2D" parent="Decor"]
+script = ExtResource( 21 )
+player1 = NodePath("../Player1")
+player2 = NodePath("../Player2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/TanukiArch"]
+position = Vector2( 238.5, 912.5 )
+shape = SubResource( 1 )
+
+[node name="TanukiBody" type="KinematicBody2D" parent="Decor/TanukiArch"]
+script = ExtResource( 26 )
+
+[node name="Tanuki" type="Sprite" parent="Decor/TanukiArch/TanukiBody"]
+position = Vector2( 239, 920.933 )
+scale = Vector2( 0.133333, 0.133333 )
+texture = ExtResource( 22 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/TanukiArch/TanukiBody"]
+position = Vector2( 238.5, 912.5 )
+shape = SubResource( 1 )
+
+[node name="DialogueTanukiArch" parent="Decor/TanukiArch" instance=ExtResource( 24 )]
+offset = Vector2( 225, 600 )
+scale = Vector2( 2, 2 )
+transform = Transform2D( 2, 0, 0, 2, 225, 600 )
+script = ExtResource( 23 )
+player1 = NodePath("../../Player1")
+player2 = NodePath("../../Player2")
+tanukibody = NodePath("../TanukiBody")
+iconParchment = NodePath("../../../Enigma-Game/CanvasLayerParchment/Icon-parchment")
+explainLabel = NodePath("../../../Enigma-Game/CanvasLayerParchment/explainLabel")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Decor"]
 layer = 1
@@ -61,7 +167,7 @@ scale = Vector2( 0.114803, 0.119121 )
 texture = ExtResource( 8 )
 
 [node name="Triangles" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
-position = Vector2( 576, 957.204 )
+position = Vector2( 605, 957.204 )
 scale = Vector2( 0.124915, 0.144064 )
 texture = ExtResource( 1 )
 
@@ -90,7 +196,7 @@ speed = 100
 motion_mirroring = Vector2( 1920, 0 )
 
 [node name="Background" type="Sprite" parent="Decor/ParallaxBackground1/Back"]
-position = Vector2( 933, 504.625 )
+position = Vector2( 933, 498 )
 scale = Vector2( 5.01515, 7.71346 )
 texture = ExtResource( 14 )
 

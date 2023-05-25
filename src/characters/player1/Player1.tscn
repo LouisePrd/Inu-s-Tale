@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://sprites/dialogues/bulle-2.png" type="Texture" id=1]
 [ext_resource path="res://src/characters/player1/NaoText.gd" type="Script" id=2]
@@ -10,15 +10,16 @@
 [ext_resource path="res://sprites/characters/walkcycle_0004.png" type="Texture" id=8]
 [ext_resource path="res://sprites/characters/walkcycle_0002.png" type="Texture" id=9]
 [ext_resource path="res://sprites/characters/walkcycle_0007.png" type="Texture" id=10]
+[ext_resource path="res://sprites/characters/walkcycle-final_0000.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 10 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "walk",
 "speed": 10.0
@@ -43,14 +44,14 @@ shape = SubResource( 12 )
 [node name="TriggerPositionP1" type="NinePatchRect" parent="."]
 margin_left = -67.0
 margin_top = -112.0
-margin_right = 89.0
+margin_right = 98.0
 margin_bottom = -42.0
 texture = ExtResource( 1 )
 
 [node name="NaoText" type="RichTextLabel" parent="TriggerPositionP1"]
-margin_left = 21.0
-margin_top = 13.0
-margin_right = 144.0
-margin_bottom = 41.0
+margin_left = 26.0
+margin_top = 11.0
+margin_right = 151.0
+margin_bottom = 42.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 script = ExtResource( 2 )
