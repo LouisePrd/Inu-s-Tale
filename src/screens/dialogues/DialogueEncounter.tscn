@@ -21,30 +21,28 @@ font_data = ExtResource( 7 )
 font_data = ExtResource( 7 )
 
 [node name="DialogueEncounter" type="CanvasLayer"]
-scale = Vector2( 2, 2 )
-transform = Transform2D( 2, 0, 0, 2, 0, 0 )
 script = ExtResource( 4 )
 
 [node name="Inu-Sprite" type="Sprite" parent="."]
-position = Vector2( 468.845, 116.278 )
+position = Vector2( 580.751, 161.105 )
 scale = Vector2( 0.093, 0.0932605 )
 texture = ExtResource( 5 )
 
 [node name="Nao-Sprite" type="Sprite" parent="."]
-position = Vector2( 52, 95 )
+position = Vector2( 162.953, 145.941 )
 scale = Vector2( 0.221, 0.221 )
 texture = ExtResource( 2 )
 
 [node name="Tanuki-Sprite" type="Sprite" parent="."]
-position = Vector2( 247.333, 93.3333 )
+position = Vector2( 358.333, 117.333 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-margin_left = 12.0
-margin_top = 95.0
-margin_right = 479.0
-margin_bottom = 212.0
+margin_left = 123.906
+margin_top = 139.827
+margin_right = 590.906
+margin_bottom = 256.827
 texture = ExtResource( 1 )
 
 [node name="BackName" type="Sprite" parent="NinePatchRect"]
