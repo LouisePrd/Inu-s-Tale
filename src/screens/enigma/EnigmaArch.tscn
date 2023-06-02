@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://sprites/enigma/triangles_layer1.png" type="Texture" id=1]
 [ext_resource path="res://sprites/enigma/mountain1_layer-3.png" type="Texture" id=2]
@@ -20,7 +20,155 @@
 [ext_resource path="res://src/characters/player2/Player2.gd" type="Script" id=18]
 [ext_resource path="res://sprites/enigma/torii2_layer-2.png" type="Texture" id=19]
 [ext_resource path="res://sprites/enigma/torii3_layer-2.png" type="Texture" id=20]
+[ext_resource path="res://src/screens/enigma/TanukiArch.gd" type="Script" id=21]
+[ext_resource path="res://sprites/characters/tanuki-cycle_0001.png" type="Texture" id=22]
+[ext_resource path="res://src/screens/dialogues/DialogueTanukiArch.gd" type="Script" id=23]
+[ext_resource path="res://src/screens/dialogues/DialogueTanukiArch.tscn" type="PackedScene" id=24]
 [ext_resource path="res://sprites/cataclysm/moutain_layer-2.png" type="Texture" id=25]
+[ext_resource path="res://src/screens/enigma/TanukiBody.gd" type="Script" id=26]
+[ext_resource path="res://fonts/Formal436BT.ttf" type="DynamicFontData" id=27]
+[ext_resource path="res://sprites/enigma/parchment-color.png" type="Texture" id=28]
+[ext_resource path="res://src/screens/enigma/Arch1.gd" type="Script" id=29]
+[ext_resource path="res://src/screens/enigma/explainLabel.gd" type="Script" id=30]
+[ext_resource path="res://src/screens/enigma/AreaIcon.gd" type="Script" id=31]
+[ext_resource path="res://sprites/characters/tanuki-cycle_0002.png" type="Texture" id=32]
+[ext_resource path="res://src/screens/enigma/Arch2.gd" type="Script" id=33]
+[ext_resource path="res://src/screens/enigma/Arch3.gd" type="Script" id=34]
+
+[sub_resource type="StreamTexture" id=6]
+flags = 4
+load_path = "res://.import/parchment-color.png-d3cdab9514ab30477dbcf6677f41fee9.stex"
+
+[sub_resource type="DynamicFont" id=2]
+size = 23
+font_data = ExtResource( 27 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 574.942, 516.678 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 27 )
+
+[sub_resource type="DynamicFontData" id=17]
+font_path = "res://fonts/Formal436BT.ttf"
+
+[sub_resource type="DynamicFont" id=18]
+size = 20
+font_data = SubResource( 17 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 54, 73.5 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="Shader" id=10]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : hint_color = vec4(1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1), vec2(0, -1), vec2(0, 1), 
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+	
+	for (int i = 0; i < OFFSETS.length(); i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+	outline = min(outline, 1.0);
+	
+	vec4 color = texture(TEXTURE, UV);
+	COLOR = mix(color, line_color, outline - color.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=11]
+shader = SubResource( 10 )
+shader_param/line_color = Color( 1, 0, 0, 1 )
+shader_param/line_thickness = 10.0
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 875.289, 834.511 )
+
+[sub_resource type="Shader" id=13]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : hint_color = vec4(1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1), vec2(0, -1), vec2(0, 1), 
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+	
+	for (int i = 0; i < OFFSETS.length(); i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+	outline = min(outline, 1.0);
+	
+	vec4 color = texture(TEXTURE, UV);
+	COLOR = mix(color, line_color, outline - color.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=14]
+shader = SubResource( 13 )
+shader_param/line_color = Color( 1, 0, 0, 1 )
+shader_param/line_thickness = 10.0
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 999.872, 1086.22 )
+
+[sub_resource type="Shader" id=8]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : hint_color = vec4(1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1), vec2(0, -1), vec2(0, 1), 
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+	
+	for (int i = 0; i < OFFSETS.length(); i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+	outline = min(outline, 1.0);
+	
+	vec4 color = texture(TEXTURE, UV);
+	COLOR = mix(color, line_color, outline - color.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = SubResource( 8 )
+shader_param/line_color = Color( 1, 0.0980392, 0, 1 )
+shader_param/line_thickness = 10.0
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 819.139, 1006.86 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -47,7 +195,99 @@ script = ExtResource( 7 )
 object1 = NodePath("../../Decor/Player1")
 object2 = NodePath("../../Decor/Player2")
 
+[node name="Enigma-Game" type="Node2D" parent="."]
+
+[node name="CanvasLayerParchment" type="CanvasLayer" parent="Enigma-Game"]
+layer = 2
+
+[node name="Parchment" type="NinePatchRect" parent="Enigma-Game/CanvasLayerParchment"]
+margin_left = 489.0
+margin_top = 282.0
+margin_right = 1351.0
+margin_bottom = 835.0
+texture = SubResource( 6 )
+
+[node name="Enigma" type="RichTextLabel" parent="Enigma-Game/CanvasLayerParchment/Parchment"]
+visible = false
+margin_left = 182.0
+margin_top = 139.0
+margin_right = 701.0
+margin_bottom = 471.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 2 )
+text = "Chacque arche cache un secret, mais une seule ouvrira la voie vers la prochaine épreuve. Choisis sagement, car ton destin en dépend.
+
+Réfléchis bien aux indices donnés et à leurs caractéristiques pour déterminer celle qui te permettra de poursuivre ton voyage."
+
+[node name="Icon-parchment" type="Sprite" parent="Enigma-Game/CanvasLayerParchment"]
+position = Vector2( 68.652, 66 )
+scale = Vector2( 0.0660936, 0.0706436 )
+texture = ExtResource( 28 )
+
+[node name="AreaIcon" type="Area2D" parent="Enigma-Game/CanvasLayerParchment/Icon-parchment"]
+script = ExtResource( 31 )
+parchment = NodePath("../../Parchment")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enigma-Game/CanvasLayerParchment/Icon-parchment/AreaIcon"]
+position = Vector2( 20.395, -21.2335 )
+shape = SubResource( 7 )
+
+[node name="explainLabel" type="RichTextLabel" parent="Enigma-Game/CanvasLayerParchment"]
+margin_left = 578.0
+margin_top = 981.0
+margin_right = 1281.0
+margin_bottom = 1026.0
+custom_fonts/normal_font = SubResource( 4 )
+text = "Cliquez sur le parchemin pour en découvrir son contenu..."
+script = ExtResource( 30 )
+
+[node name="TimerLabel" type="Timer" parent="Enigma-Game/CanvasLayerParchment/explainLabel"]
+
+[node name="choixArche" type="RichTextLabel" parent="Enigma-Game/CanvasLayerParchment"]
+margin_left = 728.0
+margin_top = 1019.0
+margin_right = 1153.0
+margin_bottom = 1059.0
+custom_fonts/normal_font = SubResource( 18 )
+text = "Appuyez sur entrée pour choisir cette arche."
+
 [node name="Decor" type="Node2D" parent="."]
+
+[node name="TanukiArch" type="Area2D" parent="Decor"]
+script = ExtResource( 21 )
+player1 = NodePath("../Player1")
+player2 = NodePath("../Player2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/TanukiArch"]
+position = Vector2( 250.5, 912.5 )
+shape = SubResource( 1 )
+
+[node name="TanukiBody" type="KinematicBody2D" parent="Decor/TanukiArch"]
+script = ExtResource( 26 )
+player1 = NodePath("../../Player1")
+player2 = NodePath("../../Player2")
+
+[node name="Tanuki" type="AnimatedSprite" parent="Decor/TanukiArch/TanukiBody"]
+position = Vector2( 275.432, 940.125 )
+scale = Vector2( 0.0965282, 0.0965282 )
+frames = SubResource( 5 )
+animation = "walk"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/TanukiArch/TanukiBody"]
+position = Vector2( 250.5, 912.5 )
+shape = SubResource( 1 )
+
+[node name="DialogueTanukiArch" parent="Decor/TanukiArch" instance=ExtResource( 24 )]
+offset = Vector2( 225, 600 )
+scale = Vector2( 2, 2 )
+transform = Transform2D( 2, 0, 0, 2, 225, 600 )
+script = ExtResource( 23 )
+player1 = NodePath("../../Player1")
+player2 = NodePath("../../Player2")
+tanukibody = NodePath("../TanukiBody")
+iconParchment = NodePath("../../../Enigma-Game/CanvasLayerParchment/Icon-parchment")
+explainLabel = NodePath("../../../Enigma-Game/CanvasLayerParchment/explainLabel")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Decor"]
 layer = 1
@@ -61,8 +301,8 @@ scale = Vector2( 0.114803, 0.119121 )
 texture = ExtResource( 8 )
 
 [node name="Triangles" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
-position = Vector2( 576, 957.204 )
-scale = Vector2( 0.124915, 0.144064 )
+position = Vector2( 720, 957.204 )
+scale = Vector2( 0.126685, 0.144064 )
 texture = ExtResource( 1 )
 
 [node name="Rock" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
@@ -78,7 +318,7 @@ player2 = NodePath("../Player2")
 speed = 100
 
 [node name="Player2" parent="Decor" groups=["Player"] instance=ExtResource( 11 )]
-position = Vector2( 45, 963 )
+position = Vector2( 45, 908 )
 scale = Vector2( 1.4, 1.4 )
 script = ExtResource( 18 )
 player1 = NodePath("../Player1")
@@ -90,7 +330,7 @@ speed = 100
 motion_mirroring = Vector2( 1920, 0 )
 
 [node name="Background" type="Sprite" parent="Decor/ParallaxBackground1/Back"]
-position = Vector2( 933, 504.625 )
+position = Vector2( 933, 498 )
 scale = Vector2( 5.01515, 7.71346 )
 texture = ExtResource( 14 )
 
@@ -157,7 +397,7 @@ scale = Vector2( 0.11, 0.117481 )
 texture = ExtResource( 6 )
 
 [node name="Ground2" type="Sprite" parent="Decor/ParallaxBackground1/Ground"]
-position = Vector2( 1013.64, 1004.5 )
+position = Vector2( 1014.64, 1004.5 )
 scale = Vector2( 0.143408, 0.121241 )
 texture = ExtResource( 6 )
 
@@ -180,7 +420,7 @@ scale = Vector2( 0.0547641, 0.0853204 )
 texture = ExtResource( 2 )
 
 [node name="Main-Mountain" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
-position = Vector2( 1033.75, 778.5 )
+position = Vector2( 1034, 780 )
 scale = Vector2( 0.1201, 0.119903 )
 texture = ExtResource( 2 )
 
@@ -190,16 +430,49 @@ scale = Vector2( 0.105139, 0.105139 )
 texture = ExtResource( 10 )
 
 [node name="Arch1" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
-position = Vector2( 689, 833 )
-scale = Vector2( 0.155615, 0.190406 )
+material = SubResource( 11 )
+position = Vector2( 684.886, 837.5 )
+scale = Vector2( 0.153378, 0.188134 )
 texture = ExtResource( 17 )
+script = ExtResource( 29 )
+line_color = Color( 1, 0, 0, 1 )
+choixArche = NodePath("../../../../Enigma-Game/CanvasLayerParchment/choixArche")
+
+[node name="Area2D" type="Area2D" parent="Decor/ParallaxBackground1/1erPlan/Arch1"]
+physics_interpolation_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground1/1erPlan/Arch1/Area2D"]
+position = Vector2( -943.003, 82.3867 )
+scale = Vector2( 0.999999, 1 )
+shape = SubResource( 12 )
 
 [node name="Arch2" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
-position = Vector2( 962, 824 )
-scale = Vector2( 0.138491, 0.169453 )
+material = SubResource( 14 )
+position = Vector2( 989.903, 834 )
+scale = Vector2( 0.166544, 0.165021 )
 texture = ExtResource( 19 )
+script = ExtResource( 33 )
+line_color = Color( 1, 0, 0, 1 )
+choixArche = NodePath("../../../../Enigma-Game/CanvasLayerParchment/choixArche")
+
+[node name="Area2D" type="Area2D" parent="Decor/ParallaxBackground1/1erPlan/Arch2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground1/1erPlan/Arch2/Area2D"]
+position = Vector2( 18.1787, 265.118 )
+shape = SubResource( 15 )
 
 [node name="Arch3" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
-position = Vector2( 1224.98, 834.793 )
-scale = Vector2( 0.14002, 0.171324 )
+material = SubResource( 9 )
+position = Vector2( 1286.49, 839 )
+scale = Vector2( 0.14851, 0.171324 )
 texture = ExtResource( 20 )
+script = ExtResource( 34 )
+line_color = Color( 1, 0, 0, 1 )
+choixArche = NodePath("../../../../Enigma-Game/CanvasLayerParchment/choixArche")
+
+[node name="Area2D" type="Area2D" parent="Decor/ParallaxBackground1/1erPlan/Arch3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground1/1erPlan/Arch3/Area2D"]
+position = Vector2( 19.2578, 172.188 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 16 )
