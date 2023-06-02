@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://sprites/enigma/triangles_layer1.png" type="Texture" id=1]
 [ext_resource path="res://sprites/enigma/mountain1_layer-3.png" type="Texture" id=2]
@@ -34,6 +34,8 @@
 [ext_resource path="res://sprites/characters/tanuki-cycle_0002.png" type="Texture" id=32]
 [ext_resource path="res://src/screens/enigma/Arch2.gd" type="Script" id=33]
 [ext_resource path="res://src/screens/enigma/Arch3.gd" type="Script" id=34]
+[ext_resource path="res://src/tileset/TileMap.gd" type="Script" id=35]
+[ext_resource path="res://sprites/tileset/Tileshet.tres" type="TileSet" id=36]
 
 [sub_resource type="StreamTexture" id=6]
 flags = 4
@@ -195,6 +197,15 @@ script = ExtResource( 7 )
 object1 = NodePath("../../Decor/Player1")
 object2 = NodePath("../../Decor/Player2")
 
+[node name="TileMap" type="TileMap" parent="Starter"]
+position = Vector2( 1, -53 )
+tile_set = ExtResource( 36 )
+cell_size = Vector2( 32, 32 )
+show_collision = true
+format = 1
+tile_data = PoolIntArray( 2162687, 1, 0, 2097152, 1, 0, 2097153, 1, 0, 2097154, 1, 0, 2097155, 1, 0, 2097156, 1, 0, 2097157, 1, 0, 2097158, 1, 0, 2097159, 1, 0, 2097160, 1, 0, 2097161, 1, 0, 2097162, 1, 0, 2097163, 1, 0, 2097164, 1, 0, 2097165, 1, 0, 2097166, 1, 0, 2097167, 1, 0, 2097168, 1, 0, 2097169, 1, 0, 2097170, 1, 0, 2097171, 1, 0, 2097172, 1, 0, 2097173, 1, 0, 2097174, 1, 0, 2097175, 1, 0, 2097176, 1, 0, 2097177, 1, 0, 2097178, 1, 0, 2097179, 1, 0, 2097180, 1, 0, 2097181, 1, 0, 2097182, 1, 0, 2097183, 1, 0, 2097184, 1, 0, 2097185, 1, 0, 2097186, 1, 0, 2097187, 1, 0, 2097188, 1, 0, 2097189, 1, 0, 2097190, 1, 0, 2097191, 1, 0, 2097192, 1, 0, 2097193, 1, 0, 2097194, 1, 0, 2097195, 1, 0, 2097196, 1, 0, 2097197, 1, 0, 2097198, 1, 0, 2097199, 1, 0, 2097200, 1, 0, 2097201, 1, 0, 2097202, 1, 0, 2097203, 1, 0, 2097204, 1, 0, 2097205, 1, 0, 2097206, 1, 0, 2097207, 1, 0, 2097208, 1, 0, 2097209, 1, 0, 2097210, 1, 0, 2097211, 1, 0, 2097212, 1, 0 )
+script = ExtResource( 35 )
+
 [node name="Enigma-Game" type="Node2D" parent="."]
 
 [node name="CanvasLayerParchment" type="CanvasLayer" parent="Enigma-Game"]
@@ -263,6 +274,7 @@ position = Vector2( 250.5, 912.5 )
 shape = SubResource( 1 )
 
 [node name="TanukiBody" type="KinematicBody2D" parent="Decor/TanukiArch"]
+collision_mask = 2
 script = ExtResource( 26 )
 player1 = NodePath("../../Player1")
 player2 = NodePath("../../Player2")
@@ -313,16 +325,16 @@ texture = ExtResource( 9 )
 [node name="Player1" parent="Decor" groups=["Player"] instance=ExtResource( 12 )]
 position = Vector2( 100, 945 )
 scale = Vector2( 1.4, 1.4 )
+collision_mask = 2
 script = ExtResource( 16 )
 player2 = NodePath("../Player2")
-speed = 100
 
 [node name="Player2" parent="Decor" groups=["Player"] instance=ExtResource( 11 )]
 position = Vector2( 45, 908 )
 scale = Vector2( 1.4, 1.4 )
+collision_mask = 2
 script = ExtResource( 18 )
 player1 = NodePath("../Player1")
-speed = 100
 
 [node name="ParallaxBackground1" type="ParallaxBackground" parent="Decor"]
 
@@ -474,5 +486,4 @@ choixArche = NodePath("../../../../Enigma-Game/CanvasLayerParchment/choixArche")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground1/1erPlan/Arch3/Area2D"]
 position = Vector2( 19.2578, 172.188 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 16 )

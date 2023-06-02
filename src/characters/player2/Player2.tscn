@@ -20,14 +20,12 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 10.5, 31.5 )
 
 [sub_resource type="DynamicFont" id=13]
 size = 11
 font_data = ExtResource( 6 )
-
-[sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 10.5, 13.5 )
-
 
 [node name="Player2" type="KinematicBody2D"]
 
@@ -38,7 +36,7 @@ frames = SubResource( 5 )
 animation = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.5, 2.5 )
+position = Vector2( -0.5, 20.5 )
 shape = SubResource( 12 )
 
 [node name="TriggerPositionP1" type="NinePatchRect" parent="."]
