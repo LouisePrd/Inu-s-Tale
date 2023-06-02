@@ -7,8 +7,9 @@ func _ready():
 
 func launchTimer():
 	if self.visible == true:
-		$Timer.connect("timeout", self, "fade_message")
-		$Timer.start(2.5)
+		if not $TimerLabel.is_connected("timeout", self, "fade_message"):
+			$TimerLabel.connect("timeout", self, "fade_message")
+			$TimerLabel.start(2.5)
 
 func fade_message():
 	launch = true

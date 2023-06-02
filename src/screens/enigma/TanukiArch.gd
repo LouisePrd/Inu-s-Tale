@@ -15,7 +15,6 @@ func _ready():
 func _on_NPC_body_entered(body):
 	var dialogue_tanuki_arch = get_node_or_null("DialogueTanukiArch")
 	if dialogue_tanuki_arch and launch==false:
-		print('trouve')
 		if body. name == 'Player1' or body. name == 'Player2':
 			player1.move = false
 			player2.move = false

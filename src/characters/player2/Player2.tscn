@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://sprites/characters/inugmai-walkcycle_0001.png" type="Texture" id=1]
 [ext_resource path="res://sprites/characters/inugmai-walkcycle_0002.png" type="Texture" id=2]
 [ext_resource path="res://src/characters/player1/NaoText.gd" type="Script" id=3]
 [ext_resource path="res://sprites/dialogues/bulle-2.png" type="Texture" id=4]
 [ext_resource path="res://sprites/characters/inugami-walkcycle_0003.png" type="Texture" id=5]
+[ext_resource path="res://fonts/Formal436BT.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
@@ -22,6 +23,10 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=12]
 radius = 20.0
 height = 10.0
+
+[sub_resource type="DynamicFont" id=13]
+size = 11
+font_data = ExtResource( 6 )
 
 [node name="Player2" type="KinematicBody2D"]
 
@@ -51,4 +56,5 @@ margin_top = 12.0
 margin_right = 146.0
 margin_bottom = 45.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 13 )
 script = ExtResource( 3 )

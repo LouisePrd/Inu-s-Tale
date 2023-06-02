@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://sprites/dialogues/bulle-2.png" type="Texture" id=1]
 [ext_resource path="res://src/characters/player1/NaoText.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://sprites/characters/walkcycle_0002.png" type="Texture" id=9]
 [ext_resource path="res://sprites/characters/walkcycle_0007.png" type="Texture" id=10]
 [ext_resource path="res://sprites/characters/walkcycle-final_0000.png" type="Texture" id=11]
+[ext_resource path="res://fonts/Formal436BT.ttf" type="DynamicFontData" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -26,8 +27,12 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=12]
-radius = 19.0
-height = 38.0
+radius = 13.0
+height = 48.0
+
+[sub_resource type="DynamicFont" id=13]
+size = 11
+font_data = ExtResource( 12 )
 
 [node name="Player1" type="KinematicBody2D"]
 
@@ -52,6 +57,7 @@ texture = ExtResource( 1 )
 margin_left = 26.0
 margin_top = 11.0
 margin_right = 151.0
-margin_bottom = 42.0
+margin_bottom = 41.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 13 )
 script = ExtResource( 2 )
