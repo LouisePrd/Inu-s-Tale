@@ -2,6 +2,7 @@ extends CanvasLayer
 
 export (NodePath) var player1
 export (NodePath) var player2
+export (NodePath) var tanuki
 
 var dialogue_file = [
 	{"name": "Tanuki", "text": "Bonjour et bienvenue à vous sur La Montagne du Koryu, j’imagine que vous cherchez la faille ?"},
@@ -24,6 +25,7 @@ func _ready():
 	$"Tanuki-Sprite".visible = false
 	player1 = get_node(player1)
 	player2 = get_node(player2)
+	tanuki = get_node(tanuki)
 	
 func play():
 	dialogues = load_dialogue()
@@ -47,6 +49,7 @@ func next_line():
 		$"Tanuki-Sprite".visible = false
 		player1.move = true
 		player2.move = true
+		tanuki.move = true
 		return
 	dialogues = load_dialogue()
 	$NinePatchRect/Name.text = dialogues[current_dialogue_id]['name']
