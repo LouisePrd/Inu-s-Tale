@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://src/screens/cataclysm/Cataclysm.gd" type="Script" id=1]
 [ext_resource path="res://src/characters/player1/Player1.gd" type="Script" id=2]
@@ -22,27 +22,26 @@
 [ext_resource path="res://sprites/cataclysm/ruin3.png" type="Texture" id=20]
 [ext_resource path="res://sprites/cataclysm/ruin2_layer-1.png" type="Texture" id=21]
 [ext_resource path="res://sprites/cataclysm/tree_layer-1.png" type="Texture" id=22]
-[ext_resource path="res://sprites/cataclysm/Asset 35.png" type="Texture" id=23]
+[ext_resource path="res://sprites/cataclysm/mountain6.png" type="Texture" id=23]
 [ext_resource path="res://src/screens/cataclysm/SquareTrigger.gd" type="Script" id=24]
 [ext_resource path="res://src/screens/dialogues/DialogueCataclysm.tscn" type="PackedScene" id=25]
 [ext_resource path="res://src/screens/encounter/Encounter.tscn" type="PackedScene" id=26]
 [ext_resource path="res://src/triggers/Transition.gd" type="Script" id=27]
 [ext_resource path="res://src/tileset/TileMap.gd" type="Script" id=28]
 [ext_resource path="res://sprites/tileset/Tileshet.tres" type="TileSet" id=29]
-[ext_resource path="res://sprites/cataclysm/Asset 15.png" type="Texture" id=30]
-[ext_resource path="res://sprites/cataclysm/Asset 33.png" type="Texture" id=31]
-[ext_resource path="res://sprites/cataclysm/Asset 14.png" type="Texture" id=32]
-[ext_resource path="res://sprites/cataclysm/Asset 34.png" type="Texture" id=33]
-[ext_resource path="res://sprites/cataclysm/Asset 45.png" type="Texture" id=34]
-[ext_resource path="res://sprites/cataclysm/tree_layer-2.png" type="Texture" id=35]
-[ext_resource path="res://sprites/cataclysm/tree2_layer-2.png" type="Texture" id=36]
-[ext_resource path="res://sprites/cataclysm/Asset 44.png" type="Texture" id=37]
+[ext_resource path="res://sprites/cataclysm/mountain7.png" type="Texture" id=30]
+[ext_resource path="res://sprites/cataclysm/mountain2.png" type="Texture" id=31]
+[ext_resource path="res://sprites/cataclysm/mountain1.png" type="Texture" id=32]
+[ext_resource path="res://sprites/cataclysm/house3.png" type="Texture" id=33]
+[ext_resource path="res://sprites/cataclysm/debris4.png" type="Texture" id=34]
+[ext_resource path="res://sprites/cataclysm/mountain9.png" type="Texture" id=35]
+[ext_resource path="res://sprites/cataclysm/house2.png" type="Texture" id=36]
+[ext_resource path="res://sprites/cataclysm/tree3.png" type="Texture" id=37]
 [ext_resource path="res://sprites/cataclysm/ground2.png" type="Texture" id=38]
-[ext_resource path="res://sprites/cataclysm/tree3_layer-2.png" type="Texture" id=39]
+[ext_resource path="res://sprites/cataclysm/tree2.png" type="Texture" id=39]
 [ext_resource path="res://sprites/sky/cloud_yellow.png" type="Texture" id=40]
-[ext_resource path="res://sprites/cataclysm/Asset 19.png" type="Texture" id=41]
-[ext_resource path="res://sprites/cataclysm/Asset 11.png" type="Texture" id=42]
-[ext_resource path="res://sprites/cataclysm/Asset 4.png" type="Texture" id=43]
+[ext_resource path="res://sprites/cataclysm/tree1.png" type="Texture" id=41]
+[ext_resource path="res://sprites/cataclysm/debris6.png" type="Texture" id=42]
 [ext_resource path="res://sprites/sky/sun.png" type="Texture" id=44]
 [ext_resource path="res://src/screens/entrance/CloudLayer.gd" type="Script" id=45]
 [ext_resource path="res://sprites/sky/cloud_white.png" type="Texture" id=46]
@@ -125,12 +124,12 @@ texture = ExtResource( 11 )
 [node name="Planches" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
 position = Vector2( 1696.32, 950.168 )
 scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 41 )
+texture = ExtResource( 42 )
 
 [node name="Paravents" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
 position = Vector2( 1280, 945 )
 scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 30 )
+texture = ExtResource( 34 )
 
 [node name="Player1" parent="Decor" groups=["Player"] instance=ExtResource( 6 )]
 position = Vector2( 116.64, 984.935 )
@@ -140,7 +139,7 @@ script = ExtResource( 2 )
 player2 = NodePath("../Player2")
 
 [node name="Player2" parent="Decor" groups=["Player"] instance=ExtResource( 5 )]
-position = Vector2( 77.64, 992.935 )
+position = Vector2( 77.64, 960.935 )
 scale = Vector2( 0.9, 0.9 )
 collision_mask = 2
 script = ExtResource( 3 )
@@ -252,12 +251,12 @@ motion_scale = Vector2( 0.8, 1 )
 [node name="Mountain" type="Sprite" parent="Decor/ParallaxBackground1/4e Plan"]
 position = Vector2( 1190, 794 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 37 )
+texture = ExtResource( 23 )
 
 [node name="Mountain2" type="Sprite" parent="Decor/ParallaxBackground1/4e Plan"]
 position = Vector2( 2024, 778 )
 scale = Vector2( 0.65, 0.65 )
-texture = ExtResource( 34 )
+texture = ExtResource( 30 )
 
 [node name="3e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
 position = Vector2( 0, 22 )
@@ -293,17 +292,17 @@ texture = ExtResource( 19 )
 [node name="Mountain 1" type="Sprite" parent="Decor/ParallaxBackground1/3e Plan"]
 position = Vector2( 429, 826 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 33 )
+texture = ExtResource( 31 )
 
 [node name="Mountain 2" type="Sprite" parent="Decor/ParallaxBackground1/3e Plan"]
 position = Vector2( 1200, 821 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 23 )
+texture = ExtResource( 35 )
 
 [node name="Mountain 3" type="Sprite" parent="Decor/ParallaxBackground1/3e Plan"]
 position = Vector2( 1811, 805 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 31 )
+texture = ExtResource( 32 )
 
 [node name="2e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
 position = Vector2( 0, 22 )
@@ -343,35 +342,35 @@ texture = ExtResource( 16 )
 position = Vector2( 131, 868 )
 rotation = -0.0872665
 scale = Vector2( 0.35, 0.35 )
-texture = ExtResource( 35 )
+texture = ExtResource( 41 )
 
 [node name="Tree 2" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
 position = Vector2( 442, 864 )
 rotation = 0.0872665
 scale = Vector2( 0.35, 0.35 )
-texture = ExtResource( 36 )
+texture = ExtResource( 39 )
 flip_h = true
 
 [node name="Tree 4" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
 position = Vector2( 938, 852 )
 scale = Vector2( 0.35, 0.35 )
-texture = ExtResource( 39 )
+texture = ExtResource( 37 )
 
 [node name="Tree 3" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
 position = Vector2( 831, 863 )
 scale = Vector2( 0.35, 0.35 )
-texture = ExtResource( 35 )
+texture = ExtResource( 41 )
 
 [node name="Tree 5" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
 position = Vector2( 1463, 863 )
 scale = Vector2( 0.35, 0.35 )
-texture = ExtResource( 35 )
+texture = ExtResource( 41 )
 
 [node name="Tree 6" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
 position = Vector2( 1839, 854 )
 rotation = 0.0872665
 scale = Vector2( 0.35, 0.35 )
-texture = ExtResource( 39 )
+texture = ExtResource( 37 )
 flip_h = true
 
 [node name="Ground" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
@@ -393,14 +392,14 @@ texture = ExtResource( 38 )
 [node name="House" type="Sprite" parent="Decor/ParallaxBackground1/ParallaxLayer2"]
 position = Vector2( 1216, 944.963 )
 scale = Vector2( 0.35, 0.349721 )
-texture = ExtResource( 32 )
+texture = ExtResource( 33 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
 
-[node name="Arche" type="Sprite" parent="Decor/ParallaxBackground1/ParallaxLayer"]
+[node name="House" type="Sprite" parent="Decor/ParallaxBackground1/ParallaxLayer"]
 position = Vector2( 1106, 891 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 42 )
+texture = ExtResource( 36 )
 
 [node name="1erPlan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
 position = Vector2( 0, 22 )
@@ -409,7 +408,6 @@ motion_scale = Vector2( 1.1, 1 )
 [node name="Sprite" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
 position = Vector2( 353, 912 )
 scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 43 )
 
 [node name="Rectangles" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
 visible = false
