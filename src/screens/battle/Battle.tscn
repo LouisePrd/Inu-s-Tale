@@ -149,7 +149,6 @@ speed = 130
 [node name="Player2" parent="." groups=["Player"] instance=ExtResource( 7 )]
 position = Vector2( 689, 977 )
 scale = Vector2( 2, 2 )
-collision_layer = 1
 collision_mask = 2
 script = ExtResource( 5 )
 player1 = NodePath("../Player1")

@@ -60,12 +60,14 @@ position = Vector2( -61, 2 )
 [node name="Player1" parent="Entrance" groups=["Player"] instance=ExtResource( 2 )]
 position = Vector2( 338, 979 )
 scale = Vector2( 0.9, 0.9 )
+collision_mask = 2
 script = ExtResource( 4 )
 player2 = NodePath("../Player2")
 
 [node name="Player2" parent="Entrance" groups=["Player"] instance=ExtResource( 3 )]
 position = Vector2( 316, 987 )
 scale = Vector2( 0.8, 0.8 )
+collision_mask = 2
 script = ExtResource( 5 )
 player1 = NodePath("../Player1")
 
@@ -159,7 +161,6 @@ player1 = NodePath("../Entrance/Player1")
 player2 = NodePath("../Entrance/Player2")
 
 [node name="DialoguePlayer" parent="NPC" instance=ExtResource( 7 )]
-visible = false
 offset = Vector2( 450, 863 )
 transform = Transform2D( 2, 0, 0, 2, 450, 863 )
 player1 = NodePath("../../Entrance/Player1")
