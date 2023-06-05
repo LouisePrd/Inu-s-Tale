@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ground2.png-76b8f2bc4836b34531e9f8a97d51aede.stex"
+path="res://.import/ground_beige.png-be7b0066e12497aaaa2aa63a0a846775.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/cataclysm/ground2.png"
-dest_files=[ "res://.import/ground2.png-76b8f2bc4836b34531e9f8a97d51aede.stex" ]
+source_file="res://sprites/cataclysm/ground_beige.png"
+dest_files=[ "res://.import/ground_beige.png-be7b0066e12497aaaa2aa63a0a846775.stex" ]
 
 [params]
 
