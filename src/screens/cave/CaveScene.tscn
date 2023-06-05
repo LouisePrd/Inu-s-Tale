@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://sprites/cave/top_layer-1.png" type="Texture" id=1]
 [ext_resource path="res://src/characters/player1/Player1.tscn" type="PackedScene" id=2]
@@ -19,16 +19,48 @@
 [ext_resource path="res://sprites/cave/bottom_layer-1.png" type="Texture" id=17]
 [ext_resource path="res://sprites/cave/background.png" type="Texture" id=18]
 [ext_resource path="res://sprites/cave/stairs_layer-2.png" type="Texture" id=19]
-[ext_resource path="res://src/screens/cave/tanuki-statue.gd" type="Script" id=20]
+[ext_resource path="res://src/screens/cave/TanukiStatue.gd" type="Script" id=20]
 [ext_resource path="res://sprites/cave/bottom_layer-1-v2.png" type="Texture" id=21]
 [ext_resource path="res://fonts/Formal436BT.ttf" type="DynamicFontData" id=22]
+[ext_resource path="res://sprites/dialogues/inu-dialogue.png" type="Texture" id=23]
+[ext_resource path="res://sprites/dialogues/name.png" type="Texture" id=24]
+[ext_resource path="res://sprites/dialogues/bulle.png" type="Texture" id=25]
+[ext_resource path="res://sprites/dialogues/nao-dialogue.png" type="Texture" id=26]
+[ext_resource path="res://src/screens/cave/DialogueStatue.gd" type="Script" id=27]
+[ext_resource path="res://src/screens/cave/TanukiFrame.gd" type="Script" id=28]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1131.51, 1179.98 )
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 1125.53, 885.42 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 26
 font_data = ExtResource( 22 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1131.51, 1179.98 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://fonts/Formal436BT.ttf"
+
+[sub_resource type="DynamicFont" id=8]
+size = 26
+font_data = SubResource( 6 )
+
+[sub_resource type="DynamicFontData" id=9]
+font_path = "res://fonts/Formal436BT.ttf"
+
+[sub_resource type="DynamicFont" id=10]
+font_data = SubResource( 9 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://fonts/Formal436BT.ttf"
+
+[sub_resource type="DynamicFont" id=11]
+size = 26
+font_data = SubResource( 4 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -132,12 +164,12 @@ texture = ExtResource( 18 )
 
 [node name="Back2" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
 
-[node name="Background2" type="Sprite" parent="Decor/ParallaxBackground1/Back2"]
+[node name="BackgroundTringle" type="Sprite" parent="Decor/ParallaxBackground1/Back2"]
 position = Vector2( 155.375, 659.921 )
 scale = Vector2( 0.191282, 0.176826 )
 texture = ExtResource( 15 )
 
-[node name="Background3" type="Sprite" parent="Decor/ParallaxBackground1/Back2"]
+[node name="BackgroundTringle2" type="Sprite" parent="Decor/ParallaxBackground1/Back2"]
 position = Vector2( 2041, 611.152 )
 scale = Vector2( 0.186405, 0.205601 )
 texture = ExtResource( 15 )
@@ -146,6 +178,26 @@ texture = ExtResource( 15 )
 position = Vector2( 1506, 811 )
 scale = Vector2( 0.149541, 0.137223 )
 texture = ExtResource( 11 )
+script = ExtResource( 28 )
+examinerTexte = NodePath("CanvasLayer/Examiner")
+canvasInteraction = NodePath("CanvasLayer")
+
+[node name="Area2D" type="Area2D" parent="Decor/ParallaxBackground1/Back2/tanuki-frame"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground1/Back2/tanuki-frame/Area2D"]
+position = Vector2( 867.236, 262.347 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 12 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Decor/ParallaxBackground1/Back2/tanuki-frame"]
+
+[node name="Examiner" type="RichTextLabel" parent="Decor/ParallaxBackground1/Back2/tanuki-frame/CanvasLayer"]
+margin_left = 790.0
+margin_top = 994.0
+margin_right = 1240.0
+margin_bottom = 1033.0
+custom_fonts/normal_font = SubResource( 2 )
+text = "[ Appuyez sur A pour examiner ]"
 
 [node name="2e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
 
@@ -179,12 +231,13 @@ scale = Vector2( 0.152727, 0.146333 )
 texture = ExtResource( 10 )
 script = ExtResource( 20 )
 examinerTexte = NodePath("CanvasLayer/Examiner")
+canvasInteraction = NodePath("../CanvasLayer")
 
 [node name="Area2D" type="Area2D" parent="Decor/ParallaxBackground1/1erPlan/tanuki-statue"]
-position = Vector2( 0, 0.000488281 )
+position = Vector2( -85.1191, 6.83398 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground1/1erPlan/tanuki-statue/Area2D"]
-position = Vector2( -608.93, 27.334 )
+position = Vector2( -641.667, 20.501 )
 shape = SubResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Decor/ParallaxBackground1/1erPlan/tanuki-statue"]
@@ -203,6 +256,68 @@ position = Vector2( 2195, 897 )
 rotation = -3.14159
 scale = Vector2( 0.232065, 0.193294 )
 texture = ExtResource( 19 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Decor/ParallaxBackground1/1erPlan"]
+script = ExtResource( 27 )
+player1 = NodePath("../../../Player1")
+player2 = NodePath("../../../Player2")
+
+[node name="Inu-Sprite" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan/CanvasLayer"]
+position = Vector2( 1372, 885 )
+scale = Vector2( 0.169503, 0.169502 )
+texture = ExtResource( 23 )
+
+[node name="Nao-Sprite" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan/CanvasLayer"]
+position = Vector2( 595, 865 )
+scale = Vector2( 0.449693, 0.449693 )
+texture = ExtResource( 26 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Decor/ParallaxBackground1/1erPlan/CanvasLayer"]
+margin_left = 569.0
+margin_top = 850.0
+margin_right = 1427.0
+margin_bottom = 1058.0
+texture = ExtResource( 25 )
+
+[node name="BackName" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan/CanvasLayer/NinePatchRect"]
+position = Vector2( 145, 22 )
+scale = Vector2( 0.428571, 0.428571 )
+texture = ExtResource( 24 )
+
+[node name="Name" type="RichTextLabel" parent="Decor/ParallaxBackground1/1erPlan/CanvasLayer/NinePatchRect"]
+anchor_left = 0.0173267
+anchor_top = 0.0178571
+anchor_right = 0.0625756
+anchor_bottom = 0.0823732
+margin_left = 85.0
+margin_right = 141.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( -79, -6 )
+custom_fonts/mono_font = SubResource( 7 )
+custom_fonts/normal_font = SubResource( 8 )
+text = "Name"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Message" type="RichTextLabel" parent="Decor/ParallaxBackground1/1erPlan/CanvasLayer/NinePatchRect"]
+anchor_left = 0.0445545
+anchor_top = 0.104265
+anchor_right = 0.407178
+anchor_bottom = 0.369668
+margin_left = 32.0
+margin_top = 25.0
+margin_right = 438.0
+margin_bottom = 89.0
+rect_pivot_offset = Vector2( -79, -6 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = SubResource( 10 )
+custom_fonts/normal_font = SubResource( 11 )
+text = "Message"
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Ground" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
 motion_mirroring = Vector2( 1920, 0 )
