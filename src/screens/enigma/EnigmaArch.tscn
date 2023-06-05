@@ -5,7 +5,7 @@
 [ext_resource path="res://sprites/enigma/tree2_layer-4.png" type="Texture" id=3]
 [ext_resource path="res://sprites/enigma/tree1_layer-5.png" type="Texture" id=4]
 [ext_resource path="res://sprites/enigma/bushes1_layer-4.png" type="Texture" id=5]
-[ext_resource path="res://sprites/cataclysm/ground_beige.png" type="Texture" id=6]
+[ext_resource path="res://sprites/cataclysm/ground.png" type="Texture" id=6]
 [ext_resource path="res://src/screens/main_scene/Camera.gd" type="Script" id=7]
 [ext_resource path="res://sprites/enigma/bush_layer1.png" type="Texture" id=8]
 [ext_resource path="res://sprites/enigma/rock1_layer1.png" type="Texture" id=9]
@@ -76,7 +76,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Shader" id=10]
+[sub_resource type="Shader" id=19]
 code = "shader_type canvas_item;
 
 uniform vec4 line_color : hint_color = vec4(1.0);
@@ -101,14 +101,14 @@ void fragment() {
 }"
 
 [sub_resource type="ShaderMaterial" id=11]
-shader = SubResource( 10 )
+shader = SubResource( 19 )
 shader_param/line_color = Color( 1, 0, 0, 1 )
 shader_param/line_thickness = 10.0
 
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 875.289, 834.511 )
 
-[sub_resource type="Shader" id=13]
+[sub_resource type="Shader" id=20]
 code = "shader_type canvas_item;
 
 uniform vec4 line_color : hint_color = vec4(1.0);
@@ -133,14 +133,14 @@ void fragment() {
 }"
 
 [sub_resource type="ShaderMaterial" id=14]
-shader = SubResource( 13 )
+shader = SubResource( 20 )
 shader_param/line_color = Color( 1, 0, 0, 1 )
 shader_param/line_thickness = 10.0
 
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 999.872, 1086.22 )
 
-[sub_resource type="Shader" id=8]
+[sub_resource type="Shader" id=21]
 code = "shader_type canvas_item;
 
 uniform vec4 line_color : hint_color = vec4(1.0);
@@ -165,7 +165,7 @@ void fragment() {
 }"
 
 [sub_resource type="ShaderMaterial" id=9]
-shader = SubResource( 8 )
+shader = SubResource( 21 )
 shader_param/line_color = Color( 1, 0.0980392, 0, 1 )
 shader_param/line_thickness = 10.0
 
@@ -219,7 +219,6 @@ margin_bottom = 835.0
 texture = SubResource( 6 )
 
 [node name="Enigma" type="RichTextLabel" parent="Enigma-Game/CanvasLayerParchment/Parchment"]
-visible = false
 margin_left = 182.0
 margin_top = 139.0
 margin_right = 701.0
@@ -280,7 +279,7 @@ player1 = NodePath("../../Player1")
 player2 = NodePath("../../Player2")
 
 [node name="Tanuki" type="AnimatedSprite" parent="Decor/TanukiArch/TanukiBody"]
-position = Vector2( 275.432, 940.125 )
+position = Vector2( 275.432, 932.125 )
 scale = Vector2( 0.0965282, 0.0965282 )
 frames = SubResource( 5 )
 animation = "walk"
@@ -323,14 +322,14 @@ scale = Vector2( 0.195611, 0.102583 )
 texture = ExtResource( 9 )
 
 [node name="Player1" parent="Decor" groups=["Player"] instance=ExtResource( 12 )]
-position = Vector2( 100, 945 )
+position = Vector2( 100, 955 )
 scale = Vector2( 1.4, 1.4 )
 collision_mask = 2
 script = ExtResource( 16 )
 player2 = NodePath("../Player2")
 
 [node name="Player2" parent="Decor" groups=["Player"] instance=ExtResource( 11 )]
-position = Vector2( 45, 908 )
+position = Vector2( 45, 911 )
 scale = Vector2( 1.4, 1.4 )
 collision_mask = 2
 script = ExtResource( 18 )
@@ -399,19 +398,6 @@ texture = ExtResource( 4 )
 position = Vector2( 1518, 821 )
 scale = Vector2( 0.12664, 0.12664 )
 texture = ExtResource( 15 )
-
-[node name="Ground" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
-motion_mirroring = Vector2( 1920, 0 )
-
-[node name="Ground" type="Sprite" parent="Decor/ParallaxBackground1/Ground"]
-position = Vector2( 554.64, 1003.5 )
-scale = Vector2( 0.11, 0.117481 )
-texture = ExtResource( 6 )
-
-[node name="Ground2" type="Sprite" parent="Decor/ParallaxBackground1/Ground"]
-position = Vector2( 1014.64, 1004.5 )
-scale = Vector2( 0.143408, 0.121241 )
-texture = ExtResource( 6 )
 
 [node name="1erPlan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
 motion_scale = Vector2( 1.2, 1 )
@@ -487,3 +473,16 @@ choixArche = NodePath("../../../../Enigma-Game/CanvasLayerParchment/choixArche")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground1/1erPlan/Arch3/Area2D"]
 position = Vector2( 19.2578, 172.188 )
 shape = SubResource( 16 )
+
+[node name="Ground" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Ground" type="Sprite" parent="Decor/ParallaxBackground1/Ground"]
+position = Vector2( 554.64, 994.5 )
+scale = Vector2( 0.11, 0.117481 )
+texture = ExtResource( 6 )
+
+[node name="Ground2" type="Sprite" parent="Decor/ParallaxBackground1/Ground"]
+position = Vector2( 1016.14, 995 )
+scale = Vector2( 0.143198, 0.120301 )
+texture = ExtResource( 6 )
