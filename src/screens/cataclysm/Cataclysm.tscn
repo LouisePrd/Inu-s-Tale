@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://src/screens/cataclysm/Cataclysm.gd" type="Script" id=1]
 [ext_resource path="res://src/characters/player1/Player1.gd" type="Script" id=2]
@@ -45,6 +45,21 @@
 [ext_resource path="res://sprites/cataclysm/debris1.png" type="Texture" id=58]
 [ext_resource path="res://sprites/cataclysm/roof2.png" type="Texture" id=59]
 
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+
+uniform vec3 tint;
+
+void fragment() {
+	COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
+	COLOR.rgb = vec3(COLOR.r + COLOR.g + COLOR.b) / 2.0;
+	COLOR.rgb = (COLOR.rgb + tint.rgb) / 1.0;
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/tint = null
+
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 62.0005
 height = 0.0
@@ -69,10 +84,17 @@ object2 = NodePath("../../Decor/Player2")
 
 [node name="Decor" type="Node2D" parent="."]
 
+[node name="ColorRect" type="ColorRect" parent="Decor"]
+modulate = Color( 0.447059, 0.505882, 0.529412, 0.537255 )
+material = SubResource( 5 )
+margin_right = 1920.0
+margin_bottom = 1080.0
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Decor"]
 layer = 1
 
 [node name="-1 Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground"]
+modulate = Color( 0.584314, 0.717647, 0.768627, 1 )
 motion_scale = Vector2( 1.1, 1 )
 
 [node name="Planches" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
@@ -116,7 +138,7 @@ position = Vector2( 444, 951 )
 shape = SubResource( 1 )
 
 [node name="DialogueCataclysm" parent="Decor/SquareTrigger" instance=ExtResource( 25 )]
-visible = false
+layer = 2
 offset = Vector2( 225, 600 )
 scale = Vector2( 2, 2 )
 transform = Transform2D( 2, 0, 0, 2, 225, 600 )
