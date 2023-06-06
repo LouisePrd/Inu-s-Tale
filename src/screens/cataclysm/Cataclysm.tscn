@@ -65,7 +65,6 @@ editor_draw_limits = true
 
 [node name="Camera2D" type="Camera2D" parent="Starter"]
 position = Vector2( -62, -111 )
-current = true
 limit_left = 0
 limit_top = 0
 limit_right = 1920
@@ -166,12 +165,82 @@ shape = SubResource( 1 )
 
 [node name="ParallaxBackground1" type="ParallaxBackground" parent="Decor"]
 
-[node name="Back" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
+[node name="Sky" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
 motion_mirroring = Vector2( 1920, 0 )
 
-[node name="Background" type="Sprite" parent="Decor/ParallaxBackground1/Back"]
-position = Vector2( 933, 504.625 )
-scale = Vector2( 5.01515, 7.71346 )
+[node name="Sky" type="Sprite" parent="Decor/ParallaxBackground1/Sky"]
+position = Vector2( 1268.1, 507.52 )
+scale = Vector2( 0.18, 0.35 )
+texture = ExtResource( 47 )
+
+[node name="Sun" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
+motion_scale = Vector2( 0.5, 1 )
+
+[node name="Sun" type="Sprite" parent="Decor/ParallaxBackground1/Sun"]
+position = Vector2( 271, 672 )
+scale = Vector2( 0.18, 0.18 )
+texture = ExtResource( 44 )
+
+[node name="Clouds" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
+motion_mirroring = Vector2( 1920, 0 )
+script = ExtResource( 45 )
+
+[node name="Cloud Yellow3" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 1683, 652 )
+scale = Vector2( 0.082, 0.08 )
+texture = ExtResource( 40 )
+
+[node name="Cloud Yellow" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 494, 660 )
+scale = Vector2( 0.16, 0.16 )
+texture = ExtResource( 40 )
+
+[node name="Cloud White" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 155, 713 )
+scale = Vector2( 0.12, 0.12 )
+texture = ExtResource( 46 )
+
+[node name="Cloud White2" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 99, 783 )
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 46 )
+
+[node name="Cloud White3" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 538, 708 )
+scale = Vector2( 0.14, 0.14 )
+texture = ExtResource( 46 )
+
+[node name="Cloud White6" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 1267, 736 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 46 )
+
+[node name="Cloud White7" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 1392, 679 )
+scale = Vector2( 0.1, 0.11 )
+texture = ExtResource( 46 )
+
+[node name="Cloud White4" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 946, 645 )
+scale = Vector2( 0.13, 0.13 )
+texture = ExtResource( 46 )
+
+[node name="Cloud Yellow2" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 1180, 691 )
+scale = Vector2( 0.112, 0.13 )
+texture = ExtResource( 40 )
+
+[node name="Cloud White5" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 1668, 663 )
+scale = Vector2( 0.14, 0.14 )
+texture = ExtResource( 46 )
+
+[node name="6e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
+motion_scale = Vector2( 0.9, 1 )
+
+[node name="Mountain" type="Sprite" parent="Decor/ParallaxBackground1/6e Plan"]
+position = Vector2( 540, 803 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 23 )
 
 [node name="3e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
@@ -235,13 +304,121 @@ position = Vector2( 0, 6 )
 motion_mirroring = Vector2( 1920, 0 )
 
 [node name="Ground" type="Sprite" parent="Decor/ParallaxBackground1/Ground"]
-position = Vector2( 531, 1006 )
-scale = Vector2( 0.08, 0.08 )
-texture = ExtResource( 43 )
+position = Vector2( 125, 1036 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 4 )
 
 [node name="Ground2" type="Sprite" parent="Decor/ParallaxBackground1/Ground"]
-position = Vector2( 1360, 1006 )
-scale = Vector2( 0.08, 0.08 )
+position = Vector2( 403, 1036 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 4 )
+
+[node name="Ground3" type="Sprite" parent="Decor/ParallaxBackground1/Ground"]
+position = Vector2( 681, 1036 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 4 )
+
+[node name="Ground4" type="Sprite" parent="Decor/ParallaxBackground1/Ground"]
+position = Vector2( 959, 1036 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 4 )
+
+[node name="Ground5" type="Sprite" parent="Decor/ParallaxBackground1/Ground"]
+position = Vector2( 1237, 1036 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 4 )
+
+[node name="Ground6" type="Sprite" parent="Decor/ParallaxBackground1/Ground"]
+position = Vector2( 1515, 1036 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 4 )
+
+[node name="Ground7" type="Sprite" parent="Decor/ParallaxBackground1/Ground"]
+position = Vector2( 1793, 1036 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 4 )
+
+[node name="3e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
+motion_scale = Vector2( 0.96, 1 )
+
+[node name="House" type="Sprite" parent="Decor/ParallaxBackground1/3e Plan"]
+position = Vector2( 1159, 944.963 )
+scale = Vector2( 0.35, 0.349721 )
+texture = ExtResource( 33 )
+
+[node name="House2" type="Sprite" parent="Decor/ParallaxBackground1/3e Plan"]
+position = Vector2( 1564, 938.963 )
+scale = Vector2( 0.45, 0.45 )
+texture = ExtResource( 33 )
+flip_h = true
+
+[node name="2e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
+
+[node name="House" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
+position = Vector2( 1090, 890 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 36 )
+
+[node name="House3" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
+position = Vector2( 1755, 924 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 53 )
+
+[node name="Debris" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
+position = Vector2( 1459, 958 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 52 )
+
+[node name="House2" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
+position = Vector2( 1361, 915 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 50 )
+
+[node name="1er Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
+position = Vector2( 0, 22 )
+
+[node name="House" type="Sprite" parent="Decor/ParallaxBackground1/1er Plan"]
+position = Vector2( 855, 909 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 49 )
+
+[node name="Roof2" type="Sprite" parent="Decor/ParallaxBackground1/1er Plan"]
+position = Vector2( 952, 944 )
+rotation = 0.223402
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 59 )
+
+[node name="Wall2" type="Sprite" parent="Decor/ParallaxBackground1/1er Plan"]
+position = Vector2( 663, 920 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 54 )
+
+[node name="Debris" type="Sprite" parent="Decor/ParallaxBackground1/1er Plan"]
+position = Vector2( 511, 917 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 58 )
+
+[node name="Wall" type="Sprite" parent="Decor/ParallaxBackground1/1er Plan"]
+position = Vector2( 321, 918 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 48 )
+
+[node name="Roof" type="Sprite" parent="Decor/ParallaxBackground1/1er Plan"]
+position = Vector2( 473, 916 )
+rotation = 0.0436332
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 56 )
+
+[node name="Debris2" type="Sprite" parent="Decor/ParallaxBackground1/1er Plan"]
+position = Vector2( 720, 966 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 57 )
+flip_v = true
+
+[node name="Roof3" type="Sprite" parent="Decor/ParallaxBackground1/1er Plan"]
+position = Vector2( 1197, 966 )
+rotation = 0.0453786
+scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 43 )
 
 [node name="1erPlan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
