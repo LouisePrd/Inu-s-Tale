@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://src/tileset/TileMap.gd" type="Script" id=1]
 [ext_resource path="res://src/characters/player1/Player1.tscn" type="PackedScene" id=2]
@@ -6,271 +6,71 @@
 [ext_resource path="res://src/screens/main_scene/Camera.gd" type="Script" id=4]
 [ext_resource path="res://src/characters/player2/Player2.gd" type="Script" id=5]
 [ext_resource path="res://src/characters/player1/Player1.gd" type="Script" id=6]
-[ext_resource path="res://sprites/encounter/ground.png" type="Texture" id=7]
-[ext_resource path="res://src/characters/npc/NPC.gd" type="Script" id=8]
-[ext_resource path="res://src/characters/npc/NPC.tscn" type="PackedScene" id=9]
-[ext_resource path="res://sprites/encounter/tree1_layer1.png" type="Texture" id=10]
-[ext_resource path="res://sprites/encounter/ruin2_layer1.png" type="Texture" id=11]
-[ext_resource path="res://sprites/encounter/ruin5_layer1.png" type="Texture" id=12]
-[ext_resource path="res://sprites/encounter/ruin4_layer1.png" type="Texture" id=13]
-[ext_resource path="res://sprites/encounter/ruin6_layer1.png" type="Texture" id=14]
-[ext_resource path="res://sprites/encounter/ruin3_layer1.png" type="Texture" id=15]
-[ext_resource path="res://sprites/encounter/rock1_layer1.png" type="Texture" id=16]
-[ext_resource path="res://sprites/encounter/bush1_layer1.png" type="Texture" id=17]
-[ext_resource path="res://sprites/encounter/mountain1_layer0.png" type="Texture" id=18]
-[ext_resource path="res://sprites/encounter/mountain3_layer1.png" type="Texture" id=19]
-[ext_resource path="res://sprites/encounter/tree1_layer-1.png" type="Texture" id=20]
-[ext_resource path="res://sprites/encounter/mountain1_layer1.png" type="Texture" id=21]
-[ext_resource path="res://sprites/encounter/bushes4_layer-2.png" type="Texture" id=22]
-[ext_resource path="res://sprites/encounter/bushes10_layer-2.png" type="Texture" id=23]
-[ext_resource path="res://sprites/encounter/bushes5_layer-2.png" type="Texture" id=24]
-[ext_resource path="res://sprites/encounter/mountain2_layer1.png" type="Texture" id=25]
+[ext_resource path="res://sprites/cataclysm/mountain3.png" type="Texture" id=7]
+[ext_resource path="res://src/characters/npc/Tanuki.gd" type="Script" id=8]
+[ext_resource path="res://src/characters/npc/Tanuki.tscn" type="PackedScene" id=9]
+[ext_resource path="res://sprites/encounter/tree4.png" type="Texture" id=10]
+[ext_resource path="res://sprites/cataclysm/mountain4.png" type="Texture" id=11]
+[ext_resource path="res://sprites/cataclysm/rock1.png" type="Texture" id=12]
+[ext_resource path="res://sprites/cataclysm/rock2.png" type="Texture" id=13]
+[ext_resource path="res://sprites/cataclysm/rock5.png" type="Texture" id=14]
+[ext_resource path="res://sprites/cataclysm/rock4.png" type="Texture" id=15]
+[ext_resource path="res://sprites/cataclysm/rock3.png" type="Texture" id=16]
+[ext_resource path="res://sprites/encounter/tree3.png" type="Texture" id=19]
+[ext_resource path="res://sprites/encounter/tree6.png" type="Texture" id=20]
+[ext_resource path="res://sprites/encounter/tree2.png" type="Texture" id=21]
+[ext_resource path="res://sprites/encounter/tree1.png" type="Texture" id=22]
+[ext_resource path="res://src/screens/enigma/EnigmaArch.tscn" type="PackedScene" id=23]
+[ext_resource path="res://sprites/cataclysm/mountain9.png" type="Texture" id=24]
+[ext_resource path="res://sprites/cataclysm/rock6.png" type="Texture" id=25]
 [ext_resource path="res://src/triggers/Transition.gd" type="Script" id=26]
 [ext_resource path="res://src/screens/dialogues/DialogueEncounter.tscn" type="PackedScene" id=27]
 [ext_resource path="res://src/characters/npc/NPCCollision.gd" type="Script" id=28]
 [ext_resource path="res://sprites/tileset/Tileshet.tres" type="TileSet" id=29]
+[ext_resource path="res://sprites/sky/sky.png" type="Texture" id=30]
+[ext_resource path="res://sprites/sky/cloud_white.png" type="Texture" id=31]
+[ext_resource path="res://sprites/sky/cloud_yellow.png" type="Texture" id=32]
+[ext_resource path="res://src/screens/entrance/CloudLayer.gd" type="Script" id=33]
+[ext_resource path="res://sprites/sky/sun.png" type="Texture" id=34]
+[ext_resource path="res://sprites/cataclysm/mountain8.png" type="Texture" id=35]
+[ext_resource path="res://sprites/cataclysm/mountain6.png" type="Texture" id=36]
+[ext_resource path="res://sprites/cataclysm/ground_yellow.png" type="Texture" id=38]
+[ext_resource path="res://sprites/cataclysm/ground_desert.png" type="Texture" id=39]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 26.6667
-height = 63.3335
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+
+uniform float brightness : hint_range(0.0, 8.0) = 1.0;
+uniform float saturation : hint_range(0.0, 8.0) = 1.0;
+
+
+void fragment() {
+	vec4 input_color = texture(TEXTURE, UV);
+    
+	//Brightness adjustment
+	input_color.rgb = mix(vec3(0.0), input_color.rgb, brightness);
+	
+	//Saturation adjustment	
+    input_color.rgb = mix(vec3(dot(vec3(1.0), input_color.rgb) * 0.33333), input_color.rgb, saturation);
+	
+    COLOR = input_color;
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/brightness = 1.5
+shader_param/saturation = 1.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 160, 172.5 )
 
 [sub_resource type="CircleShape2D" id=2]
 
 [node name="Encounter" type="Node2D"]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="Starter" type="Node2D" parent="."]
 
-[node name="Back" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 1920, 0 )
-
-[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/Back"]
-margin_left = -177.0
-margin_top = -4.0
-margin_right = 1915.0
-margin_bottom = 1032.0
-
-[node name="-3 Plan" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.9, 1 )
-
-[node name="Bushes3" type="Sprite" parent="ParallaxBackground/-3 Plan"]
-position = Vector2( 550, 890 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 23 )
-
-[node name="Bushes2" type="Sprite" parent="ParallaxBackground/-3 Plan"]
-position = Vector2( 1012, 838 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 22 )
-
-[node name="Bushes5" type="Sprite" parent="ParallaxBackground/-3 Plan"]
-position = Vector2( 1391, 870 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 22 )
-flip_h = true
-
-[node name="Bushes" type="Sprite" parent="ParallaxBackground/-3 Plan"]
-position = Vector2( 1699, 905 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 24 )
-
-[node name="-2 Plan" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.93, 1 )
-
-[node name="Mountain" type="Sprite" parent="ParallaxBackground/-2 Plan"]
-position = Vector2( 605.5, 920.3 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 25 )
-
-[node name="Mountain2" type="Sprite" parent="ParallaxBackground/-2 Plan"]
-position = Vector2( 715, 866 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 21 )
-
-[node name="Mountain3" type="Sprite" parent="ParallaxBackground/-2 Plan"]
-position = Vector2( 855.5, 871.3 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 19 )
-
-[node name="Mountain4" type="Sprite" parent="ParallaxBackground/-2 Plan"]
-position = Vector2( 1517, 862 )
-scale = Vector2( 0.11, 0.11 )
-texture = ExtResource( 19 )
-
-[node name="-1 Plan" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.96, 1 )
-
-[node name="Tree" type="Sprite" parent="ParallaxBackground/-1 Plan"]
-position = Vector2( 157, 900 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 20 )
-
-[node name="Ground" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 1920, 0 )
-
-[node name="Ground" type="Sprite" parent="ParallaxBackground/Ground"]
-position = Vector2( 520, 1014 )
-scale = Vector2( 0.08, 0.08 )
-texture = ExtResource( 7 )
-
-[node name="Ground2" type="Sprite" parent="ParallaxBackground/Ground"]
-position = Vector2( 1617, 1014 )
-scale = Vector2( 0.08, 0.08 )
-texture = ExtResource( 7 )
-
-[node name="0 Plan" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Area2D" type="Area2D" parent="ParallaxBackground/0 Plan"]
-position = Vector2( 7.27596e-12, 3.63798e-12 )
-
-[node name="Mountain" type="Sprite" parent="ParallaxBackground/0 Plan/Area2D"]
-position = Vector2( 1258, 787 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 18 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ParallaxBackground/0 Plan/Area2D"]
-visible = false
-position = Vector2( 1260, 605 )
-scale = Vector2( 0.1, 0.1 )
-polygon = PoolVector2Array( -4400, 4300, 4400, 4300, 0, 0 )
-
-[node name="NPC" parent="." groups=["NPC"] instance=ExtResource( 9 )]
-position = Vector2( 767, 982 )
-scale = Vector2( 0.6, 0.6 )
-collision_mask = 2
-script = ExtResource( 8 )
-player1 = NodePath("../Player1")
-player2 = NodePath("../Player2")
-
-[node name="Area2D" type="Area2D" parent="NPC"]
-script = ExtResource( 28 )
-player1 = NodePath("../../Player1")
-player2 = NodePath("../../Player2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2D"]
-position = Vector2( 1.66675, -1.66675 )
-shape = SubResource( 1 )
-
-[node name="DialogueEncounter" parent="NPC/Area2D" instance=ExtResource( 27 )]
-layer = 2
-offset = Vector2( 225, 600 )
-scale = Vector2( 2, 2 )
-transform = Transform2D( 2, 0, 0, 2, 225, 600 )
-player1 = NodePath("../../../Player1")
-player2 = NodePath("../../../Player2")
-tanuki = NodePath("../..")
-
-[node name="Player1" parent="." groups=["Player"] instance=ExtResource( 2 )]
-position = Vector2( 95, 987 )
-scale = Vector2( 0.9, 0.9 )
-collision_mask = 2
-script = ExtResource( 6 )
-player2 = NodePath("../Player2")
-
-[node name="Player2" parent="." groups=["Player"] instance=ExtResource( 3 )]
-position = Vector2( 64, 967 )
-scale = Vector2( 0.8, 0.8 )
-collision_mask = 2
-script = ExtResource( 5 )
-player1 = NodePath("../Player1")
-
-[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
-layer = 1
-
-[node name="Area2DTransition" type="Area2D" parent="ParallaxBackground2"]
-position = Vector2( 1843.95, 996.35 )
-script = ExtResource( 26 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxBackground2/Area2DTransition"]
-shape = SubResource( 2 )
-
-[node name="1 Plan" type="ParallaxLayer" parent="ParallaxBackground2"]
-
-[node name="Rock11" type="Sprite" parent="ParallaxBackground2/1 Plan"]
-position = Vector2( 1446.8, 1010.85 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 12 )
-
-[node name="Rock12" type="Sprite" parent="ParallaxBackground2/1 Plan"]
-position = Vector2( 1549, 1028 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 13 )
-
-[node name="Rock10" type="Sprite" parent="ParallaxBackground2/1 Plan"]
-position = Vector2( 1491, 1040 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 13 )
-
-[node name="Rock14" type="Sprite" parent="ParallaxBackground2/1 Plan"]
-position = Vector2( 1587, 1003 )
-scale = Vector2( 0.078477, 0.0694455 )
-texture = ExtResource( 14 )
-
-[node name="Rock13" type="Sprite" parent="ParallaxBackground2/1 Plan"]
-position = Vector2( 1631.8, 969.85 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 14 )
-
-[node name="Rock" type="Sprite" parent="ParallaxBackground2/1 Plan"]
-position = Vector2( 1004.8, 1006.8 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 11 )
-
-[node name="Rock2" type="Sprite" parent="ParallaxBackground2/1 Plan"]
-position = Vector2( 1058.8, 1011.8 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 15 )
-
-[node name="Rock3" type="Sprite" parent="ParallaxBackground2/1 Plan"]
-position = Vector2( 1183, 1021 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 13 )
-
-[node name="Rock4" type="Sprite" parent="ParallaxBackground2/1 Plan"]
-position = Vector2( 1236.8, 992.8 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 12 )
-
-[node name="Rock5" type="Sprite" parent="ParallaxBackground2/1 Plan"]
-position = Vector2( 1282.8, 1017.8 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 13 )
-
-[node name="Rock6" type="Sprite" parent="ParallaxBackground2/1 Plan"]
-position = Vector2( 1341.8, 959.8 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 14 )
-
-[node name="Rock7" type="Sprite" parent="ParallaxBackground2/1 Plan"]
-position = Vector2( 1383.55, 994.725 )
-scale = Vector2( 0.078477, 0.0694455 )
-texture = ExtResource( 14 )
-
-[node name="2 Plan" type="ParallaxLayer" parent="ParallaxBackground2"]
-
-[node name="Bush" type="Sprite" parent="ParallaxBackground2/2 Plan"]
-position = Vector2( 76, 1002 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 17 )
-
-[node name="Tree" type="Sprite" parent="ParallaxBackground2/2 Plan"]
-position = Vector2( 285, 932 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 10 )
-
-[node name="Rock" type="Sprite" parent="ParallaxBackground2/2 Plan"]
-position = Vector2( 1797.95, 909.35 )
-scale = Vector2( 0.11, 0.11 )
-texture = ExtResource( 16 )
-
-[node name="MultiTargetCamera2D" type="Camera2D" parent="."]
-position = Vector2( 72, 0 )
-limit_left = 0
-limit_top = 0
-limit_right = 1920
-limit_bottom = 1080
-editor_draw_limits = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Starter"]
 position = Vector2( -1, 1 )
 current = true
 limit_left = 0
@@ -280,16 +80,398 @@ limit_bottom = 1035
 limit_smoothed = true
 editor_draw_limits = true
 script = ExtResource( 4 )
-object1 = NodePath("../Player1")
-object2 = NodePath("../Player2")
+object1 = NodePath("../../Decor/Player1")
+object2 = NodePath("../../Decor/Player2")
+
+[node name="Decor" type="Node2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Decor"]
+
+[node name="Sky" type="ParallaxLayer" parent="Decor/ParallaxBackground"]
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Sky" type="Sprite" parent="Decor/ParallaxBackground/Sky"]
+position = Vector2( 1268.1, 507.52 )
+scale = Vector2( 0.18, 0.35 )
+texture = ExtResource( 30 )
+
+[node name="Sun" type="ParallaxLayer" parent="Decor/ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+
+[node name="Sun" type="Sprite" parent="Decor/ParallaxBackground/Sun"]
+position = Vector2( 271, 672 )
+scale = Vector2( 0.18, 0.18 )
+texture = ExtResource( 34 )
+
+[node name="Clouds" type="ParallaxLayer" parent="Decor/ParallaxBackground"]
+motion_mirroring = Vector2( 1920, 0 )
+script = ExtResource( 33 )
+
+[node name="Cloud Yellow3" type="Sprite" parent="Decor/ParallaxBackground/Clouds"]
+position = Vector2( 1683, 652 )
+scale = Vector2( 0.082, 0.08 )
+texture = ExtResource( 32 )
+
+[node name="Cloud Yellow" type="Sprite" parent="Decor/ParallaxBackground/Clouds"]
+position = Vector2( 494, 660 )
+scale = Vector2( 0.16, 0.16 )
+texture = ExtResource( 32 )
+
+[node name="Cloud White" type="Sprite" parent="Decor/ParallaxBackground/Clouds"]
+position = Vector2( 155, 713 )
+scale = Vector2( 0.12, 0.12 )
+texture = ExtResource( 31 )
+
+[node name="Cloud White2" type="Sprite" parent="Decor/ParallaxBackground/Clouds"]
+position = Vector2( 99, 783 )
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 31 )
+
+[node name="Cloud White3" type="Sprite" parent="Decor/ParallaxBackground/Clouds"]
+position = Vector2( 538, 708 )
+scale = Vector2( 0.14, 0.14 )
+texture = ExtResource( 31 )
+
+[node name="Cloud White6" type="Sprite" parent="Decor/ParallaxBackground/Clouds"]
+position = Vector2( 1267, 736 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 31 )
+
+[node name="Cloud White7" type="Sprite" parent="Decor/ParallaxBackground/Clouds"]
+position = Vector2( 1392, 679 )
+scale = Vector2( 0.1, 0.11 )
+texture = ExtResource( 31 )
+
+[node name="Cloud White4" type="Sprite" parent="Decor/ParallaxBackground/Clouds"]
+position = Vector2( 946, 645 )
+scale = Vector2( 0.13, 0.13 )
+texture = ExtResource( 31 )
+
+[node name="Cloud Yellow2" type="Sprite" parent="Decor/ParallaxBackground/Clouds"]
+position = Vector2( 1180, 691 )
+scale = Vector2( 0.112, 0.13 )
+texture = ExtResource( 32 )
+
+[node name="Cloud White5" type="Sprite" parent="Decor/ParallaxBackground/Clouds"]
+position = Vector2( 1668, 663 )
+scale = Vector2( 0.14, 0.14 )
+texture = ExtResource( 31 )
+
+[node name="6e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground"]
+motion_scale = Vector2( 0.8, 1 )
+
+[node name="Mountain" type="Sprite" parent="Decor/ParallaxBackground/6e Plan"]
+position = Vector2( 612, 834 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 35 )
+
+[node name="Mountain2" type="Sprite" parent="Decor/ParallaxBackground/6e Plan"]
+position = Vector2( 1414, 784 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 36 )
+flip_h = true
+
+[node name="5e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground"]
+position = Vector2( 0, 22 )
+motion_scale = Vector2( 0.9, 1 )
+
+[node name="Mountain1" type="Sprite" parent="Decor/ParallaxBackground/5e Plan"]
+position = Vector2( 1025, 809 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 24 )
+flip_h = true
+
+[node name="Mountain2" type="Sprite" parent="Decor/ParallaxBackground/5e Plan"]
+position = Vector2( 1456, 818 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 7 )
+
+[node name="Rock" type="Sprite" parent="Decor/ParallaxBackground/5e Plan"]
+position = Vector2( 1443, 945 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 14 )
+
+[node name="Rock2" type="Sprite" parent="Decor/ParallaxBackground/5e Plan"]
+position = Vector2( 1619, 938 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 25 )
+
+[node name="Rock3" type="Sprite" parent="Decor/ParallaxBackground/5e Plan"]
+position = Vector2( 1106, 959.999 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 13 )
+
+[node name="Rock4" type="Sprite" parent="Decor/ParallaxBackground/5e Plan"]
+position = Vector2( 1159, 942.999 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 12 )
+
+[node name="4e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground"]
+motion_scale = Vector2( 0.95, 1 )
+
+[node name="Tree2" type="Sprite" parent="Decor/ParallaxBackground/4e Plan"]
+position = Vector2( 306, 922 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 22 )
+
+[node name="Tree3" type="Sprite" parent="Decor/ParallaxBackground/4e Plan"]
+position = Vector2( 428, 919 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 19 )
+
+[node name="Tree4" type="Sprite" parent="Decor/ParallaxBackground/4e Plan"]
+position = Vector2( 518, 898 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 20 )
+flip_h = true
+
+[node name="Tree5" type="Sprite" parent="Decor/ParallaxBackground/4e Plan"]
+position = Vector2( 621, 908 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 19 )
+flip_h = true
+
+[node name="Tree6" type="Sprite" parent="Decor/ParallaxBackground/4e Plan"]
+position = Vector2( 679, 927 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 10 )
+
+[node name="Tree7" type="Sprite" parent="Decor/ParallaxBackground/4e Plan"]
+position = Vector2( 246, 909 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+flip_h = true
+
+[node name="Ground" type="ParallaxLayer" parent="Decor/ParallaxBackground"]
+position = Vector2( 0, 6 )
+
+[node name="Ground8" type="Sprite" parent="Decor/ParallaxBackground/Ground"]
+position = Vector2( 125, 1008 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 39 )
+
+[node name="Ground11" type="Sprite" parent="Decor/ParallaxBackground/Ground"]
+position = Vector2( 403, 1008 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 39 )
+
+[node name="Ground12" type="Sprite" parent="Decor/ParallaxBackground/Ground"]
+position = Vector2( 681, 1008 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 39 )
+
+[node name="Ground13" type="Sprite" parent="Decor/ParallaxBackground/Ground"]
+position = Vector2( 959, 1008 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 39 )
+
+[node name="Ground14" type="Sprite" parent="Decor/ParallaxBackground/Ground"]
+position = Vector2( 1237, 1008 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 39 )
+
+[node name="Ground15" type="Sprite" parent="Decor/ParallaxBackground/Ground"]
+position = Vector2( 1515, 1008 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 39 )
+
+[node name="Ground16" type="Sprite" parent="Decor/ParallaxBackground/Ground"]
+position = Vector2( 1793, 1008 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 39 )
+
+[node name="Ground9" type="Sprite" parent="Decor/ParallaxBackground/Ground"]
+position = Vector2( 713, 1014 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 38 )
+
+[node name="Ground10" type="Sprite" parent="Decor/ParallaxBackground/Ground"]
+position = Vector2( 1206, 1014 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 38 )
+
+[node name="Ground" type="Sprite" parent="Decor/ParallaxBackground/Ground"]
+position = Vector2( 125, 1036 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 39 )
+
+[node name="Ground2" type="Sprite" parent="Decor/ParallaxBackground/Ground"]
+position = Vector2( 403, 1036 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 39 )
+
+[node name="Ground3" type="Sprite" parent="Decor/ParallaxBackground/Ground"]
+position = Vector2( 681, 1036 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 39 )
+
+[node name="Ground4" type="Sprite" parent="Decor/ParallaxBackground/Ground"]
+position = Vector2( 959, 1036 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 39 )
+
+[node name="Ground5" type="Sprite" parent="Decor/ParallaxBackground/Ground"]
+position = Vector2( 1237, 1036 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 39 )
+
+[node name="Ground6" type="Sprite" parent="Decor/ParallaxBackground/Ground"]
+position = Vector2( 1515, 1036 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 39 )
+
+[node name="Ground7" type="Sprite" parent="Decor/ParallaxBackground/Ground"]
+position = Vector2( 1793, 1036 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 39 )
+
+[node name="3e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground"]
+motion_scale = Vector2( 0.98, 1 )
+
+[node name="Tree2" type="Sprite" parent="Decor/ParallaxBackground/3e Plan"]
+position = Vector2( 397, 885 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 21 )
+flip_h = true
+
+[node name="Tree5" type="Sprite" parent="Decor/ParallaxBackground/3e Plan"]
+position = Vector2( 485, 878 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 19 )
+flip_h = true
+
+[node name="Tree3" type="Sprite" parent="Decor/ParallaxBackground/3e Plan"]
+position = Vector2( 733, 877 )
+scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 22 )
+flip_h = true
+
+[node name="Tree4" type="Sprite" parent="Decor/ParallaxBackground/3e Plan"]
+position = Vector2( 222, 890 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 22 )
+flip_h = true
+
+[node name="0 Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground"]
+visible = false
+
+[node name="Area2D" type="Area2D" parent="Decor/ParallaxBackground/0 Plan"]
+position = Vector2( 7.27596e-12, 3.63798e-12 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Decor/ParallaxBackground/0 Plan/Area2D"]
+visible = false
+position = Vector2( 1260, 605 )
+scale = Vector2( 0.1, 0.1 )
+polygon = PoolVector2Array( -4400, 4300, 4400, 4300, 0, 0 )
+
+[node name="Tanuki" parent="Decor" groups=["NPC"] instance=ExtResource( 9 )]
+material = SubResource( 5 )
+position = Vector2( 807, 988 )
+scale = Vector2( 0.15, 0.15 )
+collision_mask = 2
+script = ExtResource( 8 )
+player1 = NodePath("../Player1")
+player2 = NodePath("../Player2")
+
+[node name="Area2D" type="Area2D" parent="Decor/Tanuki"]
+script = ExtResource( 28 )
+player1 = NodePath("../../Player1")
+player2 = NodePath("../../Player2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Tanuki/Area2D"]
+position = Vector2( 0, -7.5 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 3 )
+
+[node name="DialogueEncounter" parent="Decor/Tanuki/Area2D" instance=ExtResource( 27 )]
+layer = 2
+visible = false
+offset = Vector2( 225, 600 )
+scale = Vector2( 2, 2 )
+transform = Transform2D( 2, 0, 0, 2, 225, 600 )
+player1 = NodePath("../../../Player1")
+player2 = NodePath("../../../Player2")
+tanuki = NodePath("../..")
+
+[node name="Player1" parent="Decor" groups=["Player"] instance=ExtResource( 2 )]
+position = Vector2( 95, 991 )
+scale = Vector2( 0.9, 0.9 )
+collision_mask = 2
+script = ExtResource( 6 )
+player2 = NodePath("../Player2")
+
+[node name="Player2" parent="Decor" groups=["Player"] instance=ExtResource( 3 )]
+position = Vector2( 64, 971 )
+scale = Vector2( 0.8, 0.8 )
+collision_mask = 2
+script = ExtResource( 5 )
+player1 = NodePath("../Player1")
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="Decor"]
+layer = 1
+
+[node name="Area2DTransition" type="Area2D" parent="Decor/ParallaxBackground2"]
+position = Vector2( 1878.95, 988.35 )
+script = ExtResource( 26 )
+scene = ExtResource( 23 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground2/Area2DTransition"]
+shape = SubResource( 2 )
+
+[node name="2e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
+
+[node name="1er Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
+modulate = Color( 0.529412, 0.529412, 0.529412, 1 )
+motion_scale = Vector2( 1.1, 1 )
+
+[node name="Rock" type="Sprite" parent="Decor/ParallaxBackground2/1er Plan"]
+position = Vector2( 1250, 978 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+
+[node name="Rock3" type="Sprite" parent="Decor/ParallaxBackground2/1er Plan"]
+position = Vector2( 1542, 997 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 16 )
+
+[node name="Rock4" type="Sprite" parent="Decor/ParallaxBackground2/1er Plan"]
+position = Vector2( 991, 1016 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 12 )
+
+[node name="Rock5" type="Sprite" parent="Decor/ParallaxBackground2/1er Plan"]
+position = Vector2( 941, 1031 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 13 )
+
+[node name="Rock6" type="Sprite" parent="Decor/ParallaxBackground2/1er Plan"]
+position = Vector2( 1638, 1015 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 15 )
+
+[node name="Rock7" type="Sprite" parent="Decor/ParallaxBackground2/1er Plan"]
+position = Vector2( 1971, 938 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 11 )
+flip_h = true
+
+[node name="Tree5" type="Sprite" parent="Decor/ParallaxBackground2/1er Plan"]
+position = Vector2( 99, 921 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 20 )
+
+[node name="Tree3" type="Sprite" parent="Decor/ParallaxBackground2/1er Plan"]
+position = Vector2( 219, 911 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 19 )
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2( 0, -15 )
+position = Vector2( 0, -11 )
 tile_set = ExtResource( 29 )
 cell_size = Vector2( 32, 32 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( 2162687, 1, 0, 2097152, 1, 0, 2097153, 1, 0, 2097154, 1, 0, 2097155, 1, 0, 2097156, 1, 0, 2097157, 1, 0, 2097158, 1, 0, 2097159, 1, 0, 2097160, 1, 0, 2097161, 1, 0, 2097162, 1, 0, 2097163, 1, 0, 2097164, 1, 0, 2097165, 1, 0, 2097166, 1, 0, 2097167, 1, 0, 2097168, 1, 0, 2097169, 1, 0, 2097170, 1, 0, 2097171, 1, 0, 2097172, 1, 0, 2097173, 1, 0, 2097174, 1, 0, 2097175, 1, 0, 2097176, 1, 0, 2097177, 1, 0, 2097178, 1, 0, 2097179, 1, 0, 2097180, 1, 0, 2097181, 1, 0, 2097182, 1, 0, 2097183, 1, 0, 2097184, 1, 0, 2097185, 1, 0, 2097186, 1, 0, 2097187, 1, 0, 2097188, 1, 0, 2097189, 1, 0, 2097190, 1, 0, 2097191, 1, 0, 2097192, 1, 0, 2097193, 1, 0, 2097194, 1, 0, 2097195, 1, 0, 2097196, 1, 0, 2097197, 1, 0, 2097198, 1, 0, 2097199, 1, 0, 2097200, 1, 0, 2097201, 1, 0, 2097202, 1, 0, 2097203, 1, 0, 2097204, 1, 0, 2097205, 1, 0, 2097206, 1, 0, 2097207, 1, 0, 2097208, 1, 0, 2097209, 1, 0, 2097210, 1, 0, 2097211, 1, 0, 2097212, 1, 0 )
+tile_data = PoolIntArray( 1966080, 1, 0, 2031616, 1, 0, 2162687, 1, 0, 2097152, 1, 0, 2097153, 1, 0, 2097154, 1, 0, 2097155, 1, 0, 2097156, 1, 0, 2097157, 1, 0, 2097158, 1, 0, 2097159, 1, 0, 2097160, 1, 0, 2097161, 1, 0, 2097162, 1, 0, 2097163, 1, 0, 2097164, 1, 0, 2097165, 1, 0, 2097166, 1, 0, 2097167, 1, 0, 2097168, 1, 0, 2097169, 1, 0, 2097170, 1, 0, 2097171, 1, 0, 2097172, 1, 0, 2097173, 1, 0, 2097174, 1, 0, 2097175, 1, 0, 2097176, 1, 0, 2097177, 1, 0, 2097178, 1, 0, 2097179, 1, 0, 2097180, 1, 0, 2097181, 1, 0, 2097182, 1, 0, 2097183, 1, 0, 2097184, 1, 0, 2097185, 1, 0, 2097186, 1, 0, 2097187, 1, 0, 2097188, 1, 0, 2097189, 1, 0, 2097190, 1, 0, 2097191, 1, 0, 2097192, 1, 0, 2097193, 1, 0, 2097194, 1, 0, 2097195, 1, 0, 2097196, 1, 0, 2097197, 1, 0, 2097198, 1, 0, 2097199, 1, 0, 2097200, 1, 0, 2097201, 1, 0, 2097202, 1, 0, 2097203, 1, 0, 2097204, 1, 0, 2097205, 1, 0, 2097206, 1, 0, 2097207, 1, 0, 2097208, 1, 0, 2097209, 1, 0, 2097210, 1, 0, 2097211, 1, 0, 2097212, 1, 0 )
 script = ExtResource( 1 )
 
-[connection signal="body_entered" from="ParallaxBackground2/Area2DTransition" to="ParallaxBackground2/Area2DTransition" method="_on_Area2DTransition_body_entered"]
+[connection signal="body_entered" from="Decor/ParallaxBackground2/Area2DTransition" to="Decor/ParallaxBackground2/Area2DTransition" method="_on_Area2DTransition_body_entered"]

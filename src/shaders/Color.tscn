@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float brightness : hint_range(0.0, 8.0) = 1.0;
+uniform float saturation : hint_range(0.0, 8.0) = 1.0;
+
+
+void fragment() {
+	vec4 input_color = texture(TEXTURE, UV);
+	
+	//Brightness adjustment
+	input_color.rgb = mix(vec3(0.0), input_color.rgb, brightness);
+	
+	//Saturation adjustment	
+	input_color.rgb = mix(vec3(dot(vec3(1.0), input_color.rgb) * 0.33333), input_color.rgb, saturation);
+	
+	COLOR = input_color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/brightness = 1.5
+shader_param/saturation = 1.0
+
+[node name="Node2D" type="ColorRect"]
+material = SubResource( 2 )
