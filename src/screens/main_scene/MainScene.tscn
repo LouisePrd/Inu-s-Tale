@@ -152,8 +152,8 @@ player1 = NodePath("../Entrance/Player1")
 player2 = NodePath("../Entrance/Player2")
 
 [node name="DialoguePlayer" parent="NPC" instance=ExtResource( 7 )]
-offset = Vector2( 450, 863 )
-transform = Transform2D( 2, 0, 0, 2, 450, 863 )
+offset = Vector2( 485, 863 )
+transform = Transform2D( 2, 0, 0, 2, 485, 863 )
 player1 = NodePath("../../Entrance/Player1")
 player2 = NodePath("../../Entrance/Player2")
 

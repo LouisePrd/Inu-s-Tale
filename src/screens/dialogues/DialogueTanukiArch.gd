@@ -7,13 +7,15 @@ export (NodePath) var iconParchment
 export (NodePath) var explainLabel
 
 var dialogue_file = [
-	{"name": "Nao", "text": "Dis-nous tout s’il te plait !"},
-	{"name": "Tanuki", "text": "Un peu de patience, jeune homme. Pour atteindre le sommet de cette montagne, vous devez prouver votre valeur en passant une série d’énigmes."},
+	{"name": "Nao", "text": "Tanuki, dis-nous tout, s’il te plait !"},
+	{"name": "Tanuki", "text": "Un peu de patience, jeune homme."},
+	{"name": "Tanuki", "text": "Pour atteindre le sommet de cette montagne, vous devez prouver votre valeur en solvant une énigme."},	
 	{"name": "Tanuki", "text": "C'est votre chance de démontrer votre force et votre intelligence aux gardiens du royaume des Yokai."},
-	{"name": "Inu", "text": "Des énigmes ? Qu'est-ce que cela implique exactement, Tanuki ?"},
-	{"name": "Tanuki", "text": "Vous le comprendrez en temps voulu. "},	
-	{"name": "Tanuki", "text": "Voici un parchemin précieux dans lequel vous trouvez toutes les informations dont vous avez besoin pour le moment."},
-	{"name": "Tanuki", "text": "Gardez le précieusement et lisez le attentivement pour trouver votre chemin. Bon courage."},		
+	{"name": "Inu", "text": "Une énigme ?"},
+	{"name": "Tanuki", "text": "Vous le comprendrez en temps voulu."},	
+	{"name": "Tanuki", "text": "Tenez, ce parchemin."},
+	{"name": "Tanuki", "text": "Gardez le précieusement et lisez le attentivement pour trouver votre chemin."},	
+	{"name": "Tanuki", "text": "Bonne route."},		
 ]
 
 var dialogues = []
