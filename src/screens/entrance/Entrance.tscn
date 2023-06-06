@@ -60,7 +60,6 @@ texture = ExtResource( 11 )
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 1920, 0 )
 script = ExtResource( 36 )
-CLOUD_SPEED = -5.0
 
 [node name="Cloud Yellow3" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2( 1683, 652 )
