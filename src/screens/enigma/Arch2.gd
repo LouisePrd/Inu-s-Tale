@@ -17,7 +17,6 @@ func _ready() -> void:
 
 
 func _on_Area2D_body_entered(_body) -> void:
-	print('entrée :' + _body.name)
 	if _body.name == "Player1":
 		player1_enter = true
 	if _body.name == "Player2":
@@ -29,7 +28,6 @@ func _on_Area2D_body_entered(_body) -> void:
 
 
 func _on_Area2D_body_exited(_body) -> void:
-	print('sort')
 	if _body.name == "Player1":
 		player1_enter = false
 	if _body.name == "Player2":
@@ -42,3 +40,8 @@ func outline_alpha(value: float) -> void:
 	line_color.a = value
 	material.set_shader_param("line_color", line_color)
 
+func _input(event):
+	if event.is_action_pressed("Enter"):
+		if player1_enter == true and player2_enter == true:
+			print(self.name)
+		

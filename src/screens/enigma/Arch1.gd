@@ -17,7 +17,6 @@ func _ready() -> void:
 
 
 func _on_Area2D_body_entered(_body) -> void:
-	print('entrée :' + _body.name)
 	if _body.name == "Player1":
 		player1_enter = true
 	if _body.name == "Player2":
@@ -29,7 +28,6 @@ func _on_Area2D_body_entered(_body) -> void:
 
 
 func _on_Area2D_body_exited(_body) -> void:
-	print('sort')
 	if _body.name == "Player1":
 		player1_enter = false
 	if _body.name == "Player2":
@@ -44,7 +42,6 @@ func outline_alpha(value: float) -> void:
 
 func _input(event):
 	if event.is_action_pressed("Enter"):
-		print('press')
 		if player1_enter == true and player2_enter == true:
 			print(self.name)
 		

@@ -58,7 +58,6 @@ scale = Vector2( 0.18, 0.18 )
 texture = ExtResource( 11 )
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.85, 1 )
 motion_mirroring = Vector2( 1920, 0 )
 script = ExtResource( 36 )
 CLOUD_SPEED = -5.0
