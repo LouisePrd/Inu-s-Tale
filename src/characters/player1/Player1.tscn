@@ -26,13 +26,12 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 17.5, 32.9 )
 
 [sub_resource type="DynamicFont" id=13]
 size = 11
 font_data = ExtResource( 12 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 17.5, 32.9 )
 
 [node name="Player1" type="KinematicBody2D"]
 
