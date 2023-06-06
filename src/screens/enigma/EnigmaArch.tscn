@@ -1,30 +1,29 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=60 format=2]
 
-[ext_resource path="res://sprites/enigma/triangles_layer1.png" type="Texture" id=1]
-[ext_resource path="res://sprites/enigma/mountain1_layer-3.png" type="Texture" id=2]
-[ext_resource path="res://sprites/enigma/tree2_layer-4.png" type="Texture" id=3]
-[ext_resource path="res://sprites/enigma/tree1_layer-5.png" type="Texture" id=4]
-[ext_resource path="res://sprites/enigma/bushes1_layer-4.png" type="Texture" id=5]
-[ext_resource path="res://sprites/cataclysm/ground.png" type="Texture" id=6]
+[ext_resource path="res://sprites/enigma/Arbre-7.png" type="Texture" id=1]
+[ext_resource path="res://sprites/enigma/rocher3_layer-2.png" type="Texture" id=2]
+[ext_resource path="res://sprites/enigma/rocher3_layer-3.png" type="Texture" id=3]
+[ext_resource path="res://sprites/enigma/rocher1_layer-1.png" type="Texture" id=4]
+[ext_resource path="res://sprites/enigma/Arbre-2.png" type="Texture" id=5]
+[ext_resource path="res://sprites/enigma/Sol.png" type="Texture" id=6]
 [ext_resource path="res://src/screens/main_scene/Camera.gd" type="Script" id=7]
-[ext_resource path="res://sprites/enigma/bush_layer1.png" type="Texture" id=8]
-[ext_resource path="res://sprites/enigma/rock1_layer1.png" type="Texture" id=9]
-[ext_resource path="res://sprites/enigma/tree1_layer-33.png" type="Texture" id=10]
+[ext_resource path="res://sprites/enigma/Arbre-6.png" type="Texture" id=8]
+[ext_resource path="res://sprites/enigma/Arbre-5.png" type="Texture" id=9]
+[ext_resource path="res://sprites/enigma/rocher2_layer-1.png" type="Texture" id=10]
 [ext_resource path="res://src/characters/player2/Player2.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/characters/player1/Player1.tscn" type="PackedScene" id=12]
-[ext_resource path="res://sprites/enigma/tree1_layer-4.png" type="Texture" id=13]
-[ext_resource path="res://sprites/cataclysm/background.png" type="Texture" id=14]
-[ext_resource path="res://sprites/enigma/tree3_layer-4.png" type="Texture" id=15]
+[ext_resource path="res://sprites/enigma/rocher1_layer-2.png" type="Texture" id=13]
+[ext_resource path="res://sprites/enigma/ciel.png" type="Texture" id=14]
 [ext_resource path="res://src/characters/player1/Player1.gd" type="Script" id=16]
-[ext_resource path="res://sprites/enigma/torii1_layer-2.png" type="Texture" id=17]
+[ext_resource path="res://sprites/enigma/Tori-2.png" type="Texture" id=17]
 [ext_resource path="res://src/characters/player2/Player2.gd" type="Script" id=18]
-[ext_resource path="res://sprites/enigma/torii2_layer-2.png" type="Texture" id=19]
-[ext_resource path="res://sprites/enigma/torii3_layer-2.png" type="Texture" id=20]
+[ext_resource path="res://sprites/enigma/Tori-1.png" type="Texture" id=19]
+[ext_resource path="res://sprites/enigma/Tori-3.png" type="Texture" id=20]
 [ext_resource path="res://src/screens/enigma/TanukiArch.gd" type="Script" id=21]
 [ext_resource path="res://sprites/characters/tanuki-cycle_0001.png" type="Texture" id=22]
 [ext_resource path="res://src/screens/dialogues/DialogueTanukiArch.gd" type="Script" id=23]
 [ext_resource path="res://src/screens/dialogues/DialogueTanukiArch.tscn" type="PackedScene" id=24]
-[ext_resource path="res://sprites/cataclysm/moutain_layer-2.png" type="Texture" id=25]
+[ext_resource path="res://sprites/enigma/rocher3_layer-1.png" type="Texture" id=25]
 [ext_resource path="res://src/screens/enigma/TanukiBody.gd" type="Script" id=26]
 [ext_resource path="res://fonts/Formal436BT.ttf" type="DynamicFontData" id=27]
 [ext_resource path="res://sprites/enigma/parchment-color.png" type="Texture" id=28]
@@ -36,6 +35,13 @@
 [ext_resource path="res://src/screens/enigma/Arch3.gd" type="Script" id=34]
 [ext_resource path="res://src/tileset/TileMap.gd" type="Script" id=35]
 [ext_resource path="res://sprites/tileset/Tileshet.tres" type="TileSet" id=36]
+[ext_resource path="res://sprites/enigma/rocher4_layer-1.png" type="Texture" id=37]
+[ext_resource path="res://sprites/enigma/rocher4_layer-3.png" type="Texture" id=38]
+[ext_resource path="res://sprites/enigma/rocher5_layer-1.png" type="Texture" id=39]
+[ext_resource path="res://sprites/enigma/rocher2_layer-2.png" type="Texture" id=40]
+[ext_resource path="res://sprites/enigma/rocher1_layer-3.png" type="Texture" id=41]
+[ext_resource path="res://sprites/enigma/Arbre-1.png" type="Texture" id=42]
+[ext_resource path="res://sprites/enigma/rocher2_layer-3.png" type="Texture" id=43]
 
 [sub_resource type="StreamTexture" id=6]
 flags = 4
@@ -103,10 +109,10 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id=11]
 shader = SubResource( 19 )
 shader_param/line_color = Color( 1, 0, 0, 1 )
-shader_param/line_thickness = 10.0
+shader_param/line_thickness = 3.0
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 875.289, 834.511 )
+extents = Vector2( 310.129, 304.462 )
 
 [sub_resource type="Shader" id=20]
 code = "shader_type canvas_item;
@@ -135,10 +141,10 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id=14]
 shader = SubResource( 20 )
 shader_param/line_color = Color( 1, 0, 0, 1 )
-shader_param/line_thickness = 10.0
+shader_param/line_thickness = 3.0
 
 [sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 999.872, 1086.22 )
+extents = Vector2( 295.673, 313.717 )
 
 [sub_resource type="Shader" id=21]
 code = "shader_type canvas_item;
@@ -167,10 +173,10 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id=9]
 shader = SubResource( 21 )
 shader_param/line_color = Color( 1, 0.0980392, 0, 1 )
-shader_param/line_thickness = 10.0
+shader_param/line_thickness = 3.0
 
 [sub_resource type="RectangleShape2D" id=16]
-extents = Vector2( 819.139, 1006.86 )
+extents = Vector2( 250.242, 260.057 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -198,7 +204,7 @@ object1 = NodePath("../../Decor/Player1")
 object2 = NodePath("../../Decor/Player2")
 
 [node name="TileMap" type="TileMap" parent="Starter"]
-position = Vector2( 1, -53 )
+position = Vector2( 1, -39 )
 tile_set = ExtResource( 36 )
 cell_size = Vector2( 32, 32 )
 show_collision = true
@@ -307,29 +313,19 @@ layer = 1
 motion_scale = Vector2( 1.5, 1 )
 
 [node name="Bush" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
-position = Vector2( 1372.97, 1001.34 )
-scale = Vector2( 0.114803, 0.119121 )
-texture = ExtResource( 8 )
-
-[node name="Triangles" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
-position = Vector2( 720, 957.204 )
-scale = Vector2( 0.126685, 0.144064 )
-texture = ExtResource( 1 )
-
-[node name="Rock" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
-position = Vector2( 2325, 819.071 )
-scale = Vector2( 0.195611, 0.102583 )
-texture = ExtResource( 9 )
+position = Vector2( 1434, 1002 )
+scale = Vector2( 0.793677, 0.823529 )
+texture = ExtResource( 4 )
 
 [node name="Player1" parent="Decor" groups=["Player"] instance=ExtResource( 12 )]
-position = Vector2( 100, 955 )
+position = Vector2( 100, 964 )
 scale = Vector2( 1.4, 1.4 )
 collision_mask = 2
 script = ExtResource( 16 )
 player2 = NodePath("../Player2")
 
 [node name="Player2" parent="Decor" groups=["Player"] instance=ExtResource( 11 )]
-position = Vector2( 45, 911 )
+position = Vector2( 45, 920 )
 scale = Vector2( 1.4, 1.4 )
 collision_mask = 2
 script = ExtResource( 18 )
@@ -341,97 +337,125 @@ player1 = NodePath("../Player1")
 motion_mirroring = Vector2( 1920, 0 )
 
 [node name="Background" type="Sprite" parent="Decor/ParallaxBackground1/Back"]
-position = Vector2( 933, 498 )
-scale = Vector2( 5.01515, 7.71346 )
+position = Vector2( 2094, 529 )
+scale = Vector2( 0.90979, 1.84931 )
 texture = ExtResource( 14 )
+
+[node name="Arbre" type="Sprite" parent="Decor/ParallaxBackground1/Back"]
+position = Vector2( 1161, 598 )
+scale = Vector2( 0.378781, 0.505595 )
+texture = ExtResource( 8 )
+offset = Vector2( -508.625, 606.301 )
 
 [node name="3e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
 motion_scale = Vector2( 1.12, 1 )
 motion_mirroring = Vector2( 1820, 0 )
 
 [node name="Mountain4" type="Sprite" parent="Decor/ParallaxBackground1/3e Plan"]
-position = Vector2( 353, 540 )
-scale = Vector2( 0.111503, 0.238737 )
-texture = ExtResource( 25 )
+position = Vector2( 662.903, 255 )
+scale = Vector2( 0.690351, 0.898058 )
+texture = ExtResource( 41 )
 offset = Vector2( -508.625, 606.301 )
 
 [node name="Mountain3" type="Sprite" parent="Decor/ParallaxBackground1/3e Plan"]
-position = Vector2( 1333.5, 666 )
-scale = Vector2( 0.18148, 0.257011 )
-texture = ExtResource( 25 )
+position = Vector2( 894, 813 )
+scale = Vector2( 0.641648, 0.908699 )
+texture = ExtResource( 43 )
 
 [node name="Mountain2" type="Sprite" parent="Decor/ParallaxBackground1/3e Plan"]
-position = Vector2( 838, 571 )
-scale = Vector2( 0.141317, 0.219391 )
-texture = ExtResource( 25 )
+position = Vector2( 1705, 421 )
+scale = Vector2( 0.415933, 0.645725 )
+texture = ExtResource( 3 )
 offset = Vector2( -508.625, 606.301 )
 
 [node name="Mountain" type="Sprite" parent="Decor/ParallaxBackground1/3e Plan"]
-position = Vector2( 22, 747.5 )
-scale = Vector2( 0.166966, 0.199391 )
-texture = ExtResource( 25 )
+position = Vector2( 1496, 847 )
+scale = Vector2( 0.563964, 0.673487 )
+texture = ExtResource( 38 )
+
+[node name="Arbre" type="Sprite" parent="Decor/ParallaxBackground1/3e Plan"]
+position = Vector2( 361.437, 550.414 )
+scale = Vector2( 0.378781, 0.505595 )
+texture = ExtResource( 8 )
+offset = Vector2( -508.625, 606.301 )
+
+[node name="Arbre2" type="Sprite" parent="Decor/ParallaxBackground1/3e Plan"]
+position = Vector2( 970.219, 544 )
+scale = Vector2( 0.410706, 0.505595 )
+texture = ExtResource( 42 )
+offset = Vector2( -508.625, 606.301 )
 
 [node name="2e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
 
-[node name="Arbre1" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
-position = Vector2( 210.363, 813.717 )
-scale = Vector2( 0.123988, 0.123988 )
+[node name="Rocher1" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
+position = Vector2( 289.576, 925.75 )
+scale = Vector2( 0.335714, 0.335714 )
 texture = ExtResource( 13 )
 flip_h = true
 
-[node name="Arbre3" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
-position = Vector2( 679, 791 )
-scale = Vector2( 0.110568, 0.110568 )
-texture = ExtResource( 3 )
+[node name="Rocher2" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
+position = Vector2( 617, 921.05 )
+scale = Vector2( 0.439216, 0.384233 )
+texture = ExtResource( 40 )
 
-[node name="Arbre2" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
-position = Vector2( 641, 896 )
-scale = Vector2( 0.124588, 0.124588 )
+[node name="Rocher3" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
+position = Vector2( 1375.6, 916.479 )
+scale = Vector2( 0.352397, 0.352397 )
+texture = ExtResource( 2 )
+
+[node name="Arbre1" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
+position = Vector2( 1775, 821 )
+scale = Vector2( 0.441473, 0.441473 )
 texture = ExtResource( 5 )
 
-[node name="Arbre5" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
-position = Vector2( 1758, 881 )
-scale = Vector2( 0.140644, 0.140644 )
-texture = ExtResource( 4 )
+[node name="Arbre2" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
+position = Vector2( 1726, 914 )
+scale = Vector2( 0.427133, 0.250679 )
+texture = ExtResource( 9 )
 
-[node name="Arbre4" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
-position = Vector2( 1518, 821 )
-scale = Vector2( 0.12664, 0.12664 )
-texture = ExtResource( 15 )
+[node name="Arbre3" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
+position = Vector2( 479, 900 )
+scale = Vector2( 0.609912, 0.609912 )
+texture = ExtResource( 1 )
 
 [node name="1erPlan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
 motion_scale = Vector2( 1.2, 1 )
 
-[node name="Mountain2" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
-position = Vector2( 251.5, 906.112 )
-scale = Vector2( 0.0425791, 0.0520985 )
-texture = ExtResource( 2 )
+[node name="Rocher1" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
+position = Vector2( 402.65, 923.37 )
+scale = Vector2( 0.522918, 0.774778 )
+texture = ExtResource( 10 )
 
-[node name="Mountain1" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
-position = Vector2( 129.285, 865.66 )
-scale = Vector2( 0.0444133, 0.0658047 )
-texture = ExtResource( 2 )
+[node name="Rocher2" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
+position = Vector2( 126.201, 975.632 )
+scale = Vector2( 0.829328, 1.16564 )
+texture = ExtResource( 4 )
 
-[node name="Mountain3" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
-position = Vector2( 413.573, 835.037 )
-scale = Vector2( 0.0547641, 0.0853204 )
-texture = ExtResource( 2 )
+[node name="Rocher3" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
+position = Vector2( 858, 944 )
+scale = Vector2( 0.645956, 0.79949 )
+texture = ExtResource( 25 )
 
-[node name="Main-Mountain" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
-position = Vector2( 1034, 780 )
-scale = Vector2( 0.1201, 0.119903 )
-texture = ExtResource( 2 )
+[node name="Rocher4" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
+position = Vector2( 1031.74, 959.394 )
+scale = Vector2( 0.526873, 0.820849 )
+texture = ExtResource( 37 )
+
+[node name="Rocher5" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
+position = Vector2( 1767.25, 955.147 )
+scale = Vector2( 0.851474, 0.850077 )
+texture = ExtResource( 39 )
 
 [node name="Tree" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
-position = Vector2( 1481, 844 )
-scale = Vector2( 0.105139, 0.105139 )
-texture = ExtResource( 10 )
+position = Vector2( 1561, 853 )
+scale = Vector2( 0.460569, 0.468876 )
+texture = ExtResource( 42 )
 
 [node name="Arch1" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
 material = SubResource( 11 )
-position = Vector2( 684.886, 837.5 )
-scale = Vector2( 0.153378, 0.188134 )
-texture = ExtResource( 17 )
+position = Vector2( 639.692, 854 )
+scale = Vector2( 0.596526, 0.573333 )
+texture = ExtResource( 19 )
 script = ExtResource( 29 )
 line_color = Color( 1, 0, 0, 1 )
 choixArche = NodePath("../../../../Enigma-Game/CanvasLayerParchment/choixArche")
@@ -440,15 +464,15 @@ choixArche = NodePath("../../../../Enigma-Game/CanvasLayerParchment/choixArche")
 physics_interpolation_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground1/1erPlan/Arch1/Area2D"]
-position = Vector2( -943.003, 82.3867 )
+position = Vector2( -44.7465, 26.4204 )
 scale = Vector2( 0.999999, 1 )
 shape = SubResource( 12 )
 
 [node name="Arch2" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
 material = SubResource( 14 )
-position = Vector2( 989.903, 834 )
-scale = Vector2( 0.166544, 0.165021 )
-texture = ExtResource( 19 )
+position = Vector2( 984, 855 )
+scale = Vector2( 0.571578, 0.558416 )
+texture = ExtResource( 17 )
 script = ExtResource( 33 )
 line_color = Color( 1, 0, 0, 1 )
 choixArche = NodePath("../../../../Enigma-Game/CanvasLayerParchment/choixArche")
@@ -456,13 +480,14 @@ choixArche = NodePath("../../../../Enigma-Game/CanvasLayerParchment/choixArche")
 [node name="Area2D" type="Area2D" parent="Decor/ParallaxBackground1/1erPlan/Arch2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground1/1erPlan/Arch2/Area2D"]
-position = Vector2( 18.1787, 265.118 )
+position = Vector2( 0.177124, 30.1125 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 15 )
 
 [node name="Arch3" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
 material = SubResource( 9 )
-position = Vector2( 1286.49, 839 )
-scale = Vector2( 0.14851, 0.171324 )
+position = Vector2( 1331, 846 )
+scale = Vector2( 0.639381, 0.609481 )
 texture = ExtResource( 20 )
 script = ExtResource( 34 )
 line_color = Color( 1, 0, 0, 1 )
@@ -471,18 +496,13 @@ choixArche = NodePath("../../../../Enigma-Game/CanvasLayerParchment/choixArche")
 [node name="Area2D" type="Area2D" parent="Decor/ParallaxBackground1/1erPlan/Arch3"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground1/1erPlan/Arch3/Area2D"]
-position = Vector2( 19.2578, 172.188 )
+position = Vector2( 1.56396, 11.4852 )
 shape = SubResource( 16 )
 
 [node name="Ground" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
 motion_mirroring = Vector2( 1920, 0 )
 
 [node name="Ground" type="Sprite" parent="Decor/ParallaxBackground1/Ground"]
-position = Vector2( 554.64, 994.5 )
-scale = Vector2( 0.11, 0.117481 )
-texture = ExtResource( 6 )
-
-[node name="Ground2" type="Sprite" parent="Decor/ParallaxBackground1/Ground"]
-position = Vector2( 1016.14, 995 )
-scale = Vector2( 0.143198, 0.120301 )
+position = Vector2( 1137.64, 1037 )
+scale = Vector2( 0.487887, 0.871428 )
 texture = ExtResource( 6 )
