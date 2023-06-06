@@ -1,6 +1,6 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=37 format=2]
 
-[ext_resource path="res://sprites/cave/top_layer-1.png" type="Texture" id=1]
+[ext_resource path="res://sprites/cave/top_layer-1-3.png" type="Texture" id=1]
 [ext_resource path="res://src/characters/player1/Player1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/characters/player2/Player2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/characters/player1/Player1.gd" type="Script" id=4]
@@ -11,16 +11,12 @@
 [ext_resource path="res://sprites/tileset/Tileshet.tres" type="TileSet" id=9]
 [ext_resource path="res://sprites/cave/tanuki-statue_layer-2.png" type="Texture" id=10]
 [ext_resource path="res://sprites/cave/frame_tanuki-layer2.png" type="Texture" id=11]
-[ext_resource path="res://sprites/cave/stalactite3_layer-2.png" type="Texture" id=12]
-[ext_resource path="res://sprites/cave/stalactite2_layer-2.png" type="Texture" id=13]
-[ext_resource path="res://sprites/cave/stalactite4_layer-2.png" type="Texture" id=14]
-[ext_resource path="res://sprites/cave/triangle2_layer-3.png" type="Texture" id=15]
-[ext_resource path="res://sprites/cave/stalactite1_layer-2.png" type="Texture" id=16]
+[ext_resource path="res://sprites/cave/background-2.png" type="Texture" id=12]
+[ext_resource path="res://sprites/cave/background-3.png" type="Texture" id=13]
 [ext_resource path="res://sprites/cave/bottom_layer-1.png" type="Texture" id=17]
 [ext_resource path="res://sprites/cave/background.png" type="Texture" id=18]
-[ext_resource path="res://sprites/cave/stairs_layer-2.png" type="Texture" id=19]
 [ext_resource path="res://src/screens/cave/TanukiStatue.gd" type="Script" id=20]
-[ext_resource path="res://sprites/cave/bottom_layer-1-v2.png" type="Texture" id=21]
+[ext_resource path="res://sprites/cave/top_layer-1-2.png" type="Texture" id=21]
 [ext_resource path="res://fonts/Formal436BT.ttf" type="DynamicFontData" id=22]
 [ext_resource path="res://sprites/dialogues/inu-dialogue.png" type="Texture" id=23]
 [ext_resource path="res://sprites/dialogues/name.png" type="Texture" id=24]
@@ -28,6 +24,8 @@
 [ext_resource path="res://sprites/dialogues/nao-dialogue.png" type="Texture" id=26]
 [ext_resource path="res://src/screens/cave/DialogueStatue.gd" type="Script" id=27]
 [ext_resource path="res://src/screens/cave/TanukiFrame.gd" type="Script" id=28]
+[ext_resource path="res://src/screens/cave/DialogueFrame.gd" type="Script" id=29]
+[ext_resource path="res://sprites/cave/top_layer-1-1.png" type="Texture" id=30]
 
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 1125.53, 885.42 )
@@ -35,9 +33,6 @@ extents = Vector2( 1125.53, 885.42 )
 [sub_resource type="DynamicFont" id=2]
 size = 26
 font_data = ExtResource( 22 )
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1131.51, 1179.98 )
 
 [sub_resource type="DynamicFont" id=7]
 font_data = ExtResource( 22 )
@@ -61,6 +56,9 @@ font_path = "res://fonts/Formal436BT.ttf"
 [sub_resource type="DynamicFont" id=11]
 size = 26
 font_data = SubResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1131.51, 1179.98 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -113,30 +111,29 @@ layer = 1
 motion_scale = Vector2( 1.5, 1 )
 
 [node name="top" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
-position = Vector2( 940, 634 )
-scale = Vector2( 0.128603, 0.0674427 )
-texture = ExtResource( 1 )
+position = Vector2( 529, 830 )
+scale = Vector2( 0.357907, 0.192248 )
+texture = ExtResource( 30 )
 
 [node name="top2" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
-position = Vector2( 2844, 611 )
-rotation = 3.14159
-scale = Vector2( 0.128603, 0.0674427 )
+position = Vector2( 1018, 647 )
+scale = Vector2( 0.224779, 0.11788 )
 texture = ExtResource( 1 )
 
 [node name="bottom" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
-position = Vector2( 1384, 944 )
-scale = Vector2( 0.189471, 0.0912025 )
-texture = ExtResource( 17 )
+position = Vector2( 1503.25, 864.5 )
+scale = Vector2( 0.310735, 0.201602 )
+texture = ExtResource( 21 )
 
 [node name="bottom2" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
-position = Vector2( 1170.98, 935 )
-scale = Vector2( 0.198512, 0.113095 )
-texture = ExtResource( 21 )
+position = Vector2( 1120, 989.659 )
+scale = Vector2( 0.149176, 0.107632 )
+texture = ExtResource( 17 )
 
 [node name="bottom3" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
-position = Vector2( 1296.5, 990.494 )
-scale = Vector2( 0.21877, 0.0748231 )
-texture = ExtResource( 21 )
+position = Vector2( 1954, 996 )
+scale = Vector2( 0.149176, 0.0849878 )
+texture = ExtResource( 17 )
 
 [node name="Player1" parent="Decor" groups=["Player"] instance=ExtResource( 2 )]
 position = Vector2( 100, 955 )
@@ -158,21 +155,17 @@ player1 = NodePath("../Player1")
 motion_mirroring = Vector2( 1920, 0 )
 
 [node name="Background" type="Sprite" parent="Decor/ParallaxBackground1/Back"]
-position = Vector2( 975, 838 )
-scale = Vector2( 0.136378, 0.209754 )
+position = Vector2( 933.266, 805 )
+scale = Vector2( 0.18156, 0.225177 )
 texture = ExtResource( 18 )
 
 [node name="Back2" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
 
-[node name="BackgroundTringle" type="Sprite" parent="Decor/ParallaxBackground1/Back2"]
-position = Vector2( 155.375, 659.921 )
-scale = Vector2( 0.191282, 0.176826 )
-texture = ExtResource( 15 )
-
-[node name="BackgroundTringle2" type="Sprite" parent="Decor/ParallaxBackground1/Back2"]
-position = Vector2( 2041, 611.152 )
-scale = Vector2( 0.186405, 0.205601 )
-texture = ExtResource( 15 )
+[node name="Stalactite1" type="Sprite" parent="Decor/ParallaxBackground1/Back2"]
+position = Vector2( 927.632, 806.768 )
+scale = Vector2( 0.192934, 0.229778 )
+texture = ExtResource( 12 )
+flip_h = true
 
 [node name="tanuki-frame" type="Sprite" parent="Decor/ParallaxBackground1/Back2"]
 position = Vector2( 1506, 811 )
@@ -180,7 +173,7 @@ scale = Vector2( 0.149541, 0.137223 )
 texture = ExtResource( 11 )
 script = ExtResource( 28 )
 examinerTexte = NodePath("CanvasLayer/Examiner")
-canvasInteraction = NodePath("CanvasLayer")
+canvasInteraction = NodePath("../CanvasLayer")
 
 [node name="Area2D" type="Area2D" parent="Decor/ParallaxBackground1/Back2/tanuki-frame"]
 
@@ -199,28 +192,75 @@ margin_bottom = 1033.0
 custom_fonts/normal_font = SubResource( 2 )
 text = "[ Appuyez sur A pour examiner ]"
 
-[node name="2e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Decor/ParallaxBackground1/Back2"]
+script = ExtResource( 29 )
+player1 = NodePath("../../../Player1")
+player2 = NodePath("../../../Player2")
 
-[node name="Stalactite1" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
-position = Vector2( 207, 676 )
-scale = Vector2( 0.150017, 0.143993 )
-texture = ExtResource( 16 )
-flip_h = true
+[node name="Inu-Sprite" type="Sprite" parent="Decor/ParallaxBackground1/Back2/CanvasLayer"]
+position = Vector2( 1372, 885 )
+scale = Vector2( 0.169503, 0.169502 )
+texture = ExtResource( 23 )
+
+[node name="Nao-Sprite" type="Sprite" parent="Decor/ParallaxBackground1/Back2/CanvasLayer"]
+position = Vector2( 595, 865 )
+scale = Vector2( 0.449693, 0.449693 )
+texture = ExtResource( 26 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Decor/ParallaxBackground1/Back2/CanvasLayer"]
+margin_left = 569.0
+margin_top = 850.0
+margin_right = 1427.0
+margin_bottom = 1058.0
+texture = ExtResource( 25 )
+
+[node name="BackName" type="Sprite" parent="Decor/ParallaxBackground1/Back2/CanvasLayer/NinePatchRect"]
+position = Vector2( 145, 22 )
+scale = Vector2( 0.428571, 0.428571 )
+texture = ExtResource( 24 )
+
+[node name="Name" type="RichTextLabel" parent="Decor/ParallaxBackground1/Back2/CanvasLayer/NinePatchRect"]
+anchor_left = 0.0173267
+anchor_top = 0.0178571
+anchor_right = 0.0625756
+anchor_bottom = 0.0823732
+margin_left = 85.0
+margin_right = 141.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( -79, -6 )
+custom_fonts/mono_font = SubResource( 7 )
+custom_fonts/normal_font = SubResource( 8 )
+text = "Name"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Message" type="RichTextLabel" parent="Decor/ParallaxBackground1/Back2/CanvasLayer/NinePatchRect"]
+anchor_left = 0.0445545
+anchor_top = 0.104265
+anchor_right = 0.407178
+anchor_bottom = 0.369668
+margin_left = 32.0
+margin_top = 25.0
+margin_right = 438.0
+margin_bottom = 89.0
+rect_pivot_offset = Vector2( -79, -6 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = SubResource( 10 )
+custom_fonts/normal_font = SubResource( 11 )
+text = "Message"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="2e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
+motion_scale = Vector2( 1.1, 1 )
 
 [node name="Stalactite2" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
-position = Vector2( 877, 665 )
-scale = Vector2( 0.139062, 0.139062 )
+position = Vector2( 931.794, 773.916 )
+scale = Vector2( 0.177653, 0.201158 )
 texture = ExtResource( 13 )
-
-[node name="Stalactite3" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
-position = Vector2( 1236, 713 )
-scale = Vector2( 0.124588, 0.124588 )
-texture = ExtResource( 12 )
-
-[node name="Stalactite4" type="Sprite" parent="Decor/ParallaxBackground1/2e Plan"]
-position = Vector2( 1638.61, 689.819 )
-scale = Vector2( 0.168225, 0.148794 )
-texture = ExtResource( 14 )
 
 [node name="1erPlan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
 motion_scale = Vector2( 1.2, 1 )
@@ -249,13 +289,6 @@ margin_right = 1240.0
 margin_bottom = 1033.0
 custom_fonts/normal_font = SubResource( 2 )
 text = "[ Appuyez sur A pour examiner ]"
-
-[node name="Stairs" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
-visible = false
-position = Vector2( 2195, 897 )
-rotation = -3.14159
-scale = Vector2( 0.232065, 0.193294 )
-texture = ExtResource( 19 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Decor/ParallaxBackground1/1erPlan"]
 script = ExtResource( 27 )
@@ -323,8 +356,8 @@ __meta__ = {
 motion_mirroring = Vector2( 1920, 0 )
 
 [node name="Ground" type="Sprite" parent="Decor/ParallaxBackground1/Ground"]
-position = Vector2( 554.64, 994.5 )
-scale = Vector2( 0.11, 0.117481 )
+position = Vector2( 546.14, 999.5 )
+scale = Vector2( 0.111193, 0.132519 )
 texture = ExtResource( 8 )
 
 [node name="Ground2" type="Sprite" parent="Decor/ParallaxBackground1/Ground"]
