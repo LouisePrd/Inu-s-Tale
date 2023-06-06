@@ -120,6 +120,13 @@ position = Vector2( 1018, 647 )
 scale = Vector2( 0.224779, 0.11788 )
 texture = ExtResource( 1 )
 
+[node name="top3" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
+position = Vector2( 2528, 798 )
+scale = Vector2( 0.357907, 0.192248 )
+texture = ExtResource( 30 )
+flip_h = true
+flip_v = true
+
 [node name="bottom" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
 position = Vector2( 1503.25, 864.5 )
 scale = Vector2( 0.310735, 0.201602 )
@@ -131,8 +138,8 @@ scale = Vector2( 0.149176, 0.107632 )
 texture = ExtResource( 17 )
 
 [node name="bottom3" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
-position = Vector2( 1954, 996 )
-scale = Vector2( 0.149176, 0.0849878 )
+position = Vector2( 2026, 985.659 )
+scale = Vector2( 0.213124, 0.0984573 )
 texture = ExtResource( 17 )
 
 [node name="Player1" parent="Decor" groups=["Player"] instance=ExtResource( 2 )]
