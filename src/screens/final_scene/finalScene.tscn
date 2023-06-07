@@ -1,0 +1,132 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://src/screens/main_scene/Camera.gd" type="Script" id=1]
+[ext_resource path="res://src/tileset/TileMap.gd" type="Script" id=2]
+[ext_resource path="res://sprites/tileset/Tileshet.tres" type="TileSet" id=3]
+[ext_resource path="res://sprites/finalScene/6-montagnes-fond.png" type="Texture" id=4]
+[ext_resource path="res://sprites/finalScene/8-fond.png" type="Texture" id=5]
+[ext_resource path="res://sprites/finalScene/3-Torii-escaliers.png" type="Texture" id=6]
+[ext_resource path="res://src/characters/player2/Player2.gd" type="Script" id=7]
+[ext_resource path="res://sprites/finalScene/1-montagnes.png" type="Texture" id=8]
+[ext_resource path="res://src/characters/player1/Player1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/characters/player2/Player2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/characters/player1/Player1.gd" type="Script" id=11]
+[ext_resource path="res://sprites/finalScene/5-sol-général.png" type="Texture" id=12]
+[ext_resource path="res://sprites/finalScene/7-nuages.png" type="Texture" id=13]
+[ext_resource path="res://src/screens/final_scene/CloudsFinal.gd" type="Script" id=14]
+[ext_resource path="res://sprites/finalScene/4-rochers-flottants.png" type="Texture" id=15]
+[ext_resource path="res://src/screens/final_scene/Rocks.gd" type="Script" id=16]
+
+[node name="FinalScene" type="Node2D"]
+
+[node name="Starter" type="Node2D" parent="."]
+
+[node name="MultiTargetCamera2D" type="Camera2D" parent="Starter"]
+position = Vector2( 72, 0 )
+limit_left = 0
+limit_top = 0
+limit_right = 1890
+limit_bottom = 1080
+editor_draw_limits = true
+
+[node name="Camera2D" type="Camera2D" parent="Starter"]
+position = Vector2( -62, -111 )
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1035
+limit_smoothed = true
+editor_draw_limits = true
+script = ExtResource( 1 )
+object1 = NodePath("../../Decor/Player1")
+object2 = NodePath("../../Decor/Player2")
+
+[node name="TileMap" type="TileMap" parent="Starter"]
+position = Vector2( 2, -32 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 32 )
+show_collision = true
+format = 1
+tile_data = PoolIntArray( 1703938, 1, 0, 1769474, 1, 0, 1769528, 1, 0, 1835010, 1, 0, 1835064, 1, 0, 1900546, 1, 0, 1900600, 1, 0, 1966082, 1, 0, 1966136, 1, 0, 2031618, 1, 0, 2031672, 1, 0, 2162687, 1, 0, 2097152, 1, 0, 2097153, 1, 0, 2097154, 1, 0, 2097155, 1, 0, 2097156, 1, 0, 2097157, 1, 0, 2097158, 1, 0, 2097159, 1, 0, 2097160, 1, 0, 2097161, 1, 0, 2097162, 1, 0, 2097163, 1, 0, 2097164, 1, 0, 2097165, 1, 0, 2097166, 1, 0, 2097167, 1, 0, 2097168, 1, 0, 2097169, 1, 0, 2097170, 1, 0, 2097171, 1, 0, 2097172, 1, 0, 2097173, 1, 0, 2097174, 1, 0, 2097175, 1, 0, 2097176, 1, 0, 2097177, 1, 0, 2097178, 1, 0, 2097179, 1, 0, 2097180, 1, 0, 2097181, 1, 0, 2097182, 1, 0, 2097183, 1, 0, 2097184, 1, 0, 2097185, 1, 0, 2097186, 1, 0, 2097187, 1, 0, 2097188, 1, 0, 2097189, 1, 0, 2097190, 1, 0, 2097191, 1, 0, 2097192, 1, 0, 2097193, 1, 0, 2097194, 1, 0, 2097195, 1, 0, 2097196, 1, 0, 2097197, 1, 0, 2097198, 1, 0, 2097199, 1, 0, 2097200, 1, 0, 2097201, 1, 0, 2097202, 1, 0, 2097203, 1, 0, 2097204, 1, 0, 2097205, 1, 0, 2097206, 1, 0, 2097207, 1, 0, 2097208, 1, 0, 2097209, 1, 0, 2097210, 1, 0, 2097211, 1, 0, 2097212, 1, 0 )
+script = ExtResource( 2 )
+
+[node name="Decor" type="Node2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Decor"]
+layer = 1
+
+[node name="-1 Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground"]
+motion_scale = Vector2( 1.5, 1 )
+
+[node name="GroundFirst" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
+position = Vector2( 1033, 900.446 )
+scale = Vector2( 0.416626, 0.14888 )
+texture = ExtResource( 8 )
+
+[node name="Player1" parent="Decor" groups=["Player"] instance=ExtResource( 9 )]
+position = Vector2( 256, 937 )
+scale = Vector2( 1.4, 1.4 )
+collision_mask = 2
+script = ExtResource( 11 )
+player2 = NodePath("../Player2")
+
+[node name="Player2" parent="Decor" groups=["Player"] instance=ExtResource( 10 )]
+position = Vector2( 318, 881 )
+scale = Vector2( 1.4, 1.4 )
+collision_mask = 2
+script = ExtResource( 7 )
+player1 = NodePath("../Player1")
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="Decor"]
+
+[node name="Back" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Background" type="Sprite" parent="Decor/ParallaxBackground2/Back"]
+position = Vector2( 958.824, 632.979 )
+scale = Vector2( 0.466807, 0.350783 )
+texture = ExtResource( 5 )
+
+[node name="Clouds" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
+motion_mirroring = Vector2( 1920, 0 )
+script = ExtResource( 14 )
+
+[node name="clouds1" type="Sprite" parent="Decor/ParallaxBackground2/Clouds"]
+position = Vector2( 1759, 786 )
+scale = Vector2( 0.260689, 0.195895 )
+texture = ExtResource( 13 )
+
+[node name="clouds2" type="Sprite" parent="Decor/ParallaxBackground2/Clouds"]
+position = Vector2( 613.721, 715.245 )
+scale = Vector2( 0.316626, 0.237929 )
+texture = ExtResource( 13 )
+
+[node name="Ground" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="GroundFirst" type="Sprite" parent="Decor/ParallaxBackground2/Ground"]
+position = Vector2( 957, 812.284 )
+scale = Vector2( 0.466409, 0.242121 )
+texture = ExtResource( 4 )
+
+[node name="GroundFirst2" type="Sprite" parent="Decor/ParallaxBackground2/Ground"]
+position = Vector2( 958, 886.567 )
+scale = Vector2( 0.462542, 0.164574 )
+texture = ExtResource( 12 )
+
+[node name="1erPlan" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
+motion_scale = Vector2( 1.1, 1 )
+
+[node name="Tori" type="Sprite" parent="Decor/ParallaxBackground2/1erPlan"]
+position = Vector2( 991, 839 )
+scale = Vector2( 0.219599, 0.165018 )
+texture = ExtResource( 6 )
+
+[node name="Rocks" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
+script = ExtResource( 16 )
+
+[node name="rocks" type="Sprite" parent="Decor/ParallaxBackground2/Rocks"]
+position = Vector2( 897, 703 )
+scale = Vector2( 0.288312, 0.216653 )
+texture = ExtResource( 15 )
