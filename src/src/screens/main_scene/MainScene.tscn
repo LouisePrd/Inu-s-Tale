@@ -1,0 +1,165 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://src/screens/entrance/Entrance.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/characters/player1/Player1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/characters/player2/Player2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/characters/player1/Player1.gd" type="Script" id=4]
+[ext_resource path="res://src/characters/player2/Player2.gd" type="Script" id=5]
+[ext_resource path="res://src/screens/main_scene/Camera.gd" type="Script" id=6]
+[ext_resource path="res://src/screens/dialogues/DialoguePlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/triggers/Trigger.tscn" type="PackedScene" id=8]
+[ext_resource path="res://musics/Water-Symphony-Tales-of-Symphonia.wav" type="AudioStream" id=9]
+[ext_resource path="res://sprites/nature/gound_four.png" type="Texture" id=10]
+[ext_resource path="res://sprites/nature/bush_big_start.png" type="Texture" id=11]
+[ext_resource path="res://sprites/nature/bush_small.png" type="Texture" id=12]
+[ext_resource path="res://src/screens/main_scene/BushInteraction.gd" type="Script" id=13]
+[ext_resource path="res://src/triggers/Transition.gd" type="Script" id=14]
+[ext_resource path="res://src/screens/cataclysm/Cataclysm.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/tileset/TileMap.gd" type="Script" id=16]
+[ext_resource path="res://sprites/tileset/Tileshet.tres" type="TileSet" id=17]
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : hint_color = vec4(1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1), vec2(0, -1), vec2(0, 1), 
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+	
+	for (int i = 0; i < OFFSETS.length(); i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+	outline = min(outline, 1.0);
+	
+	vec4 color = texture(TEXTURE, UV);
+	COLOR = mix(color, line_color, outline - color.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 5 )
+shader_param/line_color = Color( 0.921569, 0.505882, 0.0666667, 0 )
+shader_param/line_thickness = 6.0
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 258.113, 133.99 )
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Entrance" parent="." instance=ExtResource( 1 )]
+position = Vector2( -61, 2 )
+
+[node name="Player1" parent="Entrance" groups=["Player"] instance=ExtResource( 2 )]
+position = Vector2( 340, 979 )
+scale = Vector2( 0.9, 0.9 )
+collision_mask = 2
+script = ExtResource( 4 )
+player2 = NodePath("../Player2")
+
+[node name="Player2" parent="Entrance" groups=["Player"] instance=ExtResource( 3 )]
+position = Vector2( 308, 960 )
+scale = Vector2( 0.8, 0.8 )
+collision_mask = 2
+script = ExtResource( 5 )
+player1 = NodePath("../Player1")
+
+[node name="Ground" type="Sprite" parent="Entrance"]
+position = Vector2( 613, 1039 )
+scale = Vector2( 0.11, 0.11 )
+texture = ExtResource( 10 )
+
+[node name="Ground2" type="Sprite" parent="Entrance"]
+position = Vector2( 1301, 1039 )
+scale = Vector2( 0.11, 0.11 )
+texture = ExtResource( 10 )
+
+[node name="BushInteraction" type="Sprite" parent="Entrance"]
+material = SubResource( 3 )
+position = Vector2( 1919, 988 )
+scale = Vector2( 0.115556, 0.115556 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( -5, -10, 410, 325 )
+script = ExtResource( 13 )
+line_color = Color( 1, 0, 0, 1 )
+
+[node name="Tween" type="Tween" parent="Entrance/BushInteraction"]
+
+[node name="Area2DTransition" type="Area2D" parent="Entrance/BushInteraction"]
+script = ExtResource( 14 )
+scene = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entrance/BushInteraction/Area2DTransition"]
+position = Vector2( 1.50098, -30.1445 )
+shape = SubResource( 6 )
+
+[node name="Ground3" type="Sprite" parent="Entrance"]
+position = Vector2( 1989, 1039 )
+scale = Vector2( 0.11, 0.11 )
+texture = ExtResource( 10 )
+
+[node name="Bush" type="Sprite" parent="Entrance"]
+position = Vector2( 283.256, 996.14 )
+scale = Vector2( 0.14, 0.14 )
+texture = ExtResource( 12 )
+
+[node name="BushBig" type="Sprite" parent="Entrance"]
+visible = false
+position = Vector2( 345, 1063 )
+scale = Vector2( 0.140162, 0.14 )
+texture = ExtResource( 11 )
+
+[node name="MultiTargetCamera2D" type="Camera2D" parent="Entrance"]
+position = Vector2( 72, 0 )
+limit_left = 0
+limit_top = 0
+limit_right = 1890
+limit_bottom = 1080
+editor_draw_limits = true
+
+[node name="Camera2D" type="Camera2D" parent="Entrance"]
+position = Vector2( -62, -111 )
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1035
+limit_smoothed = true
+editor_draw_limits = true
+script = ExtResource( 6 )
+object1 = NodePath("../Player1")
+object2 = NodePath("../Player2")
+
+[node name="TileMap" type="TileMap" parent="Entrance"]
+position = Vector2( 0, -23 )
+tile_set = ExtResource( 17 )
+cell_size = Vector2( 32, 32 )
+show_collision = true
+format = 1
+tile_data = PoolIntArray( 1966088, 1, 0, 2031624, 1, 0, 2097153, 1, 0, 2097154, 1, 0, 2097155, 1, 0, 2097156, 1, 0, 2097157, 1, 0, 2097158, 1, 0, 2097159, 1, 0, 2097160, 1, 0, 2097161, 1, 0, 2097162, 1, 0, 2097163, 1, 0, 2097164, 1, 0, 2097165, 1, 0, 2097166, 1, 0, 2097167, 1, 0, 2097168, 1, 0, 2097169, 1, 0, 2097170, 1, 0, 2097171, 1, 0, 2097172, 1, 0, 2097173, 1, 0, 2097174, 1, 0, 2097175, 1, 0, 2097176, 1, 0, 2097177, 1, 0, 2097178, 1, 0, 2097179, 1, 0, 2097180, 1, 0, 2097181, 1, 0, 2097182, 1, 0, 2097183, 1, 0, 2097184, 1, 0, 2097185, 1, 0, 2097186, 1, 0, 2097187, 1, 0, 2097188, 1, 0, 2097189, 1, 0, 2097190, 1, 0, 2097191, 1, 0, 2097192, 1, 0, 2097193, 1, 0, 2097194, 1, 0, 2097195, 1, 0, 2097196, 1, 0, 2097197, 1, 0, 2097198, 1, 0, 2097199, 1, 0, 2097200, 1, 0, 2097201, 1, 0, 2097202, 1, 0, 2097203, 1, 0, 2097204, 1, 0, 2097205, 1, 0, 2097206, 1, 0, 2097207, 1, 0, 2097208, 1, 0, 2097209, 1, 0, 2097210, 1, 0, 2097211, 1, 0, 2097212, 1, 0, 2097213, 1, 0, 2097214, 1, 0 )
+script = ExtResource( 16 )
+
+[node name="NPC" parent="." instance=ExtResource( 8 )]
+position = Vector2( 375, 992 )
+scale = Vector2( 0.5, 0.5 )
+player1 = NodePath("../Entrance/Player1")
+player2 = NodePath("../Entrance/Player2")
+
+[node name="DialoguePlayer" parent="NPC" instance=ExtResource( 7 )]
+offset = Vector2( 485, 863 )
+transform = Transform2D( 2, 0, 0, 2, 485, 863 )
+player1 = NodePath("../../Entrance/Player1")
+player2 = NodePath("../../Entrance/Player2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+volume_db = -80.0
+autoplay = true
+
+[connection signal="body_entered" from="Entrance/BushInteraction/Area2DTransition" to="Entrance/BushInteraction/Area2DTransition" method="_on_Area2DTransition_body_entered"]
