@@ -11,7 +11,9 @@ func _ready():
 	connect( "body_exited", self, '_on_NPC_body_exited')
 	player1 = get_node(player1)
 	player2 = get_node(player2)
-
+	
+	
+# Entrée dans la zone : arret marche et affichage bulles
 func _on_NPC_body_entered(body):
 	var dialogue_cataclysm = get_node_or_null("DialogueCataclysm")
 	if dialogue_cataclysm and launch==false:
@@ -22,6 +24,7 @@ func _on_NPC_body_entered(body):
 			active = true
 			launch = true
 
+# Sortie de la zone : dialogue caché
 func _on_NPC_body_exited(body):
 	var dialogue_cataclysm = get_node_or_null("DialogueCataclysm")
 	if dialogue_cataclysm:

@@ -45,7 +45,7 @@
 [ext_resource path="res://sprites/cataclysm/bridge1.png" type="Texture" id=43]
 [ext_resource path="res://sprites/sky/cloud_white.png" type="Texture" id=46]
 
-[sub_resource type="Shader" id=4]
+[sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
 
 uniform vec3 tint;
@@ -57,7 +57,7 @@ void fragment() {
 }"
 
 [sub_resource type="ShaderMaterial" id=5]
-shader = SubResource( 4 )
+shader = SubResource( 6 )
 shader_param/tint = null
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -141,10 +141,9 @@ shape = SubResource( 1 )
 
 [node name="DialogueCataclysm" parent="Decor/SquareTrigger" instance=ExtResource( 25 )]
 layer = 2
-visible = false
-offset = Vector2( 225, 600 )
+offset = Vector2( 260, 600 )
 scale = Vector2( 2, 2 )
-transform = Transform2D( 2, 0, 0, 2, 225, 600 )
+transform = Transform2D( 2, 0, 0, 2, 260, 600 )
 player1 = NodePath("../../Player1")
 player2 = NodePath("../../Player2")
 

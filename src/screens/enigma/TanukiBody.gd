@@ -16,6 +16,7 @@ func _ready():
 	player1 = get_node(player1)
 	player2 = get_node(player2)
 
+# Déplacement du tanuki
 func _process(delta):
 	var velocity = Vector2.ZERO
 	var is_idling := is_zero_approx(velocity.x) 
@@ -35,8 +36,6 @@ func _process(delta):
 		$Tanuki.animation = "idle"
 		
 	$Tanuki.play()
-	
-
 	
 func move(delta):
 	position += dir * speed * delta

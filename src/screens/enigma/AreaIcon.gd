@@ -13,6 +13,7 @@ func _input_event(viewport, event, shape_idx):
 	and event.is_pressed():
 		self.on_click()
 
+# On click : gestion de la visibilité du parchemin
 func on_click():
 	if parchment.visible == true:
 		parchment.visible = false

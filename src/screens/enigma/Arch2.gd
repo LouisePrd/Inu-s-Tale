@@ -3,6 +3,7 @@ extends Sprite
 export var line_color := Color.white
 export (NodePath) var choixArche
 onready var _area: Area2D = $Area2D
+export var scene : PackedScene
 
 var player1_enter = false
 var player2_enter = false
@@ -43,5 +44,5 @@ func outline_alpha(value: float) -> void:
 func _input(event):
 	if event.is_action_pressed("Enter"):
 		if player1_enter == true and player2_enter == true:
-			print(self.name)
+			Transition.transition_to(scene.resource_path)
 		

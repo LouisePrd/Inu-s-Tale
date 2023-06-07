@@ -187,7 +187,6 @@ canvasInteraction = NodePath("../CanvasLayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground1/Back2/tanuki-frame/Area2D"]
 position = Vector2( 263.537, 78.9486 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 12 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Decor/ParallaxBackground1/Back2/tanuki-frame"]
@@ -206,20 +205,20 @@ player1 = NodePath("../../../Player1")
 player2 = NodePath("../../../Player2")
 
 [node name="Inu-Sprite" type="Sprite" parent="Decor/ParallaxBackground1/Back2/CanvasLayer"]
-position = Vector2( 1372.43, 907.616 )
+position = Vector2( 1442.43, 909.615 )
 scale = Vector2( 0.169503, 0.169502 )
 texture = ExtResource( 23 )
 
 [node name="Nao-Sprite" type="Sprite" parent="Decor/ParallaxBackground1/Back2/CanvasLayer"]
-position = Vector2( 595.435, 887.617 )
+position = Vector2( 665.435, 889.617 )
 scale = Vector2( 0.449693, 0.449693 )
 texture = ExtResource( 26 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Decor/ParallaxBackground1/Back2/CanvasLayer"]
-margin_left = 569.435
-margin_top = 872.616
-margin_right = 1427.43
-margin_bottom = 1080.62
+margin_left = 639.435
+margin_top = 874.615
+margin_right = 1497.43
+margin_bottom = 1082.62
 texture = ExtResource( 25 )
 
 [node name="BackName" type="Sprite" parent="Decor/ParallaxBackground1/Back2/CanvasLayer/NinePatchRect"]
@@ -299,7 +298,6 @@ position = Vector2( -85.1191, 6.83398 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground1/1erPlan/tanuki-statue/Area2D"]
 position = Vector2( -184.026, -15.0801 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Decor/ParallaxBackground1/1erPlan/tanuki-statue"]
@@ -318,20 +316,20 @@ player1 = NodePath("../../../Player1")
 player2 = NodePath("../../../Player2")
 
 [node name="Inu-Sprite" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan/CanvasLayer"]
-position = Vector2( 1373.43, 907.616 )
+position = Vector2( 1442.43, 908.616 )
 scale = Vector2( 0.169503, 0.169502 )
 texture = ExtResource( 23 )
 
 [node name="Nao-Sprite" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan/CanvasLayer"]
-position = Vector2( 596.435, 887.616 )
+position = Vector2( 665.435, 888.617 )
 scale = Vector2( 0.449693, 0.449693 )
 texture = ExtResource( 26 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Decor/ParallaxBackground1/1erPlan/CanvasLayer"]
-margin_left = 570.435
-margin_top = 872.616
-margin_right = 1428.43
-margin_bottom = 1080.62
+margin_left = 639.435
+margin_top = 873.616
+margin_right = 1497.43
+margin_bottom = 1081.62
 texture = ExtResource( 25 )
 
 [node name="BackName" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan/CanvasLayer/NinePatchRect"]
@@ -352,9 +350,6 @@ custom_fonts/mono_font = SubResource( 7 )
 custom_fonts/normal_font = SubResource( 8 )
 text = "Name"
 scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Message" type="RichTextLabel" parent="Decor/ParallaxBackground1/1erPlan/CanvasLayer/NinePatchRect"]
 anchor_left = 0.0445545
@@ -370,9 +365,6 @@ custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/mono_font = SubResource( 10 )
 custom_fonts/normal_font = SubResource( 11 )
 text = "Message"
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Stairs" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]
 position = Vector2( 1853.27, 964 )

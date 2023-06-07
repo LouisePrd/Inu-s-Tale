@@ -152,14 +152,14 @@ player1 = NodePath("../Entrance/Player1")
 player2 = NodePath("../Entrance/Player2")
 
 [node name="DialoguePlayer" parent="NPC" instance=ExtResource( 7 )]
-offset = Vector2( 450, 863 )
-transform = Transform2D( 2, 0, 0, 2, 450, 863 )
+offset = Vector2( 485, 863 )
+transform = Transform2D( 2, 0, 0, 2, 485, 863 )
 player1 = NodePath("../../Entrance/Player1")
 player2 = NodePath("../../Entrance/Player2")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
-volume_db = -80.0
+volume_db = -40.0
 autoplay = true
 
 [connection signal="body_entered" from="Entrance/BushInteraction/Area2DTransition" to="Entrance/BushInteraction/Area2DTransition" method="_on_Area2DTransition_body_entered"]
