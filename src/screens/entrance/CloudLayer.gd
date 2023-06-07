@@ -1,6 +1,6 @@
 extends ParallaxLayer
 
-export(float) var CLOUD_SPEED = -5.0
+export(float) var CLOUD_SPEED = -3.0
 
 
 # Called when the node enters the scene tree for the first time.

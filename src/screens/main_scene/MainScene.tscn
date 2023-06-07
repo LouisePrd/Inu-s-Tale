@@ -9,7 +9,7 @@
 [ext_resource path="res://src/screens/dialogues/DialoguePlayer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/triggers/Trigger.tscn" type="PackedScene" id=8]
 [ext_resource path="res://musics/Water-Symphony-Tales-of-Symphonia.wav" type="AudioStream" id=9]
-[ext_resource path="res://sprites/nature/gound_four.png" type="Texture" id=10]
+[ext_resource path="res://sprites/nature/ground_four.png" type="Texture" id=10]
 [ext_resource path="res://sprites/nature/bush_big_start.png" type="Texture" id=11]
 [ext_resource path="res://sprites/nature/bush_small.png" type="Texture" id=12]
 [ext_resource path="res://src/screens/main_scene/BushInteraction.gd" type="Script" id=13]
@@ -110,7 +110,6 @@ scale = Vector2( 0.14, 0.14 )
 texture = ExtResource( 12 )
 
 [node name="BushBig" type="Sprite" parent="Entrance"]
-visible = false
 position = Vector2( 345, 1063 )
 scale = Vector2( 0.140162, 0.14 )
 texture = ExtResource( 11 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://sprites/nature/bush_blurred.png" type="Texture" id=1]
 [ext_resource path="res://sprites/buildings/castle.png" type="Texture" id=2]
@@ -24,7 +24,6 @@
 [ext_resource path="res://sprites/buildings/shadow_four_blue.png" type="Texture" id=22]
 [ext_resource path="res://sprites/buildings/shadow_four_green.png" type="Texture" id=23]
 [ext_resource path="res://sprites/buildings/shadow_four_dark_blue.png" type="Texture" id=24]
-[ext_resource path="res://sprites/buildings/stand_1.png" type="Texture" id=25]
 [ext_resource path="res://sprites/buildings/one.png" type="Texture" id=26]
 [ext_resource path="res://sprites/buildings/bridge.png" type="Texture" id=27]
 [ext_resource path="res://sprites/buildings/two_shop.png" type="Texture" id=28]
@@ -357,13 +356,6 @@ texture = ExtResource( 28 )
 position = Vector2( 1575, 888 )
 scale = Vector2( 0.13, 0.13 )
 texture = ExtResource( 28 )
-
-[node name="ParallaxLayer14" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Stand" type="Sprite" parent="ParallaxBackground/ParallaxLayer14"]
-position = Vector2( 1740, 958 )
-scale = Vector2( 0.12, 0.12 )
-texture = ExtResource( 25 )
 
 [node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 1920, 0 )
