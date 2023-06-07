@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pixie-makeover-2.ogg-e119e2ce17a4efd166a491027aa2b44e.oggstr"
+
+[deps]
+
+source_file="res://musics/pixie-makeover-2.ogg"
+dest_files=[ "res://.import/pixie-makeover-2.ogg-e119e2ce17a4efd166a491027aa2b44e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -135,7 +135,7 @@ script = ExtResource( 3 )
 player1 = NodePath("../Player1")
 
 [node name="SquareTrigger" type="Area2D" parent="Decor"]
-position = Vector2( -0.000488281, 17.9999 )
+position = Vector2( -112, 17.9999 )
 script = ExtResource( 24 )
 player1 = NodePath("../Player1")
 player2 = NodePath("../Player2")

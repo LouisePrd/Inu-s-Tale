@@ -136,7 +136,6 @@ object1 = NodePath("../Player1")
 object2 = NodePath("../Player2")
 
 [node name="TileMap" type="TileMap" parent="Entrance"]
-visible = false
 position = Vector2( 0, -23 )
 tile_set = ExtResource( 17 )
 cell_size = Vector2( 32, 32 )
@@ -146,7 +145,7 @@ tile_data = PoolIntArray( 1966088, 1, 0, 2031624, 1, 0, 2097153, 1, 0, 2097154, 
 script = ExtResource( 16 )
 
 [node name="NPC" parent="." instance=ExtResource( 8 )]
-position = Vector2( 375, 992 )
+position = Vector2( 463, 992 )
 scale = Vector2( 0.5, 0.5 )
 player1 = NodePath("../Entrance/Player1")
 player2 = NodePath("../Entrance/Player2")

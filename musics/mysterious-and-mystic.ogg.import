@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mysterious-and-mystic.ogg-4f688c36537aa49bf5646edf06136445.oggstr"
+
+[deps]
+
+source_file="res://musics/mysterious-and-mystic.ogg"
+dest_files=[ "res://.import/mysterious-and-mystic.ogg-4f688c36537aa49bf5646edf06136445.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

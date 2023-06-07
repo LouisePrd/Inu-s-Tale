@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ga-ten-fu.ogg-2c6b619ed97024609d6cfa4356df52f7.oggstr"
+
+[deps]
+
+source_file="res://musics/ga-ten-fu.ogg"
+dest_files=[ "res://.import/ga-ten-fu.ogg-2c6b619ed97024609d6cfa4356df52f7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
