@@ -8,7 +8,6 @@
 [ext_resource path="res://sprites/sky/cloud_white.png" type="Texture" id=6]
 [ext_resource path="res://sprites/buildings/bridge_tiles.png" type="Texture" id=7]
 [ext_resource path="res://sprites/sky/cloud_yellow.png" type="Texture" id=8]
-[ext_resource path="res://sprites/nature/gound_four.png" type="Texture" id=9]
 [ext_resource path="res://sprites/objects/lantern_long.png" type="Texture" id=10]
 [ext_resource path="res://sprites/sky/sun.png" type="Texture" id=11]
 [ext_resource path="res://sprites/nature/sakura_tree.png" type="Texture" id=12]
