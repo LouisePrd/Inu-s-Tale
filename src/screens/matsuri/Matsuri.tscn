@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://src/screens/main_scene/Camera.gd" type="Script" id=1]
 [ext_resource path="res://src/tileset/TileMap.gd" type="Script" id=2]
@@ -37,6 +37,25 @@
 [ext_resource path="res://src/triggers/Transition.gd" type="Script" id=35]
 [ext_resource path="res://src/screens/cataclysm/Cataclysm.tscn" type="PackedScene" id=36]
 [ext_resource path="res://musics/pixie-makeover-2.ogg" type="AudioStream" id=37]
+[ext_resource path="res://sprites/matsuri/pnj-toge-bleue.png" type="Texture" id=38]
+[ext_resource path="res://sprites/matsuri/pnj-trio.png" type="Texture" id=39]
+[ext_resource path="res://sprites/matsuri/pnj-kimono-rose.png" type="Texture" id=40]
+[ext_resource path="res://sprites/matsuri/pnj-filet.png" type="Texture" id=41]
+[ext_resource path="res://sprites/matsuri/pnj-old.png" type="Texture" id=42]
+[ext_resource path="res://sprites/matsuri/pnj-toge-var.png" type="Texture" id=43]
+[ext_resource path="res://sprites/matsuri/pnj-cerf-volant.png" type="Texture" id=44]
+[ext_resource path="res://src/screens/matsuri/Pnj-Trio.gd" type="Script" id=45]
+[ext_resource path="res://fonts/Formal436BT.ttf" type="DynamicFontData" id=46]
+[ext_resource path="res://sprites/dialogues/bulle.png" type="Texture" id=47]
+[ext_resource path="res://src/screens/matsuri/Pnj-Var.gd" type="Script" id=48]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 995.477
+height = 732.021
+
+[sub_resource type="DynamicFont" id=3]
+size = 22
+font_data = ExtResource( 46 )
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 62.0005
@@ -60,7 +79,7 @@ object1 = NodePath("../../Decor/Player1")
 object2 = NodePath("../../Decor/Player2")
 
 [node name="TileMap" type="TileMap" parent="Starter"]
-position = Vector2( 1, -12 )
+position = Vector2( 1, -7 )
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 32, 32 )
 show_collision = true
@@ -373,31 +392,114 @@ position = Vector2( 838, 960 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 21 )
 
+[node name="Pnj-Bleu" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand1"]
+position = Vector2( -31.4277, 40 )
+scale = Vector2( 0.0929197, 0.0929197 )
+texture = ExtResource( 38 )
+
 [node name="Stand2" type="Sprite" parent="Decor/ParallaxBackground/1er Plan"]
-position = Vector2( 937, 958 )
+position = Vector2( 951, 959 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 21 )
+
+[node name="Pnj-Rose" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand2"]
+position = Vector2( 65.7148, 48.5703 )
+scale = Vector2( 0.109275, 0.109275 )
+texture = ExtResource( 40 )
 
 [node name="Stand3" type="Sprite" parent="Decor/ParallaxBackground/1er Plan"]
 position = Vector2( 1065, 959 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 21 )
 
+[node name="Pnj-Old" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand3"]
+position = Vector2( -22.0099, 55.3261 )
+scale = Vector2( 0.111587, 0.111587 )
+texture = ExtResource( 42 )
+
 [node name="Stand4" type="Sprite" parent="Decor/ParallaxBackground/1er Plan"]
 position = Vector2( 1209, 954 )
 scale = Vector2( 0.14, 0.14 )
 texture = ExtResource( 25 )
+
+[node name="Pnj-Old2" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand4"]
+position = Vector2( -404.161, 95.5693 )
+scale = Vector2( 0.253253, 0.253253 )
+texture = ExtResource( 44 )
 
 [node name="Stand5" type="Sprite" parent="Decor/ParallaxBackground/1er Plan"]
 position = Vector2( 1550, 947 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 26 )
 
+[node name="Pnj-Filet" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand5"]
+position = Vector2( -262.5, 82.5 )
+scale = Vector2( 0.118054, 0.118054 )
+texture = ExtResource( 41 )
+
 [node name="Stand6" type="Sprite" parent="Decor/ParallaxBackground/1er Plan"]
 position = Vector2( 1680, 944 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 26 )
 flip_h = true
+
+[node name="Pnj-Var" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand6"]
+position = Vector2( -300, 52.5 )
+scale = Vector2( 0.0929197, 0.0929197 )
+texture = ExtResource( 43 )
+script = ExtResource( 48 )
+canvasLayer = NodePath("CanvasLayer")
+
+[node name="Area2D" type="Area2D" parent="Decor/ParallaxBackground/1er Plan/Stand6/Pnj-Var"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground/1er Plan/Stand6/Pnj-Var/Area2D"]
+position = Vector2( 4008.84, -295.953 )
+shape = SubResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Decor/ParallaxBackground/1er Plan/Stand6/Pnj-Var"]
+
+[node name="Sprite" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand6/Pnj-Var/CanvasLayer"]
+position = Vector2( 961, 1013.5 )
+scale = Vector2( 0.414286, 0.383333 )
+texture = ExtResource( 47 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Decor/ParallaxBackground/1er Plan/Stand6/Pnj-Var/CanvasLayer"]
+margin_left = 681.0
+margin_top = 991.0
+margin_right = 1276.0
+margin_bottom = 1031.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 3 )
+text = "Je te proposerais bien du sake, mais tu es trop jeune..."
+
+[node name="Pnj-Trio" type="Sprite" parent="Decor/ParallaxBackground/1er Plan"]
+position = Vector2( 513.614, 970.743 )
+scale = Vector2( 0.036145, 0.0353981 )
+texture = ExtResource( 39 )
+script = ExtResource( 45 )
+canvasLayer = NodePath("CanvasLayer")
+
+[node name="Area2D" type="Area2D" parent="Decor/ParallaxBackground/1er Plan/Pnj-Trio"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground/1er Plan/Pnj-Trio/Area2D"]
+position = Vector2( -5992.92, -246.996 )
+shape = SubResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Decor/ParallaxBackground/1er Plan/Pnj-Trio"]
+
+[node name="Sprite" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Pnj-Trio/CanvasLayer"]
+position = Vector2( 960, 1010.5 )
+scale = Vector2( 0.414286, 0.369048 )
+texture = ExtResource( 47 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Decor/ParallaxBackground/1er Plan/Pnj-Trio/CanvasLayer"]
+margin_left = 761.0
+margin_top = 991.0
+margin_right = 1283.0
+margin_bottom = 1031.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 3 )
+text = "Allez, les enfants, réconciliez-vous…"
 
 [node name="Player1" parent="Decor" groups=["Player"] instance=ExtResource( 6 )]
 position = Vector2( 144, 988 )
