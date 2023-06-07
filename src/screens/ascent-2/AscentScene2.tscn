@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://src/screens/main_scene/Camera.gd" type="Script" id=1]
 [ext_resource path="res://sprites/ascent-2/rock2_layer-1.png" type="Texture" id=2]
@@ -27,7 +27,19 @@
 [ext_resource path="res://sprites/encounter/tree1.png" type="Texture" id=25]
 [ext_resource path="res://sprites/enigma/Arbre-1.png" type="Texture" id=26]
 [ext_resource path="res://sprites/ascent-1/lantern.png" type="Texture" id=27]
+[ext_resource path="res://src/screens/ascent-2/DialogueAscent.gd" type="Script" id=28]
+[ext_resource path="res://fonts/Formal436BT.ttf" type="DynamicFontData" id=29]
 [ext_resource path="res://sprites/enigma/rocher1_layer-3.png" type="Texture" id=30]
+[ext_resource path="res://sprites/dialogues/bulle.png" type="Texture" id=31]
+[ext_resource path="res://sprites/dialogues/name.png" type="Texture" id=32]
+[ext_resource path="res://sprites/dialogues/nao-dialogue.png" type="Texture" id=33]
+[ext_resource path="res://sprites/dialogues/inu-dialogue.png" type="Texture" id=34]
+[ext_resource path="res://src/screens/ascent-2/TanukiAscent.gd" type="Script" id=35]
+[ext_resource path="res://src/triggers/Transition.gd" type="Script" id=36]
+[ext_resource path="res://src/screens/battle/Battle.tscn" type="PackedScene" id=37]
+
+[sub_resource type="CapsuleShape2D" id=18]
+radius = 46.0
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -44,6 +56,31 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 49.375, 55 )
+
+[sub_resource type="DynamicFont" id=14]
+font_data = ExtResource( 29 )
+
+[sub_resource type="DynamicFontData" id=11]
+font_path = "res://fonts/Formal436BT.ttf"
+
+[sub_resource type="DynamicFont" id=15]
+font_data = SubResource( 11 )
+
+[sub_resource type="DynamicFontData" id=12]
+font_path = "res://fonts/Formal436BT.ttf"
+
+[sub_resource type="DynamicFont" id=16]
+font_data = SubResource( 12 )
+
+[sub_resource type="DynamicFontData" id=13]
+font_path = "res://fonts/Formal436BT.ttf"
+
+[sub_resource type="DynamicFont" id=17]
+font_data = SubResource( 13 )
+
+[sub_resource type="CapsuleShape2D" id=19]
+radius = 47.0
+height = 0.0
 
 [node name="Node2D" type="Node2D"]
 
@@ -72,6 +109,7 @@ object2 = NodePath("../../Decor/Player2")
 
 [node name="TileMap" type="TileMap" parent="Starter"]
 self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -20, -11 )
 tile_set = ExtResource( 17 )
 cell_size = Vector2( 32, 12 )
 show_collision = true
@@ -80,10 +118,21 @@ tile_data = PoolIntArray( 3014716, 1, 0, 3080252, 1, 0, 3145788, 1, 0, 3211324, 
 
 [node name="Decor" type="Node2D" parent="."]
 
-[node name="Tanuki" type="KinematicBody2D" parent="Decor"]
-position = Vector2( 1574, 593 )
+[node name="TanukiAscent" type="Area2D" parent="Decor"]
+script = ExtResource( 35 )
+player1 = NodePath("../Player1")
+player2 = NodePath("../Player2")
+DialogueTanukiAscent = NodePath("../DialogueTanukiAscent")
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Decor/Tanuki"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/TanukiAscent"]
+position = Vector2( 1545, 672 )
+shape = SubResource( 18 )
+
+[node name="TanukiBody" type="KinematicBody2D" parent="Decor/TanukiAscent"]
+position = Vector2( 1574, 593 )
+collision_mask = 2
+
+[node name="TanukiSprite" type="AnimatedSprite" parent="Decor/TanukiAscent/TanukiBody"]
 use_parent_material = true
 position = Vector2( -30, 93 )
 scale = Vector2( 0.0761057, 0.0761057 )
@@ -91,7 +140,7 @@ frames = SubResource( 1 )
 animation = "walk"
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Tanuki"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/TanukiAscent/TanukiBody"]
 position = Vector2( -31.625, 80 )
 shape = SubResource( 2 )
 
@@ -156,18 +205,92 @@ scale = Vector2( 0.27798, 0.211457 )
 texture = ExtResource( 2 )
 
 [node name="Player1" parent="Decor" groups=["Player"] instance=ExtResource( 8 )]
-position = Vector2( 101, 954 )
+position = Vector2( 101, 932 )
 scale = Vector2( 1.4, 1.4 )
 collision_mask = 2
 script = ExtResource( 7 )
 player2 = NodePath("../Player2")
 
 [node name="Player2" parent="Decor" groups=["Player"] instance=ExtResource( 10 )]
-position = Vector2( 46, 922 )
+position = Vector2( 46, 900 )
 scale = Vector2( 1.4, 1.4 )
 collision_mask = 2
 script = ExtResource( 9 )
 player1 = NodePath("../Player1")
+
+[node name="DialogueTanukiAscent" type="CanvasLayer" parent="Decor"]
+scale = Vector2( 2, 2 )
+transform = Transform2D( 2, 0, 0, 2, 0, 0 )
+script = ExtResource( 28 )
+player1 = NodePath("../Player1")
+player2 = NodePath("../Player2")
+tanukibody = NodePath("../TanukiAscent/TanukiBody")
+
+[node name="Inu-Sprite" type="Sprite" parent="Decor/DialogueTanukiAscent"]
+position = Vector2( 721.251, 464.743 )
+scale = Vector2( 0.0930317, 0.0930317 )
+texture = ExtResource( 34 )
+
+[node name="Nao-Sprite" type="Sprite" parent="Decor/DialogueTanukiAscent"]
+position = Vector2( 303.453, 449.579 )
+scale = Vector2( 0.220554, 0.220554 )
+texture = ExtResource( 33 )
+
+[node name="Tanuki-Sprite" type="Sprite" parent="Decor/DialogueTanukiAscent"]
+position = Vector2( 681.5, 448.638 )
+scale = Vector2( 0.164209, 0.164209 )
+texture = ExtResource( 19 )
+flip_h = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Decor/DialogueTanukiAscent"]
+margin_left = 264.406
+margin_top = 443.465
+margin_right = 731.406
+margin_bottom = 560.466
+texture = ExtResource( 31 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="BackName" type="Sprite" parent="Decor/DialogueTanukiAscent/NinePatchRect"]
+position = Vector2( 106.206, 11.25 )
+scale = Vector2( 0.205882, 0.205882 )
+texture = ExtResource( 32 )
+
+[node name="Name" type="RichTextLabel" parent="Decor/DialogueTanukiAscent/NinePatchRect"]
+anchor_left = -0.00836404
+anchor_top = 0.00147867
+anchor_right = -0.00836404
+anchor_bottom = 0.00147867
+margin_left = 85.0
+margin_right = 141.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( -79, -6 )
+custom_fonts/mono_font = SubResource( 14 )
+custom_fonts/normal_font = SubResource( 15 )
+text = "Name"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Message" type="RichTextLabel" parent="Decor/DialogueTanukiAscent/NinePatchRect"]
+anchor_left = 0.012848
+anchor_top = -0.025641
+anchor_right = 0.012848
+anchor_bottom = -0.025641
+margin_left = 32.0
+margin_top = 25.0
+margin_right = 438.0
+margin_bottom = 89.0
+rect_pivot_offset = Vector2( -79, -6 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = SubResource( 16 )
+custom_fonts/normal_font = SubResource( 17 )
+text = "Message"
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="Decor"]
 
@@ -362,3 +485,14 @@ texture = ExtResource( 18 )
 position = Vector2( 1025, 941.47 )
 scale = Vector2( 0.204996, 0.236735 )
 texture = ExtResource( 3 )
+
+[node name="Area2DTransition" type="Area2D" parent="Decor"]
+position = Vector2( 1234, -265 )
+script = ExtResource( 36 )
+scene = ExtResource( 37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Area2DTransition"]
+position = Vector2( 407, 949 )
+shape = SubResource( 19 )
+
+[connection signal="body_entered" from="Decor/Area2DTransition" to="Decor/Area2DTransition" method="_on_Area2DTransition_body_entered"]

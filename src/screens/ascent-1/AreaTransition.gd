@@ -4,10 +4,8 @@ export var scene : PackedScene
 
 func _on_Area2DTransition_body_entered(body) -> void:
 	if body.is_in_group("NPC"):
-		print('NPC')
 		return
 	
-	print('test')
 	Transition.transition_to(scene.resource_path)
 	
 	
