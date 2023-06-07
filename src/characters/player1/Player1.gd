@@ -38,6 +38,7 @@ func _physics_process(delta: float) -> void:
 		if move == false:
 			return
 
+		# Condition pour empêcher les joueurs de trop s'éloigner l'un de l'autre vers la droite
 		if  self.global_position[0] - player2.global_position[0] >= 300:
 			velocity.x = 0
 			$AnimatedSprite.animation = "idle"
@@ -52,6 +53,7 @@ func _physics_process(delta: float) -> void:
 		if move == false:
 			return
 
+		# Condition pour empêcher les joueurs de trop s'éloigner l'un de l'autre vers la gauche
 		if  self.global_position[0] - player2.global_position[0] <= -300 or move == false:
 			velocity.x = 0
 			$AnimatedSprite.animation = "idle"
@@ -60,11 +62,13 @@ func _physics_process(delta: float) -> void:
 
 		velocity.x -= speed
 	
+	# Gestion de l'affichage joueur inactif
 	if move == false:
 		velocity.x = 0
 		$AnimatedSprite.animation = "idle"
 		$AnimatedSprite.play()
 	
+	# Gestion de l'affichage joueur actif
 	if velocity.x != 0:
 		$AnimatedSprite.animation = "walk"
 		$AnimatedSprite.flip_v = false
@@ -81,10 +85,12 @@ func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 
+# Gestion de l'affichage quand le joueur entre dans la zone de l'élément
 func stop():
 	$AnimatedSprite.animation = "idle"
 	move = false
 
+# Gestion joueur entre dans la zone de l'élément
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("Player"):
 		body.stop()

@@ -9,6 +9,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+# Animation sprites nuages sur l'axe x
 func _process(delta) -> void:
 	self.motion_offset.x += CLOUD_SPEED * delta
 	
