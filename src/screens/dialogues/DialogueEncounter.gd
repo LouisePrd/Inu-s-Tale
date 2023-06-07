@@ -5,14 +5,27 @@ export (NodePath) var player2
 export (NodePath) var tanuki
 
 var dialogue_file = [
-	{"name": "Tanuki", "text": "Bonjour et bienvenue à vous sur La Montagne du Koryu, j’imagine que vous cherchez la faille ?"},
-	{"name": "Nao", "text": "Oui exactement, le festival va bientot se terminer et je raccompagne mon Inugami."},
-	{"name": "Tanuki", "text": "Mes amis, j’ai une mauvaise nouvelle à vous annoncer. Vous n’avez pas pu rater le cataclysme qui a secoué la région et malheureusement il a eu des conséquences terribles pour tous les Yokai. La faille qui devait nous permettre de rentrer chez nous a été refermée."},
-	{"name": "Inu", "text": "Quoi ?! Tu veux dire que je ne peux plus rentrer chez moi ?"},
-	{"name": "Tanuki", "text": "Je crains que ce ne soit le cas, Inugami."},
-	{"name": "Inu", "text": "Alors, qu'est-ce que cela signifie pour moi ? Suis-je condamné à rester ici et prendre possession de mon invocateur ? Nao..."},
-	{"name": "Nao", "text": "Non ce n’est pas possible, il faut qu’on trouve une solution !"},
-	{"name": "Tanuki", "text": "Il y en a bien une... Vous devez rejoindre le portail au sommet de la montagne mais ce n’est pas si simple. Suivez-moi, je vais vous expliquer."},
+	{"name": "Tanuki", "text": "Bonjour et bienvenue à vous sur La Montagne du Koryu."},
+	{"name": "Tanuki", "text": "J'imagine que vous cherchez la faille ?"},	
+	{"name": "Nao", "text": "Oui exactement."},
+	{"name": "Nao", "text": "Le festival va bientot se terminer et je raccompagne mon Inugami."},	
+	{"name": "Tanuki", "text": "Mes amis, j’ai une mauvaise nouvelle à vous annoncer."},
+	{"name": "Tanuki", "text": "Vous n’avez pas pu rater le cataclysme qui a secoué la région et malheureusement il a eu des conséquences terribles pour tous les Yokai."},
+	{"name": "Tanuki", "text": "..."},
+	{"name": "Tanuki", "text": "La faille qui devait nous permettre de rentrer chez nous a été refermée."},	
+	{"name": "Inu", "text": "Quoi ?!"},
+	{"name": "Inu", "text": "Tu veux dire que je ne peux plus rentrer chez moi ?"},	
+	{"name": "Tanuki", "text": "Je crains que non, Inugami."},
+	{"name": "Inu", "text": "Alors, qu'est-ce que cela signifie pour moi ?"},
+	{"name": "Inu", "text": "Suis-je condamné à rester ici et prendre possession de mon invocateur ?"},	
+	{"name": "Inu", "text": "..."},	
+	{"name": "Inu", "text": "Nao..."},
+	{"name": "Nao", "text": "Non ce n’est pas possible !"},
+	{"name": "Nao", "text": "Il faut qu’on trouve une solution !"},	
+	{"name": "Tanuki", "text": "Il y en a bien une..."},
+	{"name": "Tanuki", "text": "Vous devrez rejoindre le portail du royaume des Yokai vous-mêmes."},
+	{"name": "Tanuki", "text": "Il se trouve au sommet de cette montagne, mais ce n’est pas si simple..."},	
+	{"name": "Tanuki", "text": "Suivez-moi, je vais vous expliquer."},	
 ]
 
 var dialogues = []

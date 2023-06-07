@@ -3,6 +3,7 @@ extends CanvasLayer
 export (NodePath) var player1
 export (NodePath) var player2
 
+# Tableau des dialogues
 var dialogue_file = [
 	{"name": "Nao", "text": "Une statue de tanuki..."},
 	{"name": "Nao", "text": "Qu’est-ce que fait une œuvre d’art pareille dans une grotte ?"},

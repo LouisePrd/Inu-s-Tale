@@ -7,7 +7,7 @@ onready var _area: Area2D = $Area2D
 var player1_enter = false
 var player2_enter = false
 
-
+# Au lancement : pas d'affichage spécial et pas d'outline
 func _ready() -> void:
 	choixArche = get_node(choixArche)
 	_area.connect("body_entered", self, "_on_Area2D_body_entered")
@@ -15,7 +15,7 @@ func _ready() -> void:
 	choixArche.visible = false
 	outline_alpha(0)
 
-
+# Quand les 2 joueurs sont devant l'arche : ouline
 func _on_Area2D_body_entered(_body) -> void:
 	if _body.name == "Player1":
 		player1_enter = true

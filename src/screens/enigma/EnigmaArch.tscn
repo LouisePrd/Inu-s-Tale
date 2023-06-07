@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://sprites/enigma/Arbre-7.png" type="Texture" id=1]
 [ext_resource path="res://sprites/enigma/rocher3_layer-2.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://src/characters/player1/Player1.tscn" type="PackedScene" id=12]
 [ext_resource path="res://sprites/enigma/rocher1_layer-2.png" type="Texture" id=13]
 [ext_resource path="res://sprites/enigma/ciel.png" type="Texture" id=14]
+[ext_resource path="res://src/screens/cave/CaveScene.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/characters/player1/Player1.gd" type="Script" id=16]
 [ext_resource path="res://sprites/enigma/Tori-2.png" type="Texture" id=17]
 [ext_resource path="res://src/characters/player2/Player2.gd" type="Script" id=18]
@@ -42,6 +43,9 @@
 [ext_resource path="res://sprites/enigma/rocher1_layer-3.png" type="Texture" id=41]
 [ext_resource path="res://sprites/enigma/Arbre-1.png" type="Texture" id=42]
 [ext_resource path="res://sprites/enigma/rocher2_layer-3.png" type="Texture" id=43]
+[ext_resource path="res://sprites/sky/cloud_white.png" type="Texture" id=44]
+[ext_resource path="res://src/screens/entrance/CloudLayer.gd" type="Script" id=45]
+[ext_resource path="res://sprites/sky/cloud_yellow.png" type="Texture" id=46]
 
 [sub_resource type="StreamTexture" id=6]
 flags = 4
@@ -231,7 +235,7 @@ margin_right = 701.0
 margin_bottom = 471.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 2 )
-text = "Chacque arche cache un secret, mais une seule ouvrira la voie vers la prochaine épreuve. Choisis sagement, car ton destin en dépend.
+text = "Chaque arche cache un secret, mais une seule ouvrira la voie vers la prochaine épreuve. Choisis sagement, car ton destin en dépend.
 
 Réfléchis bien aux indices donnés et à leurs caractéristiques pour déterminer celle qui te permettra de poursuivre ton voyage."
 
@@ -346,6 +350,60 @@ position = Vector2( 1161, 598 )
 scale = Vector2( 0.378781, 0.505595 )
 texture = ExtResource( 8 )
 offset = Vector2( -508.625, 606.301 )
+
+[node name="Clouds" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
+motion_mirroring = Vector2( 1920, 0 )
+script = ExtResource( 45 )
+
+[node name="Cloud Yellow3" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 1683, 652 )
+scale = Vector2( 0.082, 0.08 )
+texture = ExtResource( 46 )
+
+[node name="Cloud Yellow" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 494, 660 )
+scale = Vector2( 0.16, 0.16 )
+texture = ExtResource( 46 )
+
+[node name="Cloud White" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 155, 713 )
+scale = Vector2( 0.12, 0.12 )
+texture = ExtResource( 44 )
+
+[node name="Cloud White2" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 99, 783 )
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 44 )
+
+[node name="Cloud White3" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 538, 708 )
+scale = Vector2( 0.14, 0.14 )
+texture = ExtResource( 44 )
+
+[node name="Cloud White6" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 1267, 736 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 44 )
+
+[node name="Cloud White7" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 1392, 679 )
+scale = Vector2( 0.1, 0.11 )
+texture = ExtResource( 44 )
+
+[node name="Cloud White4" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 946, 645 )
+scale = Vector2( 0.13, 0.13 )
+texture = ExtResource( 44 )
+
+[node name="Cloud Yellow2" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 1180, 691 )
+scale = Vector2( 0.112, 0.13 )
+texture = ExtResource( 46 )
+
+[node name="Cloud White5" type="Sprite" parent="Decor/ParallaxBackground1/Clouds"]
+position = Vector2( 1668, 663 )
+scale = Vector2( 0.14, 0.14 )
+texture = ExtResource( 44 )
 
 [node name="3e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground1"]
 motion_scale = Vector2( 1.12, 1 )
@@ -476,12 +534,12 @@ texture = ExtResource( 17 )
 script = ExtResource( 33 )
 line_color = Color( 1, 0, 0, 1 )
 choixArche = NodePath("../../../../Enigma-Game/CanvasLayerParchment/choixArche")
+scene = ExtResource( 15 )
 
 [node name="Area2D" type="Area2D" parent="Decor/ParallaxBackground1/1erPlan/Arch2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground1/1erPlan/Arch2/Area2D"]
 position = Vector2( 0.177124, 30.1125 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 15 )
 
 [node name="Arch3" type="Sprite" parent="Decor/ParallaxBackground1/1erPlan"]

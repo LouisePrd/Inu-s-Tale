@@ -4,9 +4,12 @@ export (NodePath) var player1
 export (NodePath) var player2
 
 var dialogue_file = [
-	{"name": "Nao", "text": "Par les dieux, regarde ça ! La ville est en ruines et les arbres sont déracinés... Qu'est-ce qui s'est passé ici ?"},
-	{"name": "Inu", "text": "Il y a une énergie étrange dans l'air, cela ressemble à un cataclysme puissant. On devrait se dépecher de trouver la faille, ça n’annonce rien de bon..."},
-	{"name": "Nao", "text": "Tu as raison, allons-y."},
+	{"name": "Nao", "text": "Par les dieux, regarde ça !"},
+	{"name": "Nao", "text": "La ville est en ruines et les arbres sont déracinés... Qu'est-ce qui s'est passé ici ?"},	
+	{"name": "Inu", "text": "Il y a une énergie étrange dans l'air..."},
+	{"name": "Nao", "text": "Le festival... Tout a disparu..."},
+	{"name": "Inu", "text": "Ça ressemble à un cataclysme d’une grande puissance. On devrait se dépêcher de trouver la faille, ça n’annonce rien de bon..."},		
+	{"name": "Nao", "text": "Tu- Tu as raison... Allons-y."},
 ]
 
 var dialogues = []
