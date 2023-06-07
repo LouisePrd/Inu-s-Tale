@@ -7,7 +7,6 @@ extends TileMap
 
 
 # Called when the node enters the scene tree for the first time.
-# Opacité à zéro lors de l'affichage
 func _ready():
 	modulate.a = 0
 

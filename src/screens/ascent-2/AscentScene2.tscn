@@ -1,0 +1,233 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://src/screens/main_scene/Camera.gd" type="Script" id=1]
+[ext_resource path="res://sprites/ascent-2/triangle2_layer-1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/ascent-2/triangle1_layer-1.png" type="Texture" id=3]
+[ext_resource path="res://sprites/ascent-2/shape3_layer-1.png" type="Texture" id=4]
+[ext_resource path="res://sprites/ascent-2/shape2_layer-1.png" type="Texture" id=5]
+[ext_resource path="res://sprites/ascent-2/shape1_layer-1.png" type="Texture" id=6]
+[ext_resource path="res://src/characters/player1/Player1.gd" type="Script" id=7]
+[ext_resource path="res://src/characters/player1/Player1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/characters/player2/Player2.gd" type="Script" id=9]
+[ext_resource path="res://src/characters/player2/Player2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sprites/enigma/ciel.png" type="Texture" id=11]
+[ext_resource path="res://sprites/sky/cloud_white.png" type="Texture" id=12]
+[ext_resource path="res://src/screens/entrance/CloudLayer.gd" type="Script" id=13]
+[ext_resource path="res://sprites/sky/cloud_yellow.png" type="Texture" id=14]
+[ext_resource path="res://sprites/ascent-2/ground.png" type="Texture" id=15]
+[ext_resource path="res://sprites/ascent-2/mountain-back.png" type="Texture" id=16]
+[ext_resource path="res://sprites/tileset/Tileshet.tres" type="TileSet" id=17]
+[ext_resource path="res://sprites/ascent-2/arch.png" type="Texture" id=18]
+[ext_resource path="res://sprites/characters/tanuki-cycle_0001.png" type="Texture" id=19]
+[ext_resource path="res://sprites/characters/tanuki-cycle_0002.png" type="Texture" id=20]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 54, 73.5 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Starter" type="Node2D" parent="."]
+
+[node name="MultiTargetCamera2D" type="Camera2D" parent="Starter"]
+position = Vector2( 72, 0 )
+limit_left = 0
+limit_top = 0
+limit_right = 1890
+limit_bottom = 1080
+editor_draw_limits = true
+
+[node name="Camera2D" type="Camera2D" parent="Starter"]
+position = Vector2( -62, -111 )
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1035
+limit_smoothed = true
+editor_draw_limits = true
+script = ExtResource( 1 )
+object1 = NodePath("../../Decor/Player1")
+object2 = NodePath("../../Decor/Player2")
+
+[node name="TileMap" type="TileMap" parent="Starter"]
+position = Vector2( -2, 6 )
+tile_set = ExtResource( 17 )
+cell_size = Vector2( 31, 12 )
+show_collision = true
+format = 1
+tile_data = PoolIntArray( 458763, 1, 0, 3670078, 1, 0, 3735614, 1, 0, 3801150, 1, 0, 3866686, 1, 0, 3932222, 1, 0, 3997758, 1, 0, 4063294, 1, 0, 4128830, 1, 0, 4194366, 1, 0, 4259902, 1, 0, 4325434, 0, 0, 4325435, 1, 0, 4325436, 1, 0, 4325437, 1, 0, 4325438, 1, 0, 4390969, 0, 0, 4456500, 0, 0, 4456501, 1, 0, 4456502, 1, 0, 4456503, 1, 0, 4456504, 1, 0, 4522035, 0, 0, 4587566, 0, 0, 4587567, 1, 0, 4587568, 1, 0, 4587569, 1, 0, 4587570, 1, 0, 4587571, 1, 0, 4653097, 0, 0, 4653098, 1, 0, 4653099, 1, 0, 4653100, 1, 0, 4653101, 1, 0, 4718629, 0, 0, 4718630, 1, 0, 4718631, 1, 0, 4718632, 1, 0, 4784164, 0, 0, 4849695, 0, 0, 4849696, 1, 0, 4849697, 1, 0, 4849698, 1, 0, 4849699, 1, 0, 4915226, 0, 0, 4915227, 1, 0, 4915228, 1, 0, 4915229, 1, 0, 4915230, 1, 0, 4980757, 0, 0, 4980758, 1, 0, 4980759, 1, 0, 4980760, 1, 0, 4980761, 1, 0, 5046292, 0, 0, 5111823, 0, 0, 5111824, 1, 0, 5111825, 1, 0, 5111826, 1, 0, 5111827, 1, 0, 5111828, 1, 0, 5177354, 0, 0, 5177355, 1, 0, 5177356, 1, 0, 5177357, 1, 0, 5177358, 1, 0, 5177359, 1, 0, 5242885, 0, 0, 5242886, 1, 0, 5242887, 1, 0, 5242888, 1, 0, 5242889, 1, 0, 5308420, 0, 0, 5373952, 1, 0, 5373953, 1, 0, 5373954, 1, 0, 5373955, 1, 0, 5373956, 1, 0 )
+
+[node name="Decor" type="Node2D" parent="."]
+
+[node name="Tanuki" type="AnimatedSprite" parent="Decor"]
+position = Vector2( 1190, -144 )
+
+[node name="Tanuki" type="AnimatedSprite" parent="Decor/Tanuki"]
+position = Vector2( 265.401, 940.625 )
+scale = Vector2( 0.0766254, 0.0766254 )
+frames = SubResource( 1 )
+animation = "walk"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Tanuki"]
+position = Vector2( 250.5, 912.5 )
+shape = SubResource( 2 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Decor"]
+layer = 1
+
+[node name="-1 Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground"]
+motion_scale = Vector2( 1.5, 1 )
+
+[node name="triangle1" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
+position = Vector2( 77.2462, 983.194 )
+scale = Vector2( 0.24368, 0.185365 )
+texture = ExtResource( 3 )
+
+[node name="triangle2" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
+position = Vector2( 1507.34, 912.912 )
+scale = Vector2( 0.138869, 0.149867 )
+texture = ExtResource( 2 )
+
+[node name="shape1" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
+position = Vector2( 508, 1019 )
+scale = Vector2( 0.117098, 0.0890755 )
+texture = ExtResource( 6 )
+
+[node name="shape2" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
+position = Vector2( 1134, 1038 )
+scale = Vector2( 0.134189, 0.102076 )
+texture = ExtResource( 5 )
+
+[node name="shape3" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
+position = Vector2( 1764.31, 1018.5 )
+scale = Vector2( 0.148046, 0.117629 )
+texture = ExtResource( 4 )
+
+[node name="shape4" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
+position = Vector2( 2292, 1015 )
+scale = Vector2( 0.148046, 0.117629 )
+texture = ExtResource( 4 )
+
+[node name="shape5" type="Sprite" parent="Decor/ParallaxBackground/-1 Plan"]
+position = Vector2( 1965, 1057 )
+scale = Vector2( 0.134189, 0.227337 )
+texture = ExtResource( 5 )
+
+[node name="Player1" parent="Decor" groups=["Player"] instance=ExtResource( 8 )]
+position = Vector2( 100, 943 )
+scale = Vector2( 1.4, 1.4 )
+collision_mask = 2
+script = ExtResource( 7 )
+player2 = NodePath("../Player2")
+
+[node name="Player2" parent="Decor" groups=["Player"] instance=ExtResource( 10 )]
+position = Vector2( 45, 911 )
+scale = Vector2( 1.4, 1.4 )
+collision_mask = 2
+script = ExtResource( 9 )
+player1 = NodePath("../Player1")
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="Decor"]
+
+[node name="Back" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="background" type="Sprite" parent="Decor/ParallaxBackground2/Back"]
+position = Vector2( 923, 531 )
+scale = Vector2( 0.420693, 1.79795 )
+texture = ExtResource( 11 )
+
+[node name="Clouds" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
+motion_mirroring = Vector2( 1920, 0 )
+script = ExtResource( 13 )
+
+[node name="Cloud Yellow3" type="Sprite" parent="Decor/ParallaxBackground2/Clouds"]
+position = Vector2( 1683, 652 )
+scale = Vector2( 0.082, 0.08 )
+texture = ExtResource( 14 )
+
+[node name="Cloud Yellow" type="Sprite" parent="Decor/ParallaxBackground2/Clouds"]
+position = Vector2( 494, 660 )
+scale = Vector2( 0.16, 0.16 )
+texture = ExtResource( 14 )
+
+[node name="Cloud White" type="Sprite" parent="Decor/ParallaxBackground2/Clouds"]
+position = Vector2( 155, 713 )
+scale = Vector2( 0.12, 0.12 )
+texture = ExtResource( 12 )
+
+[node name="Cloud White2" type="Sprite" parent="Decor/ParallaxBackground2/Clouds"]
+position = Vector2( 99, 783 )
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 12 )
+
+[node name="Cloud White3" type="Sprite" parent="Decor/ParallaxBackground2/Clouds"]
+position = Vector2( 538, 708 )
+scale = Vector2( 0.14, 0.14 )
+texture = ExtResource( 12 )
+
+[node name="Cloud White6" type="Sprite" parent="Decor/ParallaxBackground2/Clouds"]
+position = Vector2( 1267, 736 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 12 )
+
+[node name="Cloud White7" type="Sprite" parent="Decor/ParallaxBackground2/Clouds"]
+position = Vector2( 1392, 679 )
+scale = Vector2( 0.1, 0.11 )
+texture = ExtResource( 12 )
+
+[node name="Cloud White4" type="Sprite" parent="Decor/ParallaxBackground2/Clouds"]
+position = Vector2( 946, 645 )
+scale = Vector2( 0.13, 0.13 )
+texture = ExtResource( 12 )
+
+[node name="Cloud Yellow2" type="Sprite" parent="Decor/ParallaxBackground2/Clouds"]
+position = Vector2( 1180, 691 )
+scale = Vector2( 0.112, 0.13 )
+texture = ExtResource( 14 )
+
+[node name="Cloud White5" type="Sprite" parent="Decor/ParallaxBackground2/Clouds"]
+position = Vector2( 1668, 663 )
+scale = Vector2( 0.14, 0.14 )
+texture = ExtResource( 12 )
+
+[node name="Back-Mountain" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
+
+[node name="Mountains" type="Sprite" parent="Decor/ParallaxBackground2/Back-Mountain"]
+position = Vector2( 881, 948 )
+scale = Vector2( 0.0931582, 0.116964 )
+texture = ExtResource( 16 )
+
+[node name="Mountains2" type="Sprite" parent="Decor/ParallaxBackground2/Back-Mountain"]
+position = Vector2( 1741, 920 )
+scale = Vector2( 0.0519547, 0.105164 )
+texture = ExtResource( 16 )
+
+[node name="Ground" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
+
+[node name="Ground" type="Sprite" parent="Decor/ParallaxBackground2/Ground"]
+position = Vector2( 953.461, 934 )
+scale = Vector2( 0.136381, 0.134577 )
+texture = ExtResource( 15 )
+
+[node name="Objects" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
+motion_scale = Vector2( 1.2, 1 )
+
+[node name="Arch" type="Sprite" parent="Decor/ParallaxBackground2/Objects"]
+position = Vector2( 1661, 762 )
+scale = Vector2( 0.0727502, 0.071788 )
+texture = ExtResource( 18 )

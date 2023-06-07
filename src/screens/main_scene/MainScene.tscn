@@ -159,7 +159,7 @@ player2 = NodePath("../../Entrance/Player2")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
-volume_db = -40.0
+volume_db = -80.0
 autoplay = true
 
 [connection signal="body_entered" from="Entrance/BushInteraction/Area2DTransition" to="Entrance/BushInteraction/Area2DTransition" method="_on_Area2DTransition_body_entered"]

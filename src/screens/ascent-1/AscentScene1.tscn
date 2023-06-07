@@ -59,12 +59,12 @@ object2 = NodePath("../../Decor/Player2")
 
 [node name="TileMap" type="TileMap" parent="Starter"]
 self_modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 44, 273 )
+position = Vector2( 35, 247 )
 tile_set = ExtResource( 18 )
 cell_size = Vector2( 31, 12 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( 983087, 1, 0, 1310781, 1, 0, 1376317, 1, 0, 1441853, 1, 0, 1507389, 1, 0, 1572925, 1, 0, 1638461, 1, 0, 1703997, 1, 0, 1769533, 1, 0, 1835069, 1, 0, 1900605, 1, 0, 1966141, 1, 0, 2031668, 0, 0, 2031669, 1, 0, 2031670, 1, 0, 2031671, 1, 0, 2031672, 1, 0, 2031673, 1, 0, 2031674, 1, 0, 2031675, 1, 0, 2031676, 1, 0, 2031677, 1, 0, 2097202, 0, 0, 2097203, 1, 0, 2097213, 1, 0, 2162737, 0, 0, 2162749, 1, 0, 2228271, 0, 0, 2228272, 1, 0, 2293805, 0, 0, 2293806, 1, 0, 2359340, 0, 0, 2424874, 0, 0, 2424875, 1, 0, 2490409, 0, 0, 2555944, 0, 0, 2621478, 0, 0, 2621479, 1, 0, 2687013, 0, 0, 2752547, 0, 0, 2752548, 1, 0, 2818082, 0, 0, 2883617, 0, 0, 2949151, 0, 0, 2949152, 1, 0, 3014685, 0, 0, 3014686, 1, 0, 3080220, 0, 0, 3145755, 0, 0, 3211288, 0, 0, 3211289, 1, 0, 3211290, 1, 0, 3276823, 0, 0, 3342358, 0, 0, 3407893, 0, 0, 3473428, 0, 0, 3604478, 1, 0, 3538962, 0, 0, 3538963, 1, 0, 3670014, 1, 0, 3604497, 0, 0, 3735550, 1, 0, 3670030, 0, 0, 3670031, 1, 0, 3670032, 1, 0, 3801086, 1, 0, 3735565, 0, 0, 3866622, 1, 0, 3801100, 0, 0, 3801105, 1, 0, 3932158, 1, 0, 3866635, 0, 0, 3997694, 1, 0, 3997695, 1, 0, 3932160, 1, 0, 3932161, 1, 0, 3932162, 1, 0, 3932163, 1, 0, 3932164, 1, 0, 3932165, 1610612737, 0, 3932166, 1610612737, 0, 3932167, 1610612737, 0, 3932168, 1, 0, 3932169, 1, 0, 3932170, 1, 0, 4063230, 1, 0 )
+tile_data = PoolIntArray( 1310781, 1, 0, 1376317, 1, 0, 1441853, 1, 0, 1507389, 1, 0, 1572925, 1, 0, 1638461, 1, 0, 1703997, 1, 0, 1769533, 1, 0, 1835069, 1, 0, 1900605, 1, 0, 1966141, 1, 0, 2031668, 0, 0, 2031669, 1, 0, 2031670, 1, 0, 2031671, 1, 0, 2031672, 1, 0, 2031673, 1, 0, 2031674, 1, 0, 2031675, 1, 0, 2031676, 1, 0, 2031677, 1, 0, 2097202, 0, 0, 2097203, 1, 0, 2097213, 1, 0, 2162737, 0, 0, 2162749, 1, 0, 2228271, 0, 0, 2228272, 1, 0, 2293805, 0, 0, 2293806, 1, 0, 2359340, 0, 0, 2424874, 0, 0, 2424875, 1, 0, 2490409, 0, 0, 2555944, 0, 0, 2621478, 0, 0, 2621479, 1, 0, 2687013, 0, 0, 2752547, 0, 0, 2752548, 1, 0, 2818082, 0, 0, 2883617, 0, 0, 2949151, 0, 0, 2949152, 1, 0, 3014685, 0, 0, 3014686, 1, 0, 3080220, 0, 0, 3145755, 0, 0, 3211288, 0, 0, 3211289, 1, 0, 3211290, 1, 0, 3276823, 0, 0, 3342358, 0, 0, 3407893, 0, 0, 3473428, 0, 0, 3604478, 1, 0, 3538962, 0, 0, 3538963, 1, 0, 3670014, 1, 0, 3604497, 0, 0, 3735550, 1, 0, 3670030, 0, 0, 3670031, 1, 0, 3670032, 1, 0, 3801086, 1, 0, 3735565, 0, 0, 3866622, 1, 0, 3801100, 0, 0, 3801105, 1, 0, 3932158, 1, 0, 3866635, 0, 0, 3997694, 1, 0, 3997695, 1, 0, 3932160, 1, 0, 3932161, 1, 0, 3932162, 1, 0, 3932163, 1, 0, 3932164, 1, 0, 3932165, 1610612737, 0, 3932166, 1610612737, 0, 3932167, 1610612737, 0, 3932168, 1, 0, 3932169, 1, 0, 3932170, 1, 0, 4063230, 1, 0 )
 
 [node name="Decor" type="Node2D" parent="."]
 
@@ -103,36 +103,7 @@ position = Vector2( 923, 531 )
 scale = Vector2( 0.420693, 1.79795 )
 texture = ExtResource( 8 )
 
-[node name="Back-Mountain" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
-position = Vector2( 1, 20 )
-
-[node name="Mountains" type="Sprite" parent="Decor/ParallaxBackground2/Back-Mountain"]
-position = Vector2( 1027, 813 )
-scale = Vector2( 0.386968, 0.485853 )
-texture = ExtResource( 5 )
-
-[node name="Mountains2" type="Sprite" parent="Decor/ParallaxBackground2/Back-Mountain"]
-position = Vector2( 384, 887 )
-scale = Vector2( 0.175061, 0.219796 )
-texture = ExtResource( 25 )
-
-[node name="Mountains3" type="Sprite" parent="Decor/ParallaxBackground2/Back-Mountain"]
-position = Vector2( 904, 802 )
-scale = Vector2( 0.175061, 0.219796 )
-texture = ExtResource( 24 )
-
-[node name="Mountains4" type="Sprite" parent="Decor/ParallaxBackground2/Back-Mountain"]
-position = Vector2( 1527, 614 )
-scale = Vector2( 0.175061, 0.219796 )
-texture = ExtResource( 22 )
-
-[node name="Mountains5" type="Sprite" parent="Decor/ParallaxBackground2/Back-Mountain"]
-position = Vector2( 53.0001, 932 )
-scale = Vector2( 0.175061, 0.219796 )
-texture = ExtResource( 23 )
-
 [node name="Clouds" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
-position = Vector2( 1, -1 )
 motion_mirroring = Vector2( 1920, 0 )
 script = ExtResource( 17 )
 
@@ -186,8 +157,34 @@ position = Vector2( 1668, 663 )
 scale = Vector2( 0.14, 0.14 )
 texture = ExtResource( 10 )
 
+[node name="Back-Mountain" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
+
+[node name="Mountains" type="Sprite" parent="Decor/ParallaxBackground2/Back-Mountain"]
+position = Vector2( 1027, 813 )
+scale = Vector2( 0.386968, 0.485853 )
+texture = ExtResource( 5 )
+
+[node name="Mountains2" type="Sprite" parent="Decor/ParallaxBackground2/Back-Mountain"]
+position = Vector2( 384, 887 )
+scale = Vector2( 0.175061, 0.219796 )
+texture = ExtResource( 25 )
+
+[node name="Mountains3" type="Sprite" parent="Decor/ParallaxBackground2/Back-Mountain"]
+position = Vector2( 904, 802 )
+scale = Vector2( 0.175061, 0.219796 )
+texture = ExtResource( 24 )
+
+[node name="Mountains4" type="Sprite" parent="Decor/ParallaxBackground2/Back-Mountain"]
+position = Vector2( 1527, 614 )
+scale = Vector2( 0.175061, 0.219796 )
+texture = ExtResource( 22 )
+
+[node name="Mountains5" type="Sprite" parent="Decor/ParallaxBackground2/Back-Mountain"]
+position = Vector2( 53.0001, 932 )
+scale = Vector2( 0.175061, 0.219796 )
+texture = ExtResource( 23 )
+
 [node name="Tree" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
-position = Vector2( 1, 20 )
 
 [node name="tree-1" type="Sprite" parent="Decor/ParallaxBackground2/Tree"]
 position = Vector2( 119, 871 )
@@ -236,7 +233,6 @@ scale = Vector2( 0.201014, 0.147045 )
 texture = ExtResource( 13 )
 
 [node name="2e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
-position = Vector2( 1, 20 )
 
 [node name="lantern" type="Sprite" parent="Decor/ParallaxBackground2/2e Plan"]
 position = Vector2( 828.39, 792.929 )
@@ -301,7 +297,6 @@ position = Vector2( 1860, 603 )
 shape = SubResource( 1 )
 
 [node name="Ground" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
-position = Vector2( 1, 20 )
 
 [node name="Ground" type="Sprite" parent="Decor/ParallaxBackground2/Ground"]
 position = Vector2( 979.033, 886 )
