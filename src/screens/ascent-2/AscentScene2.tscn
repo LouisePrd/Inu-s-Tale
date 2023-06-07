@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://src/screens/main_scene/Camera.gd" type="Script" id=1]
 [ext_resource path="res://sprites/ascent-2/rock2_layer-1.png" type="Texture" id=2]
@@ -27,8 +27,6 @@
 [ext_resource path="res://sprites/encounter/tree1.png" type="Texture" id=25]
 [ext_resource path="res://sprites/enigma/Arbre-1.png" type="Texture" id=26]
 [ext_resource path="res://sprites/ascent-1/lantern.png" type="Texture" id=27]
-[ext_resource path="res://src/screens/ascent-1/AreaTransition.gd" type="Script" id=28]
-[ext_resource path="res://src/screens/enigma/EnigmaArch.tscn" type="PackedScene" id=29]
 [ext_resource path="res://sprites/enigma/rocher1_layer-3.png" type="Texture" id=30]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -46,10 +44,6 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 49.375, 55 )
-
-[sub_resource type="CapsuleShape2D" id=3]
-radius = 26.0
-height = 50.0
 
 [node name="Node2D" type="Node2D"]
 
@@ -91,7 +85,7 @@ position = Vector2( 1574, 593 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Decor/Tanuki"]
 use_parent_material = true
-position = Vector2( -35, 83 )
+position = Vector2( -30, 93 )
 scale = Vector2( 0.0761057, 0.0761057 )
 frames = SubResource( 1 )
 animation = "walk"
@@ -308,64 +302,54 @@ scale = Vector2( 0.720386, 0.700702 )
 texture = ExtResource( 23 )
 
 [node name="2e Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
-position = Vector2( 0, 12 )
 
 [node name="lantern" type="Sprite" parent="Decor/ParallaxBackground2/2e Plan"]
-position = Vector2( 782, 747 )
+position = Vector2( 782, 757 )
 scale = Vector2( 0.151, 0.145 )
 texture = ExtResource( 27 )
 offset = Vector2( -61.7949, 46.5117 )
 
 [node name="lantern2" type="Sprite" parent="Decor/ParallaxBackground2/2e Plan"]
-position = Vector2( 608, 794 )
+position = Vector2( 608, 810 )
 scale = Vector2( 0.151, 0.145 )
 texture = ExtResource( 27 )
 offset = Vector2( -61.7949, 46.5117 )
 
 [node name="lantern3" type="Sprite" parent="Decor/ParallaxBackground2/2e Plan"]
-position = Vector2( 428, 844 )
+position = Vector2( 428, 863 )
 scale = Vector2( 0.151, 0.145 )
 texture = ExtResource( 27 )
 offset = Vector2( -61.7949, 46.5117 )
 
 [node name="lantern4" type="Sprite" parent="Decor/ParallaxBackground2/2e Plan"]
-position = Vector2( 231, 903 )
+position = Vector2( 233, 911 )
 scale = Vector2( 0.151, 0.145 )
 texture = ExtResource( 27 )
 offset = Vector2( -61.7949, 46.5117 )
 
 [node name="lantern5" type="Sprite" parent="Decor/ParallaxBackground2/2e Plan"]
-position = Vector2( 1035, 687 )
+position = Vector2( 1036, 702 )
 scale = Vector2( 0.151, 0.145 )
 texture = ExtResource( 27 )
 offset = Vector2( -61.7949, 46.5117 )
 
 [node name="lantern6" type="Sprite" parent="Decor/ParallaxBackground2/2e Plan"]
-position = Vector2( 1266, 680 )
+position = Vector2( 1266, 701 )
 scale = Vector2( 0.151, 0.145 )
 texture = ExtResource( 27 )
 offset = Vector2( -61.7949, 46.5117 )
 
 [node name="lantern7" type="Sprite" parent="Decor/ParallaxBackground2/2e Plan"]
-position = Vector2( 1474, 664 )
+position = Vector2( 1474, 681 )
 scale = Vector2( 0.151, 0.145 )
 texture = ExtResource( 27 )
 offset = Vector2( -61.7949, 46.5117 )
 
 [node name="lantern8" type="Sprite" parent="Decor/ParallaxBackground2/2e Plan"]
-position = Vector2( 1721, 671 )
+position = Vector2( 1722, 679 )
 scale = Vector2( 0.151, 0.145 )
 texture = ExtResource( 27 )
 offset = Vector2( -61.7949, 46.5117 )
-
-[node name="Area2D" type="Area2D" parent="Decor/ParallaxBackground2/2e Plan"]
-position = Vector2( -40, 50 )
-script = ExtResource( 28 )
-scene = ExtResource( 29 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground2/2e Plan/Area2D"]
-position = Vector2( 1860, 603 )
-shape = SubResource( 3 )
 
 [node name="Ground" type="ParallaxLayer" parent="Decor/ParallaxBackground2"]
 
