@@ -8,13 +8,13 @@
 [ext_resource path="res://src/screens/main_scene/Camera.gd" type="Script" id=6]
 [ext_resource path="res://src/screens/dialogues/DialoguePlayer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/triggers/Trigger.tscn" type="PackedScene" id=8]
-[ext_resource path="res://musics/Water-Symphony-Tales-of-Symphonia.wav" type="AudioStream" id=9]
+[ext_resource path="res://musics/pixie-makeover.ogg" type="AudioStream" id=9]
 [ext_resource path="res://sprites/nature/ground_four.png" type="Texture" id=10]
 [ext_resource path="res://sprites/nature/bush_big_start.png" type="Texture" id=11]
 [ext_resource path="res://sprites/nature/bush_small.png" type="Texture" id=12]
 [ext_resource path="res://src/screens/main_scene/BushInteraction.gd" type="Script" id=13]
 [ext_resource path="res://src/triggers/Transition.gd" type="Script" id=14]
-[ext_resource path="res://src/screens/cataclysm/Cataclysm.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/screens/matsuri/Matsuri.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/tileset/TileMap.gd" type="Script" id=16]
 [ext_resource path="res://sprites/tileset/Tileshet.tres" type="TileSet" id=17]
 
@@ -70,13 +70,18 @@ script = ExtResource( 5 )
 player1 = NodePath("../Player1")
 
 [node name="Ground" type="Sprite" parent="Entrance"]
-position = Vector2( 613, 1039 )
-scale = Vector2( 0.11, 0.11 )
+position = Vector2( 621, 1039 )
+scale = Vector2( 0.32, 0.32 )
 texture = ExtResource( 10 )
 
 [node name="Ground2" type="Sprite" parent="Entrance"]
-position = Vector2( 1301, 1039 )
-scale = Vector2( 0.11, 0.11 )
+position = Vector2( 1266, 1039 )
+scale = Vector2( 0.32, 0.32 )
+texture = ExtResource( 10 )
+
+[node name="Ground3" type="Sprite" parent="Entrance"]
+position = Vector2( 1911, 1039 )
+scale = Vector2( 0.32, 0.32 )
 texture = ExtResource( 10 )
 
 [node name="BushInteraction" type="Sprite" parent="Entrance"]
@@ -98,11 +103,6 @@ scene = ExtResource( 15 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entrance/BushInteraction/Area2DTransition"]
 position = Vector2( 1.50098, -30.1445 )
 shape = SubResource( 6 )
-
-[node name="Ground3" type="Sprite" parent="Entrance"]
-position = Vector2( 1989, 1039 )
-scale = Vector2( 0.11, 0.11 )
-texture = ExtResource( 10 )
 
 [node name="Bush" type="Sprite" parent="Entrance"]
 position = Vector2( 283.256, 996.14 )
@@ -136,6 +136,7 @@ object1 = NodePath("../Player1")
 object2 = NodePath("../Player2")
 
 [node name="TileMap" type="TileMap" parent="Entrance"]
+visible = false
 position = Vector2( 0, -23 )
 tile_set = ExtResource( 17 )
 cell_size = Vector2( 32, 32 )
@@ -158,7 +159,6 @@ player2 = NodePath("../../Entrance/Player2")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
-volume_db = -80.0
 autoplay = true
 
 [connection signal="body_entered" from="Entrance/BushInteraction/Area2DTransition" to="Entrance/BushInteraction/Area2DTransition" method="_on_Area2DTransition_body_entered"]

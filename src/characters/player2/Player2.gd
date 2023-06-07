@@ -25,6 +25,7 @@ func _ready():
 	player1 = get_node(player1)
 	$TriggerPositionP1.visible = false
 	random = rng.randf_range(0, 4)
+	print(Input.get_connected_joypads().size())
 	
 	
 func _physics_process(delta: float) -> void:
@@ -33,6 +34,9 @@ func _physics_process(delta: float) -> void:
 	velocity.x = 0
 	var right = Input.is_action_pressed('player2_move_right')
 	var left = Input.is_action_pressed('player2_move_left')
+	
+#	var right = Input.is_action_pressed('player2_move_right') or Input.is_action_pressed('player2_move_right_JL') or Input.is_action_pressed('player2_move_right_JR')
+#	var left = Input.is_action_pressed('player2_move_left') or Input.is_action_pressed('player2_move_left_JL') or Input.is_action_pressed('player2_move_left_JR')
 		
 	if right:
 		if move == false:

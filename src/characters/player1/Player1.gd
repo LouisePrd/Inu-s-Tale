@@ -31,8 +31,8 @@ func _physics_process(delta: float) -> void:
 	var is_idling := is_zero_approx(velocity.x)
 	
 	velocity.x = 0
-	var right = Input.is_action_pressed('player1_move_right')
-	var left = Input.is_action_pressed('player1_move_left')
+	var right = Input.is_action_pressed('player1_move_right') or Input.is_action_pressed('player1_move_right_JL') or Input.is_action_pressed('player1_move_right_JR')
+	var left = Input.is_action_pressed('player1_move_left') or Input.is_action_pressed('player1_move_left_JL') or Input.is_action_pressed('player1_move_left_JR')
 		
 	if right:
 		if move == false:
