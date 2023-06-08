@@ -153,7 +153,7 @@ shape = SubResource( 7 )
 margin_left = 338.0
 margin_top = 682.0
 margin_right = 738.0
-margin_bottom = 882.0
+margin_bottom = 985.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Decor/VBoxContainer1"]
 margin_right = 400.0
@@ -206,19 +206,22 @@ valign = 1
 [node name="MarginContainer4" type="MarginContainer" parent="Decor/VBoxContainer1"]
 margin_top = 158.0
 margin_right = 400.0
-margin_bottom = 219.0
+margin_bottom = 303.0
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Decor/VBoxContainer1/MarginContainer4"]
+margin_top = 42.0
 margin_right = 400.0
-margin_bottom = 61.0
+margin_bottom = 103.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Joueur :"
 valign = 1
 
 [node name="LabelPlayerNao" type="Label" parent="Decor/VBoxContainer1/MarginContainer4"]
+margin_top = 42.0
 margin_right = 400.0
-margin_bottom = 61.0
+margin_bottom = 103.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "?"
@@ -246,7 +249,7 @@ shape = SubResource( 7 )
 margin_left = 1142.0
 margin_top = 681.0
 margin_right = 1542.0
-margin_bottom = 891.0
+margin_bottom = 985.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Decor/VBoxContainer2"]
 margin_right = 400.0
@@ -299,19 +302,22 @@ valign = 1
 [node name="MarginContainer4" type="MarginContainer" parent="Decor/VBoxContainer2"]
 margin_top = 158.0
 margin_right = 400.0
-margin_bottom = 219.0
+margin_bottom = 304.0
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Decor/VBoxContainer2/MarginContainer4"]
+margin_top = 42.0
 margin_right = 400.0
-margin_bottom = 61.0
+margin_bottom = 103.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Joueur :"
 valign = 1
 
 [node name="LabelPlayerInu" type="Label" parent="Decor/VBoxContainer2/MarginContainer4"]
+margin_top = 42.0
 margin_right = 400.0
-margin_bottom = 61.0
+margin_bottom = 103.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "?"
