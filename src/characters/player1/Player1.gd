@@ -36,6 +36,7 @@ func _physics_process(delta: float) -> void:
 		
 	if right:
 		if move == false:
+			$Footsteps.play()
 			return
 
 		if  self.global_position[0] - player2.global_position[0] >= 300:
@@ -44,6 +45,7 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite.play()
 			$TriggerPositionP1.visible = true
 			$TriggerPositionP1.get_children()[0].text = randomSentences[random]
+
 			return
 	
 		velocity.x += speed
