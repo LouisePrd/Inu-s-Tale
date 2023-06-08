@@ -59,8 +59,12 @@ func _on_ButtonNao_pressed():
 	player1_character = "Nao"
 	player2_character = "Inu"
 	Transition.transition_to(scene.resource_path)
+	var autoload = $"/root/AutoloadMusic".get_children()
+	autoload[0].stop()
 
 func _on_ButtonInu_pressed():
 	player1_character = "Inu"
 	player2_character = "Nao"
 	Transition.transition_to(scene.resource_path)
+	var autoload = $"/root/AutoloadMusic".get_children()
+	autoload[0].stop()
