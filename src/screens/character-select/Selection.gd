@@ -8,6 +8,8 @@ onready var inu_player_label = $VBoxContainer2/MarginContainer4/LabelPlayerInu
 export var player1_character = "Nao"
 export var player2_character = "Inu"
 
+export var scene : PackedScene
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -56,7 +58,9 @@ func _on_ButtonInu_focus_exited():
 func _on_ButtonNao_pressed():
 	player1_character = "Nao"
 	player2_character = "Inu"
+	Transition.transition_to(scene.resource_path)
 
 func _on_ButtonInu_pressed():
 	player1_character = "Inu"
 	player2_character = "Nao"
+	Transition.transition_to(scene.resource_path)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://src/screens/main_scene/MainScene.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/screens/intro/introScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/screens/options/Options.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sprites/backgrounds/logo.png" type="Texture" id=4]
 
@@ -61,7 +61,7 @@ corner_radius_bottom_left = 5
 
 [node name="MainMenu" type="Node2D"]
 script = SubResource( 6 )
-mainScene = ExtResource( 2 )
+mainScene = ExtResource( 1 )
 optionsScene = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
