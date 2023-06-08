@@ -1,11 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://sprites/characters/inugmai-walkcycle_0001.png" type="Texture" id=1]
 [ext_resource path="res://sprites/characters/inugmai-walkcycle_0002.png" type="Texture" id=2]
-[ext_resource path="res://src/characters/player1/NaoText.gd" type="Script" id=3]
 [ext_resource path="res://sprites/dialogues/bulle-2.png" type="Texture" id=4]
 [ext_resource path="res://sprites/characters/inugami-walkcycle_0003.png" type="Texture" id=5]
-[ext_resource path="res://fonts/Formal436BT.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://sprites/characters/inu/inugami-cycle_0003.png" type="Texture" id=7]
+[ext_resource path="res://sprites/characters/inu/inugami-cycle_0001.png" type="Texture" id=8]
+[ext_resource path="res://sprites/characters/inu/inugami-cycle_0005.png" type="Texture" id=9]
+[ext_resource path="res://sprites/characters/inu/inugami-cycle_0006.png" type="Texture" id=10]
+[ext_resource path="res://sprites/characters/inu/inugami-cycle_0004.png" type="Texture" id=11]
+[ext_resource path="res://sprites/characters/inu/inugami-cycle_0002.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
@@ -14,7 +18,7 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "walk",
 "speed": 10.0
@@ -23,9 +27,13 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 10.5, 31.5 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFontData" id=18]
+font_path = "res://fonts/Formal436BT.ttf"
+
+[sub_resource type="DynamicFont" id=19]
 size = 11
-font_data = ExtResource( 6 )
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 18 )
 
 [node name="Player2" type="KinematicBody2D"]
 
@@ -40,20 +48,25 @@ position = Vector2( -0.5, 20.5 )
 shape = SubResource( 12 )
 
 [node name="TriggerPositionP1" type="NinePatchRect" parent="."]
-margin_left = -64.0
+margin_left = -57.0
 margin_top = -96.0
-margin_right = 93.0
+margin_right = 100.0
 margin_bottom = -21.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="InuText" type="RichTextLabel" parent="TriggerPositionP1"]
-margin_left = 26.0
-margin_top = 12.0
-margin_right = 146.0
-margin_bottom = 45.0
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = SubResource( 13 )
-script = ExtResource( 3 )
+[node name="InuText" type="Label" parent="TriggerPositionP1"]
+margin_left = 29.0
+margin_top = 7.0
+margin_right = 144.0
+margin_bottom = 44.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 19 )
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
