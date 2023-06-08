@@ -59,7 +59,7 @@ object2 = NodePath("../../Decor/Player2")
 
 [node name="TileMap" type="TileMap" parent="Starter"]
 self_modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 24, 244 )
+position = Vector2( 26, 262 )
 tile_set = ExtResource( 18 )
 cell_size = Vector2( 31, 12 )
 show_collision = true
@@ -80,14 +80,14 @@ scale = Vector2( 0.320582, 0.208263 )
 texture = ExtResource( 4 )
 
 [node name="Player1" parent="Decor" groups=["Player"] instance=ExtResource( 6 )]
-position = Vector2( 100, 926 )
+position = Vector2( 100, 943 )
 scale = Vector2( 1.4, 1.4 )
 collision_mask = 2
 script = ExtResource( 2 )
 player2 = NodePath("../Player2")
 
 [node name="Player2" parent="Decor" groups=["Player"] instance=ExtResource( 9 )]
-position = Vector2( 45, 894 )
+position = Vector2( 45, 911 )
 scale = Vector2( 1.4, 1.4 )
 collision_mask = 2
 script = ExtResource( 7 )
