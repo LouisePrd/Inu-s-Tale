@@ -1,0 +1,12 @@
+[gd_scene format=2]
+
+[node name="Explosion" type="Node2D"]
+
+[node name="Illustration" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Illustration"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0.0313726, 0.0313726, 0.0313726, 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Illustration"]
