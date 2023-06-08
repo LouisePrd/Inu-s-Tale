@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://sprites/dialogues/bulle-2.png" type="Texture" id=1]
+[ext_resource path="res://src/characters/player1/NaoText.gd" type="Script" id=2]
 [ext_resource path="res://sprites/characters/walkcycle_0001.png" type="Texture" id=3]
 [ext_resource path="res://sprites/characters/walkcycle_0008.png" type="Texture" id=4]
 [ext_resource path="res://sprites/characters/walkcycle_0006.png" type="Texture" id=5]
@@ -10,6 +11,7 @@
 [ext_resource path="res://sprites/characters/walkcycle_0002.png" type="Texture" id=9]
 [ext_resource path="res://sprites/characters/walkcycle_0007.png" type="Texture" id=10]
 [ext_resource path="res://sprites/characters/walkcycle-final_0000.png" type="Texture" id=11]
+[ext_resource path="res://fonts/Formal436BT.ttf" type="DynamicFontData" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -27,13 +29,9 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 17.5, 32.9 )
 
-[sub_resource type="DynamicFontData" id=20]
-font_path = "res://fonts/Formal436BT.ttf"
-
-[sub_resource type="DynamicFont" id=19]
+[sub_resource type="DynamicFont" id=13]
 size = 11
-outline_color = Color( 0, 0, 0, 1 )
-font_data = SubResource( 20 )
+font_data = ExtResource( 12 )
 
 [node name="Player1" type="KinematicBody2D"]
 
@@ -48,23 +46,17 @@ position = Vector2( 1.5, -8.1 )
 shape = SubResource( 2 )
 
 [node name="TriggerPositionP1" type="NinePatchRect" parent="."]
-margin_left = -62.0
-margin_top = -116.0
-margin_right = 103.0
-margin_bottom = -46.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
+margin_left = -67.0
+margin_top = -112.0
+margin_right = 98.0
+margin_bottom = -42.0
 texture = ExtResource( 1 )
-axis_stretch_horizontal = 2
 
-[node name="NaoText" type="Label" parent="TriggerPositionP1"]
-margin_left = 29.0
-margin_top = 7.0
-margin_right = 144.0
-margin_bottom = 44.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 19 )
-align = 1
-valign = 1
-autowrap = true
-clip_text = true
+[node name="NaoText" type="RichTextLabel" parent="TriggerPositionP1"]
+margin_left = 26.0
+margin_top = 11.0
+margin_right = 151.0
+margin_bottom = 41.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 13 )
+script = ExtResource( 2 )
