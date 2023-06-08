@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Transition="*res://src/ui/transition/Transition.tscn"
+AutoloadMusic="*res://src/screens/intro/music-intro.tscn"
 
 [display]
 
