@@ -5,6 +5,9 @@ onready var inu_btn = $VBoxContainer2/MarginContainer/ButtonInu
 onready var nao_player_label = $VBoxContainer1/MarginContainer4/LabelPlayerNao
 onready var inu_player_label = $VBoxContainer2/MarginContainer4/LabelPlayerInu
 
+export var player1_character = "Nao"
+export var player2_character = "Inu"
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -32,17 +35,28 @@ func _on_ButtonInu_button_up():
 
 func _on_ButtonNao_focus_entered():
 	nao_player_label.text="1";
+	player1_character = "Nao"
 
 
 func _on_ButtonNao_focus_exited():
 	nao_player_label.text="2";
+	player2_character = "Nao"
 
 
 func _on_ButtonInu_focus_entered():
 	inu_player_label.text="1";
+	player1_character = "Inu"
 
 
 func _on_ButtonInu_focus_exited():
 	inu_player_label.text="2";
+	player2_character = "Inu"
 
 
+func _on_ButtonNao_pressed():
+	player1_character = "Nao"
+	player2_character = "Inu"
+
+func _on_ButtonInu_pressed():
+	player1_character = "Inu"
+	player2_character = "Nao"

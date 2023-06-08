@@ -109,10 +109,7 @@ void fragment() {
 	
 	vec4 color = texture(TEXTURE, UV);
 	COLOR = mix(color, line_color, outline - color.a);
-}
-
-
-"
+}"
 
 [sub_resource type="ShaderMaterial" id=11]
 shader = SubResource( 19 )
@@ -254,6 +251,7 @@ texture = ExtResource( 28 )
 
 [node name="AreaIcon" type="Area2D" parent="Enigma-Game/CanvasLayerParchment/Icon-parchment"]
 script = ExtResource( 31 )
+parchment = NodePath("../../Parchment")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enigma-Game/CanvasLayerParchment/Icon-parchment/AreaIcon"]
 position = Vector2( 20.395, -21.2335 )

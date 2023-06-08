@@ -1,11 +1,11 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://src/screens/character-select/BrushStroke.gd" type="Script" id=1]
 [ext_resource path="res://sprites/character-select/brush-stroke1.png" type="Texture" id=2]
 [ext_resource path="res://sprites/characters/nao/nao-face-back.png" type="Texture" id=3]
 [ext_resource path="res://src/screens/character-select/Character.gd" type="Script" id=4]
 [ext_resource path="res://sprites/characters/inu/inugami-cycle_0002.png" type="Texture" id=6]
-[ext_resource path="res://src/screens/character-select/Decor.gd" type="Script" id=7]
+[ext_resource path="res://src/screens/character-select/Selection.gd" type="Script" id=7]
 
 [sub_resource type="Shader" id=5]
 code = "shader_type canvas_item;
@@ -39,6 +39,35 @@ shader_param/line_thickness = 3.0
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 213.875, 263.5 )
 
+[sub_resource type="Shader" id=15]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : hint_color = vec4(1.0);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1), vec2(0, -1), vec2(0, 1), 
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+	float outline = 0.0;
+	
+	for (int i = 0; i < OFFSETS.length(); i++) {
+		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
+	}
+	outline = min(outline, 1.0);
+	
+	vec4 color = texture(TEXTURE, UV);
+	COLOR = mix(color, line_color, outline - color.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=16]
+shader = SubResource( 15 )
+shader_param/line_color = Color( 0.141176, 0.654902, 0.854902, 1 )
+shader_param/line_thickness = 10.0
+
 [sub_resource type="DynamicFontData" id=9]
 font_path = "res://fonts/Formal436BT.ttf"
 
@@ -71,34 +100,32 @@ font_path = "res://fonts/Formal436BT.ttf"
 size = 50
 font_data = SubResource( 4 )
 
-[sub_resource type="Shader" id=15]
-code = "shader_type canvas_item;
+[sub_resource type="DynamicFontData" id=17]
+font_path = "res://fonts/Formal436BT.ttf"
 
-uniform vec4 line_color : hint_color = vec4(1.0);
-uniform float line_thickness : hint_range(0, 10) = 1.0;
+[sub_resource type="DynamicFont" id=18]
+size = 50
+font_data = SubResource( 17 )
 
-const vec2 OFFSETS[8] = {
-	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1), vec2(0, -1), vec2(0, 1), 
-	vec2(1, -1), vec2(1, 0), vec2(1, 1)
-};
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_color = Color( 0, 0, 0, 0 )
 
-void fragment() {
-	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
-	float outline = 0.0;
-	
-	for (int i = 0; i < OFFSETS.length(); i++) {
-		outline += texture(TEXTURE, UV + size * OFFSETS[i]).a;
-	}
-	outline = min(outline, 1.0);
-	
-	vec4 color = texture(TEXTURE, UV);
-	COLOR = mix(color, line_color, outline - color.a);
-}"
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
 
-[sub_resource type="ShaderMaterial" id=16]
-shader = SubResource( 15 )
-shader_param/line_color = Color( 0.141176, 0.654902, 0.854902, 1 )
-shader_param/line_thickness = 10.0
+[sub_resource type="StyleBoxFlat" id=21]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=23]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
 
 [node name="CharacterSelect" type="Node2D"]
 
@@ -114,7 +141,6 @@ limit_smoothed = true
 editor_draw_limits = true
 
 [node name="Decor" type="Node2D" parent="."]
-script = ExtResource( 7 )
 
 [node name="ColorRect" type="ColorRect" parent="Decor"]
 margin_right = 1920.0
@@ -149,85 +175,6 @@ position = Vector2( 537, 354 )
 position = Vector2( 0, 1 )
 shape = SubResource( 7 )
 
-[node name="VBoxContainer1" type="VBoxContainer" parent="Decor"]
-margin_left = 338.0
-margin_top = 682.0
-margin_right = 738.0
-margin_bottom = 985.0
-
-[node name="MarginContainer" type="MarginContainer" parent="Decor/VBoxContainer1"]
-margin_right = 400.0
-margin_bottom = 85.0
-
-[node name="ButtonNao" type="Button" parent="Decor/VBoxContainer1/MarginContainer"]
-margin_right = 400.0
-margin_bottom = 85.0
-focus_neighbour_top = NodePath("../../../VBoxContainer2/MarginContainer/ButtonInu")
-focus_neighbour_right = NodePath("../../../VBoxContainer2/MarginContainer/ButtonInu")
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_focus = Color( 0.764706, 0.705882, 0.45098, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0.631373, 0.580392, 0.364706, 1 )
-custom_colors/font_color_pressed = Color( 0.764706, 0.705882, 0.45098, 1 )
-custom_fonts/font = SubResource( 10 )
-custom_styles/hover = SubResource( 12 )
-custom_styles/pressed = SubResource( 13 )
-custom_styles/focus = SubResource( 14 )
-custom_styles/normal = SubResource( 11 )
-text = "Nao"
-
-[node name="MarginContainer2" type="MarginContainer" parent="Decor/VBoxContainer1"]
-margin_top = 89.0
-margin_right = 400.0
-margin_bottom = 89.0
-
-[node name="Line2D" type="Line2D" parent="Decor/VBoxContainer1/MarginContainer2"]
-position = Vector2( 87, 0 )
-points = PoolVector2Array( -58, 0, -36.4697, 0, 292, 0 )
-width = 2.0
-default_color = Color( 0, 0, 0, 1 )
-
-[node name="MarginContainer3" type="MarginContainer" parent="Decor/VBoxContainer1"]
-margin_top = 93.0
-margin_right = 400.0
-margin_bottom = 154.0
-
-[node name="Label" type="Label" parent="Decor/VBoxContainer1/MarginContainer3"]
-margin_right = 400.0
-margin_bottom = 61.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Humain"
-align = 1
-valign = 1
-
-[node name="MarginContainer4" type="MarginContainer" parent="Decor/VBoxContainer1"]
-margin_top = 158.0
-margin_right = 400.0
-margin_bottom = 303.0
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="Decor/VBoxContainer1/MarginContainer4"]
-margin_top = 42.0
-margin_right = 400.0
-margin_bottom = 103.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Joueur :"
-valign = 1
-
-[node name="LabelPlayerNao" type="Label" parent="Decor/VBoxContainer1/MarginContainer4"]
-margin_top = 42.0
-margin_right = 400.0
-margin_bottom = 103.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "?"
-align = 2
-valign = 1
-
 [node name="Inu" type="Sprite" parent="Decor"]
 material = SubResource( 16 )
 position = Vector2( 1355, 384 )
@@ -245,21 +192,107 @@ position = Vector2( 1331, 354 )
 position = Vector2( 0, 1 )
 shape = SubResource( 7 )
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Decor"]
+[node name="Selection" type="Node2D" parent="Decor"]
+script = ExtResource( 7 )
+
+[node name="VBoxContainer1" type="VBoxContainer" parent="Decor/Selection"]
+margin_left = 338.0
+margin_top = 682.0
+margin_right = 738.0
+margin_bottom = 985.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Decor/Selection/VBoxContainer1"]
+margin_right = 400.0
+margin_bottom = 85.0
+
+[node name="ButtonNao" type="Button" parent="Decor/Selection/VBoxContainer1/MarginContainer"]
+margin_right = 400.0
+margin_bottom = 85.0
+focus_neighbour_left = NodePath("../../../../ButtonOK")
+focus_neighbour_top = NodePath("../../../../ButtonOK")
+focus_neighbour_right = NodePath("../../../VBoxContainer2/MarginContainer/ButtonInu")
+focus_neighbour_bottom = NodePath("../../../VBoxContainer2/MarginContainer/ButtonInu")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0.764706, 0.705882, 0.45098, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.631373, 0.580392, 0.364706, 1 )
+custom_colors/font_color_pressed = Color( 0.764706, 0.705882, 0.45098, 1 )
+custom_fonts/font = SubResource( 10 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/focus = SubResource( 14 )
+custom_styles/normal = SubResource( 11 )
+text = "Nao"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Decor/Selection/VBoxContainer1"]
+margin_top = 89.0
+margin_right = 400.0
+margin_bottom = 89.0
+
+[node name="Line2D" type="Line2D" parent="Decor/Selection/VBoxContainer1/MarginContainer2"]
+position = Vector2( 87, 0 )
+points = PoolVector2Array( -58, 0, -36.4697, 0, 292, 0 )
+width = 2.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="MarginContainer3" type="MarginContainer" parent="Decor/Selection/VBoxContainer1"]
+margin_top = 93.0
+margin_right = 400.0
+margin_bottom = 154.0
+
+[node name="Label" type="Label" parent="Decor/Selection/VBoxContainer1/MarginContainer3"]
+margin_right = 400.0
+margin_bottom = 61.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Humain"
+align = 1
+valign = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="Decor/Selection/VBoxContainer1"]
+margin_top = 158.0
+margin_right = 400.0
+margin_bottom = 303.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Decor/Selection/VBoxContainer1/MarginContainer4"]
+margin_top = 42.0
+margin_right = 400.0
+margin_bottom = 103.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Joueur :"
+valign = 1
+
+[node name="LabelPlayerNao" type="Label" parent="Decor/Selection/VBoxContainer1/MarginContainer4"]
+margin_top = 42.0
+margin_right = 400.0
+margin_bottom = 103.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "?"
+align = 2
+valign = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Decor/Selection"]
 margin_left = 1142.0
 margin_top = 681.0
 margin_right = 1542.0
 margin_bottom = 985.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Decor/VBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="Decor/Selection/VBoxContainer2"]
 margin_right = 400.0
 margin_bottom = 85.0
 
-[node name="ButtonInu" type="Button" parent="Decor/VBoxContainer2/MarginContainer"]
+[node name="ButtonInu" type="Button" parent="Decor/Selection/VBoxContainer2/MarginContainer"]
 margin_right = 400.0
 margin_bottom = 85.0
 focus_neighbour_left = NodePath("../../../VBoxContainer1/MarginContainer/ButtonNao")
-focus_neighbour_bottom = NodePath("../../../VBoxContainer1/MarginContainer/ButtonNao")
+focus_neighbour_top = NodePath("../../../VBoxContainer1/MarginContainer/ButtonNao")
+focus_neighbour_right = NodePath("../../../../ButtonOK")
+focus_neighbour_bottom = NodePath("../../../../ButtonOK")
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -274,23 +307,23 @@ custom_styles/focus = SubResource( 14 )
 custom_styles/normal = SubResource( 11 )
 text = "Inu"
 
-[node name="MarginContainer2" type="MarginContainer" parent="Decor/VBoxContainer2"]
+[node name="MarginContainer2" type="MarginContainer" parent="Decor/Selection/VBoxContainer2"]
 margin_top = 89.0
 margin_right = 400.0
 margin_bottom = 89.0
 
-[node name="Line2D" type="Line2D" parent="Decor/VBoxContainer2/MarginContainer2"]
+[node name="Line2D" type="Line2D" parent="Decor/Selection/VBoxContainer2/MarginContainer2"]
 position = Vector2( 87, 0 )
 points = PoolVector2Array( -58, 0, -36.4697, 0, 292, 0 )
 width = 2.0
 default_color = Color( 0, 0, 0, 1 )
 
-[node name="MarginContainer3" type="MarginContainer" parent="Decor/VBoxContainer2"]
+[node name="MarginContainer3" type="MarginContainer" parent="Decor/Selection/VBoxContainer2"]
 margin_top = 93.0
 margin_right = 400.0
 margin_bottom = 154.0
 
-[node name="Label" type="Label" parent="Decor/VBoxContainer2/MarginContainer3"]
+[node name="Label" type="Label" parent="Decor/Selection/VBoxContainer2/MarginContainer3"]
 margin_right = 400.0
 margin_bottom = 61.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -299,13 +332,13 @@ text = "Yokai"
 align = 1
 valign = 1
 
-[node name="MarginContainer4" type="MarginContainer" parent="Decor/VBoxContainer2"]
+[node name="MarginContainer4" type="MarginContainer" parent="Decor/Selection/VBoxContainer2"]
 margin_top = 158.0
 margin_right = 400.0
 margin_bottom = 304.0
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="Decor/VBoxContainer2/MarginContainer4"]
+[node name="Label" type="Label" parent="Decor/Selection/VBoxContainer2/MarginContainer4"]
 margin_top = 42.0
 margin_right = 400.0
 margin_bottom = 103.0
@@ -314,7 +347,7 @@ custom_fonts/font = SubResource( 3 )
 text = "Joueur :"
 valign = 1
 
-[node name="LabelPlayerInu" type="Label" parent="Decor/VBoxContainer2/MarginContainer4"]
+[node name="LabelPlayerInu" type="Label" parent="Decor/Selection/VBoxContainer2/MarginContainer4"]
 margin_top = 42.0
 margin_right = 400.0
 margin_bottom = 103.0
@@ -324,13 +357,36 @@ text = "?"
 align = 2
 valign = 1
 
-[connection signal="button_up" from="Decor/VBoxContainer1/MarginContainer/ButtonNao" to="Decor" method="_on_ButtonNao_button_up"]
-[connection signal="focus_entered" from="Decor/VBoxContainer1/MarginContainer/ButtonNao" to="Decor" method="_on_ButtonNao_focus_entered"]
-[connection signal="focus_entered" from="Decor/VBoxContainer1/MarginContainer/ButtonNao" to="Decor/Nao" method="_on_ButtonNao_focus_entered"]
-[connection signal="focus_exited" from="Decor/VBoxContainer1/MarginContainer/ButtonNao" to="Decor" method="_on_ButtonNao_focus_exited"]
-[connection signal="focus_exited" from="Decor/VBoxContainer1/MarginContainer/ButtonNao" to="Decor/Nao" method="_on_ButtonNao_focus_exited"]
-[connection signal="button_up" from="Decor/VBoxContainer2/MarginContainer/ButtonInu" to="Decor" method="_on_ButtonInu_button_up"]
-[connection signal="focus_entered" from="Decor/VBoxContainer2/MarginContainer/ButtonInu" to="Decor" method="_on_ButtonInu_focus_entered"]
-[connection signal="focus_entered" from="Decor/VBoxContainer2/MarginContainer/ButtonInu" to="Decor/Inu" method="_on_ButtonInu_focus_entered"]
-[connection signal="focus_exited" from="Decor/VBoxContainer2/MarginContainer/ButtonInu" to="Decor" method="_on_ButtonInu_focus_exited"]
-[connection signal="focus_exited" from="Decor/VBoxContainer2/MarginContainer/ButtonInu" to="Decor/Inu" method="_on_ButtonInu_focus_exited"]
+[node name="ButtonOK" type="Button" parent="Decor"]
+visible = false
+margin_left = 897.0
+margin_top = 943.0
+margin_right = 968.0
+margin_bottom = 1004.0
+focus_neighbour_left = NodePath("../Selection/VBoxContainer2/MarginContainer/ButtonInu")
+focus_neighbour_top = NodePath("../Selection/VBoxContainer2/MarginContainer/ButtonInu")
+focus_neighbour_right = NodePath("../Selection/VBoxContainer1/MarginContainer/ButtonNao")
+focus_neighbour_bottom = NodePath("../Selection/VBoxContainer2/MarginContainer/ButtonInu")
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 1, 0.498039, 0.145098, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.709804, 0.360784, 0.113725, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.498039, 0.145098, 1 )
+custom_fonts/font = SubResource( 18 )
+custom_styles/hover = SubResource( 19 )
+custom_styles/pressed = SubResource( 20 )
+custom_styles/focus = SubResource( 21 )
+custom_styles/disabled = SubResource( 22 )
+custom_styles/normal = SubResource( 23 )
+text = "OK"
+
+[connection signal="focus_entered" from="Decor/Selection/VBoxContainer1/MarginContainer/ButtonNao" to="Decor/Nao" method="_on_ButtonNao_focus_entered"]
+[connection signal="focus_entered" from="Decor/Selection/VBoxContainer1/MarginContainer/ButtonNao" to="Decor/Selection" method="_on_ButtonNao_focus_entered"]
+[connection signal="focus_exited" from="Decor/Selection/VBoxContainer1/MarginContainer/ButtonNao" to="Decor/Nao" method="_on_ButtonNao_focus_exited"]
+[connection signal="focus_exited" from="Decor/Selection/VBoxContainer1/MarginContainer/ButtonNao" to="Decor/Selection" method="_on_ButtonNao_focus_exited"]
+[connection signal="pressed" from="Decor/Selection/VBoxContainer1/MarginContainer/ButtonNao" to="Decor/Selection" method="_on_ButtonNao_pressed"]
+[connection signal="focus_entered" from="Decor/Selection/VBoxContainer2/MarginContainer/ButtonInu" to="Decor/Inu" method="_on_ButtonInu_focus_entered"]
+[connection signal="focus_entered" from="Decor/Selection/VBoxContainer2/MarginContainer/ButtonInu" to="Decor/Selection" method="_on_ButtonInu_focus_entered"]
+[connection signal="focus_exited" from="Decor/Selection/VBoxContainer2/MarginContainer/ButtonInu" to="Decor/Inu" method="_on_ButtonInu_focus_exited"]
+[connection signal="focus_exited" from="Decor/Selection/VBoxContainer2/MarginContainer/ButtonInu" to="Decor/Selection" method="_on_ButtonInu_focus_exited"]
+[connection signal="pressed" from="Decor/Selection/VBoxContainer2/MarginContainer/ButtonInu" to="Decor/Selection" method="_on_ButtonInu_pressed"]
