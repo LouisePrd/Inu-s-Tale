@@ -55,14 +55,14 @@
 [ext_resource path="res://src/screens/matsuri/Pnj-Rose.gd" type="Script" id=53]
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 1007.95, 1306.75 )
+extents = Vector2( 1074.33, 1306.75 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 24
+size = 28
 font_data = ExtResource( 46 )
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 1099.98
+radius = 1382.02
 height = 732.021
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -354,7 +354,7 @@ flip_h = true
 motion_scale = Vector2( 0.98, 1 )
 
 [node name="Tree" type="Sprite" parent="Decor/ParallaxBackground/3e Plan"]
-position = Vector2( 763, 842 )
+position = Vector2( 763, 839 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 13 )
 
@@ -396,13 +396,13 @@ texture = ExtResource( 22 )
 [node name="1er Plan" type="ParallaxLayer" parent="Decor/ParallaxBackground"]
 
 [node name="Stand1" type="Sprite" parent="Decor/ParallaxBackground/1er Plan"]
-position = Vector2( 812, 960 )
+position = Vector2( 789, 960 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 21 )
 
 [node name="Pnj-Bleu" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand1"]
-position = Vector2( -157.143, 48.5723 )
-scale = Vector2( 0.0929197, 0.0929197 )
+position = Vector2( -154.285, 31.4277 )
+scale = Vector2( 0.100189, 0.100189 )
 texture = ExtResource( 38 )
 script = ExtResource( 52 )
 canvasLayer = NodePath("CanvasLayer")
@@ -410,12 +410,17 @@ canvasLayer = NodePath("CanvasLayer")
 [node name="Area2D" type="Area2D" parent="Decor/ParallaxBackground/1er Plan/Stand1/Pnj-Bleu"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground/1er Plan/Stand1/Pnj-Bleu/Area2D"]
-position = Vector2( -1906.41, -184.502 )
+position = Vector2( -2595.11, -228.133 )
 scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Decor/ParallaxBackground/1er Plan/Stand1/Pnj-Bleu"]
 visible = false
+
+[node name="pnj-dialogue" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand1/Pnj-Bleu/CanvasLayer"]
+position = Vector2( 594, 967 )
+scale = Vector2( 0.198384, 0.183562 )
+texture = ExtResource( 38 )
 
 [node name="Sprite" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand1/Pnj-Bleu/CanvasLayer"]
 position = Vector2( 978, 1004 )
@@ -423,10 +428,10 @@ scale = Vector2( 0.463177, 0.428571 )
 texture = ExtResource( 47 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Decor/ParallaxBackground/1er Plan/Stand1/Pnj-Bleu/CanvasLayer"]
-margin_left = 690.0
-margin_top = 963.0
-margin_right = 1369.0
-margin_bottom = 1032.0
+margin_left = 657.0
+margin_top = 961.0
+margin_right = 1336.0
+margin_bottom = 1035.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 text = "Besoin d'un maquereau ? Je peux te le faire à bas prix, si tu insistes..."
@@ -446,26 +451,31 @@ canvasLayer = NodePath("CanvasLayer")
 [node name="Area2D" type="Area2D" parent="Decor/ParallaxBackground/1er Plan/Stand2/Pnj-Rose"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground/1er Plan/Stand2/Pnj-Rose/Area2D"]
-position = Vector2( -1150.43, -313.766 )
+position = Vector2( -862.818, -313.766 )
 scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Decor/ParallaxBackground/1er Plan/Stand2/Pnj-Rose"]
 visible = false
 
+[node name="pnj-dialogue" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand2/Pnj-Rose/CanvasLayer"]
+position = Vector2( 1330.88, 969.868 )
+scale = Vector2( 0.238448, 0.220633 )
+texture = ExtResource( 40 )
+
 [node name="Sprite" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand2/Pnj-Rose/CanvasLayer"]
-position = Vector2( 978, 1004 )
-scale = Vector2( 0.463177, 0.428571 )
+position = Vector2( 966, 993 )
+scale = Vector2( 0.509494, 0.504762 )
 texture = ExtResource( 47 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Decor/ParallaxBackground/1er Plan/Stand2/Pnj-Rose/CanvasLayer"]
-margin_left = 690.0
-margin_top = 963.0
-margin_right = 1369.0
-margin_bottom = 1032.0
+margin_left = 624.0
+margin_top = 949.0
+margin_right = 1334.0
+margin_bottom = 1025.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
-text = "Besoin d'un maquereau ? Je peux te le faire à bas prix, si tu insistes..."
+text = "Mon père s’occupe de la cérémonie, au temple. Tu y seras aussi ?"
 
 [node name="Stand3" type="Sprite" parent="Decor/ParallaxBackground/1er Plan"]
 position = Vector2( 1065, 959 )
@@ -482,29 +492,35 @@ canvasLayer = NodePath("CanvasLayer")
 [node name="Area2D" type="Area2D" parent="Decor/ParallaxBackground/1er Plan/Stand3/Pnj-Old"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground/1er Plan/Stand3/Pnj-Old/Area2D"]
-position = Vector2( -7.5918, -316.578 )
+position = Vector2( 350.871, -316.578 )
 scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Decor/ParallaxBackground/1er Plan/Stand3/Pnj-Old"]
 visible = false
 
+[node name="pnj-dialogue" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand3/Pnj-Old/CanvasLayer"]
+position = Vector2( 1315, 960 )
+scale = Vector2( 0.231592, 0.22463 )
+texture = ExtResource( 42 )
+flip_h = true
+
 [node name="Sprite" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand3/Pnj-Old/CanvasLayer"]
-position = Vector2( 978, 1004 )
-scale = Vector2( 0.463177, 0.428571 )
+position = Vector2( 964, 990.5 )
+scale = Vector2( 0.508132, 0.492857 )
 texture = ExtResource( 47 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Decor/ParallaxBackground/1er Plan/Stand3/Pnj-Old/CanvasLayer"]
-margin_left = 690.0
-margin_top = 963.0
-margin_right = 1369.0
-margin_bottom = 1032.0
+margin_left = 618.0
+margin_top = 948.0
+margin_right = 1319.0
+margin_bottom = 1030.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 text = "Qu’est-ce que t’as derrière toi ? Hah. C’est beau, la jeunesse."
 
 [node name="Stand4" type="Sprite" parent="Decor/ParallaxBackground/1er Plan"]
-position = Vector2( 1209, 954 )
+position = Vector2( 1221, 954 )
 scale = Vector2( 0.14, 0.14 )
 texture = ExtResource( 25 )
 
@@ -518,22 +534,26 @@ canvasLayer = NodePath("CanvasLayer")
 [node name="Area2D" type="Area2D" parent="Decor/ParallaxBackground/1er Plan/Stand4/Pnj-child"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground/1er Plan/Stand4/Pnj-child/Area2D"]
-position = Vector2( 636.93, -95.3203 )
+position = Vector2( 2256.36, -112.818 )
 shape = SubResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Decor/ParallaxBackground/1er Plan/Stand4/Pnj-child"]
-visible = false
+
+[node name="pnj-dialogue" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand4/Pnj-child/CanvasLayer"]
+position = Vector2( 1357, 913 )
+scale = Vector2( 0.18265, 0.179401 )
+texture = ExtResource( 44 )
 
 [node name="Sprite" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand4/Pnj-child/CanvasLayer"]
-position = Vector2( 978, 1004 )
-scale = Vector2( 0.463177, 0.428571 )
+position = Vector2( 963.5, 989 )
+scale = Vector2( 0.504206, 0.495238 )
 texture = ExtResource( 47 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Decor/ParallaxBackground/1er Plan/Stand4/Pnj-child/CanvasLayer"]
-margin_left = 646.0
-margin_top = 981.0
-margin_right = 1300.0
-margin_bottom = 1021.0
+margin_left = 651.0
+margin_top = 948.0
+margin_right = 1305.0
+margin_bottom = 1031.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 text = " Le vieux là-bas mange un taiyaki… J’ai envie de taiyaki…"
@@ -559,16 +579,21 @@ shape = SubResource( 2 )
 [node name="CanvasLayer" type="CanvasLayer" parent="Decor/ParallaxBackground/1er Plan/Stand5/Pnj-Filet"]
 visible = false
 
+[node name="pnj-dialogue" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand5/Pnj-Filet/CanvasLayer"]
+position = Vector2( 610, 940 )
+scale = Vector2( 0.228044, 0.227725 )
+texture = ExtResource( 41 )
+
 [node name="Sprite" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand5/Pnj-Filet/CanvasLayer"]
-position = Vector2( 978, 1004 )
-scale = Vector2( 0.463177, 0.428571 )
+position = Vector2( 963.5, 988.5 )
+scale = Vector2( 0.503085, 0.502381 )
 texture = ExtResource( 47 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Decor/ParallaxBackground/1er Plan/Stand5/Pnj-Filet/CanvasLayer"]
-margin_left = 690.0
-margin_top = 983.0
-margin_right = 1285.0
-margin_bottom = 1023.0
+margin_left = 702.0
+margin_top = 947.0
+margin_right = 1243.0
+margin_bottom = 1027.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 text = "Salut, m’sieur le chien esprit ! T’es trop mignon !"
@@ -580,8 +605,8 @@ texture = ExtResource( 26 )
 flip_h = true
 
 [node name="Pnj-Var" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand6"]
-position = Vector2( -267.5, 52.5 )
-scale = Vector2( 0.0929197, 0.0929197 )
+position = Vector2( -266.116, 48.9799 )
+scale = Vector2( 0.0959648, 0.0959648 )
 texture = ExtResource( 43 )
 script = ExtResource( 48 )
 canvasLayer = NodePath("CanvasLayer")
@@ -593,25 +618,29 @@ position = Vector2( 4977.42, -295.955 )
 shape = SubResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Decor/ParallaxBackground/1er Plan/Stand6/Pnj-Var"]
-visible = false
+
+[node name="pnj-dialogue" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand6/Pnj-Var/CanvasLayer"]
+position = Vector2( 566, 933 )
+scale = Vector2( 0.167326, 0.167278 )
+texture = ExtResource( 43 )
 
 [node name="Sprite" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Stand6/Pnj-Var/CanvasLayer"]
-position = Vector2( 978, 1004 )
-scale = Vector2( 0.463177, 0.428571 )
+position = Vector2( 965, 988.5 )
+scale = Vector2( 0.502524, 0.502381 )
 texture = ExtResource( 47 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Decor/ParallaxBackground/1er Plan/Stand6/Pnj-Var/CanvasLayer"]
-margin_left = 672.0
-margin_top = 981.0
-margin_right = 1326.0
-margin_bottom = 1021.0
+margin_left = 662.0
+margin_top = 946.0
+margin_right = 1316.0
+margin_bottom = 1030.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 text = "Je te proposerais bien du sake, mais tu es trop jeune..."
 
 [node name="Pnj-Trio" type="Sprite" parent="Decor/ParallaxBackground/1er Plan"]
-position = Vector2( 513.614, 970.743 )
-scale = Vector2( 0.036145, 0.0353981 )
+position = Vector2( 515.807, 965.495 )
+scale = Vector2( 0.0383678, 0.0375749 )
 texture = ExtResource( 39 )
 script = ExtResource( 45 )
 canvasLayer = NodePath("CanvasLayer")
@@ -619,22 +648,27 @@ canvasLayer = NodePath("CanvasLayer")
 [node name="Area2D" type="Area2D" parent="Decor/ParallaxBackground/1er Plan/Pnj-Trio"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/ParallaxBackground/1er Plan/Pnj-Trio/Area2D"]
-position = Vector2( -5605.59, -246.998 )
+position = Vector2( -5292.83, -246.998 )
 shape = SubResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Decor/ParallaxBackground/1er Plan/Pnj-Trio"]
 visible = false
 
+[node name="pnj-dialogue" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Pnj-Trio/CanvasLayer"]
+position = Vector2( 969, 883 )
+scale = Vector2( 0.143162, 0.132466 )
+texture = ExtResource( 39 )
+
 [node name="Sprite" type="Sprite" parent="Decor/ParallaxBackground/1er Plan/Pnj-Trio/CanvasLayer"]
-position = Vector2( 978, 1004 )
-scale = Vector2( 0.463177, 0.428571 )
+position = Vector2( 965, 989 )
+scale = Vector2( 0.502524, 0.5 )
 texture = ExtResource( 47 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Decor/ParallaxBackground/1er Plan/Pnj-Trio/CanvasLayer"]
-margin_left = 764.0
-margin_top = 980.0
-margin_right = 1286.0
-margin_bottom = 1020.0
+margin_left = 734.0
+margin_top = 962.0
+margin_right = 1256.0
+margin_bottom = 1002.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 text = "Allez, les enfants, réconciliez-vous…"
