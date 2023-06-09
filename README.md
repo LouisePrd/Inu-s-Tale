@@ -1,6 +1,8 @@
 # Inu-s-Tale
 
-Projet en groupe avec 3 développeuses.
+Projet en groupe avec 3 développeuses.<br>
+Site vitrine : https://am-xix.github.io/InusTale-SiteVitrine/<br>
+[Dossier de conception Inu's Tale](https://github.com/LouisePrd/Inu-s-Tale/files/11709389/Dossier_de_conception-Groupe-1-Inus-Talepdf.pdf)
 
 ## LE SYNOPSIS
 
@@ -15,3 +17,4 @@ Comment initier au folklore japonais à travers un jeu interactif et collaborati
 
  ## TECHNOS
  Godot, GD Script
+
