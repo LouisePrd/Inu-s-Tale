@@ -59,7 +59,7 @@ object2 = NodePath("../../Decor/Player2")
 
 [node name="TileMap" type="TileMap" parent="Starter"]
 self_modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 26, 262 )
+position = Vector2( 30, 246 )
 tile_set = ExtResource( 18 )
 cell_size = Vector2( 31, 12 )
 show_collision = true
@@ -99,7 +99,7 @@ script = ExtResource( 19 )
 scene = ExtResource( 20 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Area2DTransition"]
-position = Vector2( 407, 949 )
+position = Vector2( 409, 941 )
 shape = SubResource( 1 )
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="Decor"]
